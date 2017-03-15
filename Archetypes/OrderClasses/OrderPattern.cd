@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Order.Discount" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Discount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.OrderLineIdentifier">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrderLineIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.OrderStatus" Collapsed="true">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Order.OrderStatus.Status" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>OrderStatus.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.SalesTaxPolicy" Collapsed="true">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SalesTaxPolicy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.TaxOnLine" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAEAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>TaxOnLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.UniqueIdentifier" Collapsed="true">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UniqueIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.OrderIdentifier">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAA=</HashCode>
+      <FileName>OrderIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.OrderLine">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAgQAAAAAAAAAAABAAAAAAEAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>OrderLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.ProductIdentifier" Collapsed="true">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProductIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order.ChargeLine">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAIAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChargeLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
