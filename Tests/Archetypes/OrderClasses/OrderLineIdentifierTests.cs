@@ -6,7 +6,7 @@ namespace Tests
 {
 
     [TestClass]
-    public class OrderLineIdentifierTests : CommonTests<>
+    public class OrderLineIdentifierTests : OrderCommonTests
     {
         private OrderLineIdentifier N;
 

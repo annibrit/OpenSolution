@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Tests;
 using Order;
 
 namespace Tests
 {
 
     [TestClass]
-    public partial class MyTests : CommonTests
+    public partial class MyTests : OrderCommonTests
     {
         private SalesTaxPolicy S;
 

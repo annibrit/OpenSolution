@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Tests;
 using Order;
+using Open.Tests.Archetypes.BaseClasses;
 
 namespace Tests
 {
 
     [TestClass]
-    public class OrderLineTests : CommonTests
+    public class OrderLineTests : OrderCommonTests
     {
         private OrderLine M;
 

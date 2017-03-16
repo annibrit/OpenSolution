@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
@@ -78,6 +79,9 @@ namespace Open.Tests {
             if (!(o is IEnumerable))
                 IsPublicPropertiesSerialized(x, expected);
         }
+
+
+
         private static void ToFromJsonTest(T o) {
             var expected = ToJson(o);
             var x = FromJson<T>(expected);
@@ -117,5 +121,6 @@ namespace Open.Tests {
                 Assert.IsTrue(s.Contains(n), n);
             }
         }
+
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Tests;
+using Open.Tests.Archetypes.BaseClasses;
 using Order;
 
 namespace Tests
 {
 
     [TestClass]
-    public class DiscountTests : CommonTests
+    public class DiscountTests : OrderCommonTests
     {
         private Discount M;
 

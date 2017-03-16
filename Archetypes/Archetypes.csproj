@@ -66,6 +66,7 @@
     <Compile Include="OrderClasses\DeliveryReceiver.cs" />
     <Compile Include="OrderClasses\DeliveryReceivers.cs" />
     <Compile Include="OrderClasses\Discount.cs" />
+    <Compile Include="OrderClasses\Order.cs" />
     <Compile Include="OrderClasses\OrderEvent.cs" />
     <Compile Include="OrderClasses\OrderIdentifier.cs" />
     <Compile Include="OrderClasses\OrderLine.cs" />
@@ -119,6 +120,7 @@
     <None Include="BaseEntity.cd" />
     <None Include="Entity.cd" />
     <None Include="Open.cd" />
+    <None Include="OrderClasses\Order.cd" />
     <None Include="Period.cd" />
     <None Include="ProductClasses\ServiceStates.cd" />
     <None Include="Roles.cd" />

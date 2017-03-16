@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Tests;
 using Order;
 
 namespace Tests
 {
 
     [TestClass]
-    public class TaxOnLineTests : CommonTests
+    public class TaxOnLineTests : OrderCommonTests
     {
         private TaxOnLine T;
 

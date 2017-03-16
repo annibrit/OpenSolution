@@ -6,9 +6,6 @@ namespace Order
     public class OrderLine : UniqueEntity
     {
         private string producttype;
-        private int serialnumber;
-        private int numberordered;
-        private int unitprice;
 
         public string ProductType
         {
