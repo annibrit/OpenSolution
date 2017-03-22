@@ -14,7 +14,7 @@ namespace Order
         public string Identifier
         {
             get { return SetDefault(ref identifier); }
-            set { identifier = value; }
+            set { SetValue(ref identifier, value); }
         }
     }
 }

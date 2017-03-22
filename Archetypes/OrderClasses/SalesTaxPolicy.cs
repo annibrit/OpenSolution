@@ -3,7 +3,6 @@ using Open.Archetypes.BaseClasses;
 
 namespace Order
 {
-
     public class SalesTaxPolicy : Archetype
 
     {
