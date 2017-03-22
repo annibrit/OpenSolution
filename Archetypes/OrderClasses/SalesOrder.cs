@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Open.Archetypes.BaseClasses;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
-    public class ChargeLine : UniqueEntity
+    class SalesOrder
     {
-        public double amount;
-        public string description;
-        public string Comment;
 
         //TODO: teiste atribuutidega samamoodi
 
-        private string orderLineIdentifier;
+        /*private string orderLineIdentifier;
 
         public string OrderLineIdentifier
         {
             get { return SetDefault(ref orderLineIdentifier); }
             set { SetValue(ref orderLineIdentifier, value); }
-        }
+        } */
 
+        //datePurchaseOrderReceived : TimeDate[0...1]
+        //customerPurchaseOrderReference : String[0...1]
+        //process
     }
-
-    //addTax
-    //getTaxes
-    //removeTax
 }

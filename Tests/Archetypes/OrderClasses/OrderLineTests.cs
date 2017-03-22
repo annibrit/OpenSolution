@@ -26,6 +26,9 @@ namespace Tests
         public void CleanUp()
         {
             M = null;
+            TaxOnLines.Instance.Clear();
+            ChargeLines.Instance.Clear();
+            DeliveryReceivers.Instance.Clear();
         }
 
         [TestMethod]

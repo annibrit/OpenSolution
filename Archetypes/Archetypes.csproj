@@ -32,12 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\Archetype.cs" />
@@ -74,6 +68,8 @@
     <Compile Include="OrderClasses\OrderLines.cs" />
     <Compile Include="OrderClasses\OrderStatus.cs" />
     <Compile Include="OrderClasses\ProductIdentifier.cs" />
+    <Compile Include="OrderClasses\PurchaseOrder.cs" />
+    <Compile Include="OrderClasses\SalesOrder.cs" />
     <Compile Include="OrderClasses\SalesTaxPolicy.cs" />
     <Compile Include="OrderClasses\TaxOnLine.cs" />
     <Compile Include="OrderClasses\TaxOnLines.cs" />

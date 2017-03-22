@@ -5,6 +5,15 @@ namespace Order
 {
     public class TaxOnLine : Archetype
     {
+        //TODO: teiste atribuutidega samamoodi
+
+        /*private string orderLineIdentifier;
+
+        public string OrderLineIdentifier
+        {
+            get { return SetDefault(ref orderLineIdentifier); }
+            set { SetValue(ref orderLineIdentifier, value); }
+        } */
 
         private string type;
         private string comment;

@@ -32,26 +32,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Aids\Aids.csproj">
-      <Project>{b4620d17-caa0-4f62-ad02-812b7254f6ae}</Project>
-      <Name>Aids</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Archetypes\Archetypes.csproj">
-      <Project>{ee23228f-dc50-4c25-bbc3-5c11d8e29c32}</Project>
-      <Name>Archetypes</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

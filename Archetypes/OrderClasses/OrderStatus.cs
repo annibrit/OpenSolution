@@ -14,5 +14,15 @@ namespace Order
             Tühistatud = 5,
             Tagastatud = 6
         }
+
+        //TODO: teiste atribuutidega samamoodi
+
+        /*private string orderLineIdentifier;
+
+        public string OrderLineIdentifier
+        {
+            get { return SetDefault(ref orderLineIdentifier); }
+            set { SetValue(ref orderLineIdentifier, value); }
+        } */
     }
 }

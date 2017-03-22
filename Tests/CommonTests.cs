@@ -4,11 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
 namespace Open.Tests {
-    public abstract class CommonTests<T> : ClassTests<T> where T : Common, new() {
+
+    public abstract class CommonTests<T> : ClassTests<T> where T : Common, new()
+
+    {
         protected T Obj { get; set; }
         private object obj;
         private ValueChangedEventArgs args;
         protected abstract T GetRandomObj();
+
         [TestInitialize] public override void TestInitialize() {
             base.TestInitialize();
             Obj = GetRandomObj();
@@ -79,8 +83,6 @@ namespace Open.Tests {
             if (!(o is IEnumerable))
                 IsPublicPropertiesSerialized(x, expected);
         }
-
-
 
         private static void ToFromJsonTest(T o) {
             var expected = ToJson(o);

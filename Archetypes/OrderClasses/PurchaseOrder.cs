@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Open.Archetypes.BaseClasses;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
-    public class UniqueIdentifier : UniqueEntity
+    class PurchaseOrder
     {
-
         //TODO: teiste atribuutidega samamoodi
 
         /*private string orderLineIdentifier;
@@ -20,6 +18,10 @@ namespace Order
             set { SetValue(ref orderLineIdentifier, value); }
         } */
 
-        //public String UniqueIdentifier??
+        //dateSent : TimeDate
+        //process ReceiptEvent() Records that a number of ProductInstances have been received and accepted or rejected
+        //process InvoiceEvent()
+        //process MakePaymentEvent()
+        //process AcceptPaymentEvent()
     }
 }

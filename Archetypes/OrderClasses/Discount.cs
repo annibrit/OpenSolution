@@ -12,6 +12,16 @@ namespace Order
             get { return GetString.EmptyIfNull(reason); }
             set { reason = value; }
         }
+
+        //TODO: teiste atribuutidega samamoodi
+
+        /*private string orderLineIdentifier;
+
+        public string OrderLineIdentifier
+        {
+            get { return SetDefault(ref orderLineIdentifier); }
+            set { SetValue(ref orderLineIdentifier, value); }
+        } */
     }
 }
 
