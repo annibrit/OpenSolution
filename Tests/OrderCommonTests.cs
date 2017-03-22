@@ -44,5 +44,12 @@ namespace Open.Tests
             Assert.AreEqual(d, get());
         }
 
+        public void DoublePropertyTest(Func<double> get, Action<double> set)
+        {
+            Assert.AreEqual(0, get());
+            var d = Rnd.Double();
+            set(d);
+            Assert.AreEqual(d, get());
+        }
     }
 }

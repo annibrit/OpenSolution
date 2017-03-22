@@ -5,16 +5,6 @@ namespace Order
 {
     public class TaxOnLine : Archetype
     {
-        //TODO: teiste atribuutidega samamoodi
-
-        /*private string orderLineIdentifier;
-
-        public string OrderLineIdentifier
-        {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
-        } */
-
         private string type;
         private string comment;
         //taxationRate:Real
@@ -24,14 +14,14 @@ namespace Order
 
         public string Type
         {
-            get { return GetString.EmptyIfNull(type); }
-            set { type = value; }
+            get { return SetDefault(ref type); }
+            set { SetValue(ref type, value); }
         }
 
         public string Comment
         {
-            get { return GetString.EmptyIfNull(comment); }
-            set { comment = value; }
+            get { return SetDefault(ref comment); }
+            set { SetValue(ref comment, value); }
         }   
     }
 }

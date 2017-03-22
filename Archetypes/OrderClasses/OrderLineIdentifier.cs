@@ -7,12 +7,12 @@ namespace Order
 
         //TODO: teiste atribuutidega samamoodi
 
-        /*private string orderLineIdentifier;
+        //private string orderLineIdentifier;
 
-        public string OrderLineIdentifier
-        {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
-        } */
+        //public string OrderLineIdentifier
+        //{
+        //    get { return SetDefault(ref orderLineIdentifier); }
+        //    set { SetValue(ref orderLineIdentifier, value); }
+        //} 
     }
 }

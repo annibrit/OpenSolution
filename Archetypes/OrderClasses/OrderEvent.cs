@@ -13,15 +13,5 @@ namespace Order
         //authorization [0..*] - Zero or more PartySignatures authorizing the OrderEvent(business rules dictate what authorizations are required for a particular type of event
         //dateAuthorized - The TimeDate when all required authorizations have been obtained 
         //processed - An indicator to show that the OrderEvent has been fully processed 
-
-        //TODO: teiste atribuutidega samamoodi
-
-        /*private string orderLineIdentifier;
-
-        public string OrderLineIdentifier
-        {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
-        } */
     }
 }

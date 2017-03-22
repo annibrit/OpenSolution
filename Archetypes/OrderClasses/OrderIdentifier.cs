@@ -13,7 +13,7 @@ namespace Order
 
         public string Identifier
         {
-            get { return GetString.EmptyIfNull(identifier); }
+            get { return SetDefault(ref identifier); }
             set { identifier = value; }
         }
     }

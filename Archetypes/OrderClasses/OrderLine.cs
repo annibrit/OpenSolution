@@ -9,19 +9,9 @@ namespace Order
 
         public string ProductType
         {
-            get { return GetString.EmptyIfNull(producttype); }
-            set { producttype = value; }
+            get { return SetDefault(ref producttype); }
+            set { SetValue(ref producttype, value); }
         }
-
-        //TODO: teiste atribuutidega samamoodi
-
-        /*private string orderLineIdentifier;
-
-        public string OrderLineIdentifier
-        {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
-        } */
 
         public int SerialNumber { get; set; }
         public int NumberOrdered { get; set; }

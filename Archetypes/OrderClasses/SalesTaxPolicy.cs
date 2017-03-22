@@ -7,29 +7,19 @@ namespace Order
     public class SalesTaxPolicy : Archetype
 
     {
-
-        //TODO: teiste atribuutidega samamoodi
-
-        /*private string orderLineIdentifier;
-
-        public string OrderLineIdentifier
-        {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
-        } */
-
         private string taxtype;
+        private double rate;
 
         public string TaxType
         {
-            get { return GetString.EmptyIfNull(taxtype); }
-            set { taxtype = value; }
+            get { return SetDefault(ref taxtype); }
+            set { SetValue(ref taxtype, value); }
         }
 
         public double Rate
         {
-            get;
-            set;
+            get { return SetDefault(ref rate); }
+            set { SetValue(ref rate, value); }
         }
     }
 }

@@ -9,20 +9,26 @@ namespace Order
 {
     public class ChargeLine : UniqueEntity
     {
-        public double amount;
-        public string description;
-        public string Comment;
+        public OrderLineIdentifier id { get; set; }
+        private double amount;
+        private string description;
+        private string comment;
 
-        //TODO: teiste atribuutidega samamoodi
-
-        private string orderLineIdentifier;
-
-        public string OrderLineIdentifier
+        public double Amount
         {
-            get { return SetDefault(ref orderLineIdentifier); }
-            set { SetValue(ref orderLineIdentifier, value); }
+            get { return SetDefault(ref amount); }
+            set { SetValue(ref amount, value); }
         }
-
+        public string Description
+        {
+            get { return SetDefault(ref description); }
+            set { SetValue(ref description, value); }
+        }
+        public string Comment
+        {
+            get { return SetDefault(ref comment); }
+            set { SetValue(ref comment, value); }
+        }
     }
 
     //addTax
