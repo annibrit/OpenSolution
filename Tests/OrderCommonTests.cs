@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
+using Open.Tests.Archetypes.BaseClasses;
 
 namespace Open.Tests
 {
-    public class OrderCommonTests
+    public class OrderCommonTests : CommonTests
     {
 
         public double MinDouble = double.MinValue;
