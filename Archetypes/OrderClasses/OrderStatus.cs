@@ -1,6 +1,6 @@
 ﻿using Open.Archetypes.BaseClasses;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
    public class OrderStatus : Archetype
     {

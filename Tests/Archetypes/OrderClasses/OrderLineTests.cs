@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Tests;
-using Order;
-using Open.Tests.Archetypes.BaseClasses;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Archetypes.OrderClasses;
 
-namespace Tests
+namespace Open.Tests.Archetypes.OrderClasses
 {
 
     [TestClass]
     public class OrderLineTests : OrderCommonTests
     {
-        private OrderLine M;
+        private OrderLine m;
 
         [TestInitialize]
         public void Init()
         {
-            M = new OrderLine();
+            m = new OrderLine();
         }
 
         [TestCleanup]
         public void CleanUp()
         {
-            M = null;
+            m = null;
             TaxOnLines.Instance.Clear();
             ChargeLines.Instance.Clear();
             DeliveryReceivers.Instance.Clear();
@@ -34,25 +27,43 @@ namespace Tests
         [TestMethod]
         public void ProductTypeTest()
         {
-            StringPropertyTest(() => M.ProductType, x => M.ProductType = x);
+            StringPropertyTest(() => m.ProductType, x => m.ProductType = x);
+        }
+
+        [TestMethod]
+        public void ChargeLineIdTest()
+        {
+            StringPropertyTest(() => m.ChargeLineId, x => m.ChargeLineId = x);
+        }
+
+        [TestMethod]
+        public void TaxIdTest()
+        {
+            StringPropertyTest(() => m.TaxId, x => m.TaxId = x);
+        }
+
+        [TestMethod]
+        public void DeliveryReceiverIdTest()
+        {
+            StringPropertyTest(() => m.DeliveryReceiverId, x => m.DeliveryReceiverId = x);
         }
 
         [TestMethod]
         public void SerialNumberTest()
         {
-            IntPropertyTest(() => M.SerialNumber, x => M.SerialNumber = x);
+            IntPropertyTest(() => m.SerialNumber, x => m.SerialNumber = x);
         }
 
         [TestMethod]
         public void NumberOrderedTest()
         {
-            IntPropertyTest(() => M.NumberOrdered, x => M.NumberOrdered = x);
+            IntPropertyTest(() => m.NumberOrdered, x => m.NumberOrdered = x);
         }
 
         [TestMethod]
         public void UnitPriceTest()
         {
-            IntPropertyTest(() => M.UnitPrice, x => M.UnitPrice = x);
+            IntPropertyTest(() => m.UnitPrice, x => m.UnitPrice = x);
         }
 
         [TestMethod]
@@ -60,9 +71,9 @@ namespace Tests
         {
             var fakeDeliveryReceiverOne = new DeliveryReceiver();
             var fakeDeliveryReceiverTwo = new DeliveryReceiver();
-            M.AddDeliveryReceiver(fakeDeliveryReceiverOne);
+            m.AddDeliveryReceiver(fakeDeliveryReceiverOne);
             Assert.AreEqual(1, DeliveryReceivers.Instance.Count);
-            M.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
+            m.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
             Assert.AreEqual(2, DeliveryReceivers.Instance.Count);
         }
 
@@ -73,10 +84,10 @@ namespace Tests
             fakeDeliveryReceiverOne.receiver = new DeliveryReceiver();
             var fakeDeliveryReceiverTwo = new DeliveryReceiver();
             fakeDeliveryReceiverTwo.receiver = new DeliveryReceiver();
-            M.AddDeliveryReceiver(fakeDeliveryReceiverOne);
-            M.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
+            m.AddDeliveryReceiver(fakeDeliveryReceiverOne);
+            m.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
             Assert.AreEqual(2, DeliveryReceivers.Instance.Count);
-            M.RemoveDeliveryReceiver(fakeDeliveryReceiverOne.receiver);
+            m.RemoveDeliveryReceiver(fakeDeliveryReceiverOne.receiver);
             Assert.AreEqual(1, DeliveryReceivers.Instance.Count);
         }
 
@@ -85,9 +96,9 @@ namespace Tests
         {
             var fakeTaxOnLineOne = new TaxOnLine();
             var fakeTaxOnLineTwo = new TaxOnLine();
-            M.AddTax(fakeTaxOnLineOne);
+            m.AddTax(fakeTaxOnLineOne);
             Assert.AreEqual(1, TaxOnLines.Instance.Count);
-            M.AddTax(fakeTaxOnLineTwo);
+            m.AddTax(fakeTaxOnLineTwo);
             Assert.AreEqual(2, TaxOnLines.Instance.Count);
         }
 
@@ -98,10 +109,10 @@ namespace Tests
             fakeTaxOnLineOne.tax = new TaxOnLine();
             var fakeTaxOnLineTwo = new TaxOnLine();
             fakeTaxOnLineTwo.tax = new TaxOnLine();
-            M.AddTax(fakeTaxOnLineOne);
-            M.AddTax(fakeTaxOnLineTwo);
+            m.AddTax(fakeTaxOnLineOne);
+            m.AddTax(fakeTaxOnLineTwo);
             Assert.AreEqual(2, TaxOnLines.Instance.Count);
-            M.RemoveTax(fakeTaxOnLineOne.tax);
+            m.RemoveTax(fakeTaxOnLineOne.tax);
             Assert.AreEqual(1, TaxOnLines.Instance.Count);
         }
 
@@ -110,9 +121,9 @@ namespace Tests
         {
             var fakeChargeLineOne = new ChargeLine();
             var fakeChargeLineTwo = new ChargeLine();
-            M.AddChargeLine(fakeChargeLineOne);
+            m.AddChargeLine(fakeChargeLineOne);
             Assert.AreEqual(1, ChargeLines.Instance.Count);
-            M.AddChargeLine(fakeChargeLineTwo);
+            m.AddChargeLine(fakeChargeLineTwo);
             Assert.AreEqual(2, ChargeLines.Instance.Count);
         }
 
@@ -123,10 +134,10 @@ namespace Tests
             fakeChargeLineOne.id = new OrderLineIdentifier();
             var fakeChargeLineTwo = new ChargeLine();
             fakeChargeLineTwo.id = new OrderLineIdentifier();
-            M.AddChargeLine(fakeChargeLineOne);
-            M.AddChargeLine(fakeChargeLineTwo);
+            m.AddChargeLine(fakeChargeLineOne);
+            m.AddChargeLine(fakeChargeLineTwo);
             Assert.AreEqual(2, ChargeLines.Instance.Count);
-            M.RemoveChargeLine(fakeChargeLineOne.id);
+            m.RemoveChargeLine(fakeChargeLineOne.id);
             Assert.AreEqual(1, ChargeLines.Instance.Count);
         }
     }

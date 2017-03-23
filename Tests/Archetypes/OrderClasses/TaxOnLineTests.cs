@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Tests;
-using Order;
+using Open.Archetypes.OrderClasses;
 
-namespace Tests
+namespace Open.Tests.Archetypes.OrderClasses
 {
 
     [TestClass]

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Order;
+using Open.Archetypes.OrderClasses;
 
-namespace Tests
+namespace Open.Tests.Archetypes.OrderClasses
 {
     [TestClass]
     public class OrderStatusTests

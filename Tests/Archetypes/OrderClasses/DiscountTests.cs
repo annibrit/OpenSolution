@@ -1,26 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Tests;
-using Open.Tests.Archetypes.BaseClasses;
-using Order;
+using Open.Archetypes.OrderClasses;
 
-namespace Tests
+namespace Open.Tests.Archetypes.OrderClasses
 {
 
     [TestClass]
     public class DiscountTests : OrderCommonTests
     {
-        private Discount M;
+        private Discount m;
 
         [TestInitialize]
         public void Init()
         {
-            M = new Discount();
+            m = new Discount();
         }
 
         [TestMethod]
         public void ReasonTest()
         {
-            StringPropertyTest(() => M.Reason, x => M.Reason = x);
+            StringPropertyTest(() => m.Reason, x => m.Reason = x);
         }
     }
 }

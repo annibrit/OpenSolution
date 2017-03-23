@@ -1,7 +1,7 @@
-﻿using Open.Aids;
-using Open.Archetypes.BaseClasses;
+﻿using Open.Archetypes.BaseClasses;
+using Order;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
     public class OrderLine : UniqueEntity
     {
@@ -84,18 +84,14 @@ namespace Order
            return ChargeLines.GetChargeLines(ChargeLineId);
         } 
 
-        //Returns all the ChargeLines associated with this OrderLine
-
         public void RemoveChargeLine(string id)
         {
             ChargeLines.RemoveByOrderLineId(id);
         } 
-        //Removes a ChargeLine from the OrderLine
 
         public OrderLine Clone()
         {
             return new OrderLine();
         } 
-        //Makes a copy of the OrderLine and any associated objects that can be used to create an amended OrderLine
     }
 }

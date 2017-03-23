@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Open.Archetypes.BaseClasses;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
     public class ChargeLines : Archetypes<ChargeLine>
     {

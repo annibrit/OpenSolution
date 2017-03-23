@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Open.Aids;
+﻿using Order;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
     public class OrderIdentifier : UniqueIdentifier
     {

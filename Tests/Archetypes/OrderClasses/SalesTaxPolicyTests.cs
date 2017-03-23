@@ -1,31 +1,31 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Tests;
+using Open.Archetypes.OrderClasses;
 using Order;
 
-namespace Tests
+namespace Open.Tests.Archetypes.OrderClasses
 {
 
     [TestClass]
     public partial class MyTests : OrderCommonTests
     {
-        private SalesTaxPolicy S;
+        private SalesTaxPolicy s;
 
         [TestInitialize]
         public void Initializer()
         {
-            S = new SalesTaxPolicy();
+            s = new SalesTaxPolicy();
         }
 
         [TestMethod]
         public void TaxTypeTest()
         {
-            StringPropertyTest(() => S.TaxType, x => S.TaxType = x);
+            StringPropertyTest(() => s.TaxType, x => s.TaxType = x);
         }
 
         [TestMethod]
         public void RateTest()
         {
-            DoublePropertyTest(() => S.Rate, x => S.Rate = x);
+            DoublePropertyTest(() => s.Rate, x => s.Rate = x);
         }
     }
 }

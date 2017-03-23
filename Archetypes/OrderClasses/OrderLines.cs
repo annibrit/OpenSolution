@@ -1,7 +1,6 @@
-﻿
-using Open.Archetypes.BaseClasses;
+﻿using Open.Archetypes.BaseClasses;
 
-namespace Order
+namespace Open.Archetypes.OrderClasses
 {
     public class OrderLines : Archetypes<OrderLine>
     {
