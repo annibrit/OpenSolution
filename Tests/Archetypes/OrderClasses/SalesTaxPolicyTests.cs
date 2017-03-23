@@ -21,6 +21,12 @@ namespace Tests
         {
             StringPropertyTest(() => S.TaxType, x => S.TaxType = x);
         }
+
+        [TestMethod]
+        public void RateTest()
+        {
+            DoublePropertyTest(() => S.Rate, x => S.Rate = x);
+        }
     }
 }
 
