@@ -9,6 +9,7 @@ namespace Order
         private string comment;
         //taxationRate:Real
         public TaxOnLine tax { get; set; }
+        public string id { get; set; }
 
         public double Rate { get; set; }
 

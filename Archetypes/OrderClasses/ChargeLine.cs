@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Open.Archetypes.BaseClasses;
 
 namespace Order
 {
     public class ChargeLine : UniqueEntity
     {
-        public string id { get; set; }
+        
         private double amount;
         private string description;
         private string comment;
+        public string id { get; set; }
 
         public double Amount
         {

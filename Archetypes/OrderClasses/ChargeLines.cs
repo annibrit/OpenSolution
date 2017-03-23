@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Open.Archetypes.BaseClasses;
 
 namespace Order
@@ -11,6 +7,14 @@ namespace Order
     {
         public static ChargeLines Instance
         { get; } = new ChargeLines();
+
+        public static ChargeLines GetChargeLines(string uniqueId)
+        {
+            var r = new ChargeLines();
+            var l = Instance.FindAll(x => x.id == uniqueId);
+            r.AddRange(l);
+            return r;
+        }
 
         public static void RemoveByOrderLineId(string id)
         {

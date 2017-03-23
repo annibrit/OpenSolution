@@ -6,14 +6,33 @@ namespace Order
     public class OrderLine : UniqueEntity
     {
         private string producttype;
+        private string chargelineid;
+        private string taxid;
+        private string deliveryreciverid;
 
-        //public string OrderLineId { get; set; } pole vaja
+        
         public string ProductType
         {
             get { return SetDefault(ref producttype); }
             set { SetValue(ref producttype, value); }
         }
-        public string DeliveryReceiverId { get; set; }
+        public  string ChargeLineId
+        { 
+                get { return SetDefault(ref chargelineid); }
+                set { SetValue(ref chargelineid, value); }
+        }
+        public string TaxId
+        {
+            get { return SetDefault(ref taxid); }
+            set { SetValue(ref taxid, value); }
+        }
+
+        public string DeliveryReceiverId
+        {
+            get { return SetDefault(ref deliveryreciverid); }
+            set { SetValue(ref deliveryreciverid, value); }
+        }
+
         public int SerialNumber { get; set; }
         public int NumberOrdered { get; set; }
         public int UnitPrice { get; set; }
@@ -44,36 +63,39 @@ namespace Order
             TaxOnLines.Instance.Add(tax);
         }
 
-        //public TaxOnLines GetTaxes()
-        //{
-        //    //todo return TaxOnLines.Instances.Select(x=>x.)
-        //    return TaxOnLines.Instances;
-        //} //Returns all the TaxOnLines for this OrderLine
+        public TaxOnLines GetTax()
+        {
+
+            return TaxOnLines.GetTaxOnLines(TaxId);
+        } 
 
         public void RemoveTax(TaxOnLine tax)
         {
             TaxOnLines.RemoveByOrderLineTax(tax);
-        } //Removes a TaxOnLine from the OrderLine
+        } 
 
         public void AddChargeLine(ChargeLine line)
         {
             ChargeLines.Instance.Add(line);
         }
 
-        //public ChargeLines GetChargeLines()
-        //{
-        //    //todo return ChargeLines.Instances.Select(x=>x.)
-        //    return ChargeLines.Instances;
-        //} //Returns all the ChargeLines associated with this OrderLine
+        public ChargeLines GetChargeLine()
+        {
+           return ChargeLines.GetChargeLines(ChargeLineId);
+        } 
+
+        //Returns all the ChargeLines associated with this OrderLine
 
         public void RemoveChargeLine(string id)
         {
             ChargeLines.RemoveByOrderLineId(id);
-        } //Removes a ChargeLine from the OrderLine
+        } 
+        //Removes a ChargeLine from the OrderLine
 
         public OrderLine Clone()
         {
             return new OrderLine();
-        } //Makes a copy of the OrderLine and any associated objects that can be used to create an amended OrderLine
+        } 
+        //Makes a copy of the OrderLine and any associated objects that can be used to create an amended OrderLine
     }
 }
