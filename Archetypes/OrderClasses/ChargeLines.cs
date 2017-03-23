@@ -12,7 +12,7 @@ namespace Order
         public static ChargeLines Instance
         { get; } = new ChargeLines();
 
-        public static void RemoveByOrderLineId(OrderLineIdentifier id)
+        public static void RemoveByOrderLineId(string id)
         {
             var aa = Instance.ToList().Find(x => x.id == id);
             if (aa == null)

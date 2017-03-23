@@ -10,5 +10,6 @@ namespace Order
     public class DeliveryReceiver : Archetype
     {
         public DeliveryReceiver receiver { get; set; }
+        public string id { get; set; }
     }
 }

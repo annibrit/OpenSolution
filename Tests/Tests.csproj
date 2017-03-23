@@ -93,7 +93,6 @@
     <Compile Include="Archetypes\MoneyClasses\MoneyTests.cs" />
     <Compile Include="Archetypes\OrderClasses\ChargeLineTests.cs" />
     <Compile Include="Archetypes\OrderClasses\DiscountTests.cs" />
-    <Compile Include="Archetypes\OrderClasses\OrderLineIdentifierTests.cs" />
     <Compile Include="Archetypes\OrderClasses\OrderLineTests.cs" />
     <Compile Include="Archetypes\OrderClasses\OrderStatusTests.cs" />
     <Compile Include="Archetypes\OrderClasses\OrderTests.cs" />

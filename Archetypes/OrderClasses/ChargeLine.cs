@@ -9,7 +9,7 @@ namespace Order
 {
     public class ChargeLine : UniqueEntity
     {
-        public OrderLineIdentifier id { get; set; }
+        public string id { get; set; }
         private double amount;
         private string description;
         private string comment;
@@ -31,7 +31,7 @@ namespace Order
         }
     }
 
-    //addTax
+    //addTax (pärinevad taxonline'st)
     //getTaxes
     //removeTax
 }

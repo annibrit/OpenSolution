@@ -7,20 +7,21 @@ namespace Order
     {
         private string producttype;
 
+        //public string OrderLineId { get; set; } pole vaja
         public string ProductType
         {
             get { return SetDefault(ref producttype); }
             set { SetValue(ref producttype, value); }
         }
-
+        public string DeliveryReceiverId { get; set; }
         public int SerialNumber { get; set; }
         public int NumberOrdered { get; set; }
         public int UnitPrice { get; set; }
 
-        public void GetOrderLineIdentifier()
-        {
-            //return OrderLineIdentifier();
-        } //Returns the OrderLineIdentifier—this is the unique identifier for the OrderLine
+        //public void GetOrderLineIdentifier()
+        //{
+        //    //return OrderLineIdentifier();
+        //} //Returns the OrderLineIdentifier—this is the unique identifier for the OrderLine
 
         //incrementNumberOrdered - Increments the number of ProductInstance recorded by the OrderLine
         //getNumberOrdered() - Returns the number of ProductInstances recorded by the OrderLine
@@ -34,7 +35,7 @@ namespace Order
         public DeliveryReceivers GetDeliveryReceiver()
         {
             //todo return DeliveryReceivers.Instances.Select(x=>x.)
-            return DeliveryReceivers.Instance;
+            return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);
         } //Returns the DeliveryReceiver for this OrderLine
 
 
@@ -71,7 +72,7 @@ namespace Order
         //    return ChargeLines.Instances;
         //} //Returns all the ChargeLines associated with this OrderLine
 
-        public void RemoveChargeLine(OrderLineIdentifier id)
+        public void RemoveChargeLine(string id)
         {
             ChargeLines.RemoveByOrderLineId(id);
         } //Removes a ChargeLine from the OrderLine

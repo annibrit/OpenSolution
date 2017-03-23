@@ -64,7 +64,6 @@
     <Compile Include="OrderClasses\OrderEvent.cs" />
     <Compile Include="OrderClasses\OrderIdentifier.cs" />
     <Compile Include="OrderClasses\OrderLine.cs" />
-    <Compile Include="OrderClasses\OrderLineIdentifier.cs" />
     <Compile Include="OrderClasses\OrderLines.cs" />
     <Compile Include="OrderClasses\OrderStatus.cs" />
     <Compile Include="OrderClasses\ProductIdentifier.cs" />
