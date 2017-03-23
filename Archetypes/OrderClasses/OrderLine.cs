@@ -18,11 +18,6 @@ namespace Order
         public int NumberOrdered { get; set; }
         public int UnitPrice { get; set; }
 
-        //public void GetOrderLineIdentifier()
-        //{
-        //    //return OrderLineIdentifier();
-        //} //Returns the OrderLineIdentifier—this is the unique identifier for the OrderLine
-
         //incrementNumberOrdered - Increments the number of ProductInstance recorded by the OrderLine
         //getNumberOrdered() - Returns the number of ProductInstances recorded by the OrderLine
         //decrementNumberOrdered - Decrements the number of ProductInstances recorded by the OrderLine
@@ -34,15 +29,14 @@ namespace Order
 
         public DeliveryReceivers GetDeliveryReceiver()
         {
-            //todo return DeliveryReceivers.Instances.Select(x=>x.)
             return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);
-        } //Returns the DeliveryReceiver for this OrderLine
+        }
 
 
         public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
         {
             DeliveryReceivers.RemoveByOrderLineReceiver(receiver);
-        } //Removes the DeliveryReceiver from the OrderLine
+        }
 
 
         public void AddTax(TaxOnLine tax)
