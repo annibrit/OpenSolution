@@ -3,7 +3,7 @@
   <Class Name="Order.ChargeLine">
     <Position X="4.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAIAAAAAAAAAAAgAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAQAAAAEAAAgAAAAIAAAAACAAAAAgAAAAAAAAAAAAgA=</HashCode>
       <FileName>OrderClasses\ChargeLine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Order.DeliveryReceiver">
-    <Position X="7" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\DeliveryReceiver.cs</FileName>
@@ -36,7 +36,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Order.OrderEvent">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="7.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\OrderEvent.cs</FileName>
@@ -71,7 +71,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Order.OrderStatus">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Enum Name="Order.OrderStatus.Status" Collapsed="true">
         <TypeIdentifier>
@@ -92,9 +95,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Order.SalesTaxPolicy">
-    <Position X="15" Y="6" Width="1.5" />
+    <Position X="5.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAEAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\SalesTaxPolicy.cs</FileName>
     </TypeIdentifier>
   </Class>
