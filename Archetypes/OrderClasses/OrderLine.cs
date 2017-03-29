@@ -9,18 +9,19 @@ namespace Open.Archetypes.OrderClasses
         private string chargelineid;
         private string taxid;
         private string deliveryreciverid;
-
         
         public string ProductType
         {
             get { return SetDefault(ref producttype); }
             set { SetValue(ref producttype, value); }
         }
+
         public  string ChargeLineId
         { 
                 get { return SetDefault(ref chargelineid); }
                 set { SetValue(ref chargelineid, value); }
         }
+
         public string TaxId
         {
             get { return SetDefault(ref taxid); }
@@ -36,10 +37,6 @@ namespace Open.Archetypes.OrderClasses
         public int SerialNumber { get; set; }
         public int NumberOrdered { get; set; }
         public int UnitPrice { get; set; }
-
-        //incrementNumberOrdered - Increments the number of ProductInstance recorded by the OrderLine
-        //getNumberOrdered() - Returns the number of ProductInstances recorded by the OrderLine
-        //decrementNumberOrdered - Decrements the number of ProductInstances recorded by the OrderLine
 
         public void AddDeliveryReceiver(DeliveryReceiver reciever)
         {
@@ -92,6 +89,19 @@ namespace Open.Archetypes.OrderClasses
         public OrderLine Clone()
         {
             return new OrderLine();
-        } 
+        }
+
+
+        public new static OrderLine Random()
+        {
+            var x = new OrderLine();
+            x.SetRandomValues();
+            return x;
+        }
+
+
+        //incrementNumberOrdered - Increments the number of ProductInstance recorded by the OrderLine
+        //getNumberOrdered() - Returns the number of ProductInstances recorded by the OrderLine
+        //decrementNumberOrdered - Decrements the number of ProductInstances recorded by the OrderLine
     }
 }

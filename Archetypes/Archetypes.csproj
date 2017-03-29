@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\Archetype.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="BaseClasses\Interval.cs" />
     <Compile Include="BaseClasses\Root.cs" />
     <Compile Include="BaseClasses\Serializable.cs" />
+    <Compile Include="BaseClasses\Strings.cs" />
     <Compile Include="BaseClasses\TemporalEntity.cs" />
     <Compile Include="BaseClasses\UniqueEntity.cs" />
     <Compile Include="ContactClasses\Contact.cs" />
@@ -66,6 +69,8 @@
     <Compile Include="OrderClasses\OrderLine.cs" />
     <Compile Include="OrderClasses\OrderLines.cs" />
     <Compile Include="OrderClasses\OrderStatus.cs" />
+    <Compile Include="OrderClasses\OrderUsage.cs" />
+    <Compile Include="OrderClasses\OrderUses.cs" />
     <Compile Include="OrderClasses\ProductIdentifier.cs" />
     <Compile Include="OrderClasses\PurchaseOrder.cs" />
     <Compile Include="OrderClasses\SalesOrder.cs" />

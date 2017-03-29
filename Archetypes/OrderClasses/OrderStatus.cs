@@ -14,5 +14,12 @@ namespace Open.Archetypes.OrderClasses
             Tühistatud = 5,
             Tagastatud = 6
         }
+
+        public new static OrderStatus Random()
+        {
+            var x = new OrderStatus();
+            x.SetRandomValues();
+            return x;
+        }
     }
 }

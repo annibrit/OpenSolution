@@ -127,6 +127,7 @@ namespace Open.Tests.Archetypes.OrderClasses
             Assert.AreEqual(2, ChargeLines.Instance.Count);
         }
 
+        /*
         [TestMethod]
         public void RemoveChargeLineTest()
         {
@@ -140,6 +141,7 @@ namespace Open.Tests.Archetypes.OrderClasses
             m.RemoveChargeLine(fakeChargeLineOne.id);
             Assert.AreEqual(1, ChargeLines.Instance.Count);
         }
+        */
     }
 }
 

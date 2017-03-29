@@ -196,6 +196,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\PartyOrders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -204,6 +205,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aids\Aids.csproj">
+      <Project>{b4620d17-caa0-4f62-ad02-812b7254f6ae}</Project>
+      <Name>Aids</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Archetypes\Archetypes.csproj">
+      <Project>{ee23228f-dc50-4c25-bbc3-5c11d8e29c32}</Project>
+      <Name>Archetypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{1e1e7079-cb4f-480c-b881-1066404707ce}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

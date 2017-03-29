@@ -30,6 +30,16 @@ namespace Open.Tests.Archetypes.OrderClasses
             StringPropertyTest(() => m.Comment, x => m.Comment = x);
         }
         [TestMethod]
+        public void IdTest()
+        {
+            StringPropertyTest(() => m.Id, x => m.Id = x);
+        }
+        [TestMethod]
+        public void TaxIdTest()
+        {
+            StringPropertyTest(() => m.TaxId, x => m.TaxId = x);
+        }
+        [TestMethod]
         public void DescriptionTest()
         {
             StringPropertyTest(() => m.Description, x => m.Description = x);

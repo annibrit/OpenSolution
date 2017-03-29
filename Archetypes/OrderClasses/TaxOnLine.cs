@@ -6,8 +6,11 @@ namespace Open.Archetypes.OrderClasses
     {
         private string type;
         private string comment;
-        //taxationRate:Real
+
+        public int taxationRate { get; set; }
+
         public TaxOnLine tax { get; set; }
+
         public string id { get; set; }
 
         public double Rate { get; set; }
@@ -22,6 +25,13 @@ namespace Open.Archetypes.OrderClasses
         {
             get { return SetDefault(ref comment); }
             set { SetValue(ref comment, value); }
-        }   
+        }
+
+        public new static TaxOnLine Random()
+        {
+            var x = new TaxOnLine();
+            x.SetRandomValues();
+            return x;
+        }
     }
 }
