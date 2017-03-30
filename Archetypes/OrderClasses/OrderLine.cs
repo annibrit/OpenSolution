@@ -43,10 +43,14 @@ namespace Open.Archetypes.OrderClasses
             DeliveryReceivers.Instance.Add(reciever);
         }
 
-        public DeliveryReceivers GetDeliveryReceiver()
+        public DeliveryReceivers GetDeliveryReceiver
         {
-            return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);
+            get
+            {
+                return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);
+            }
         }
+    
 
 
         public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
@@ -76,9 +80,9 @@ namespace Open.Archetypes.OrderClasses
             ChargeLines.Instance.Add(line);
         }
 
-        public ChargeLines GetChargeLine()
+        public ChargeLines GetChargeLine
         {
-           return ChargeLines.GetChargeLines(ChargeLineId);
+           get { return ChargeLines.GetChargeLines(ChargeLineId); }
         } 
 
         public void RemoveChargeLine(string id)

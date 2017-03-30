@@ -62,6 +62,8 @@ namespace Open.Archetypes.OrderClasses
             x.SetRandomValues();
             return x;
         }
+
+        //public override Order Type { get; }
     }
 
     

@@ -2,7 +2,7 @@
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class TaxOnLine : Archetype
+    public class TaxOnLine : Order
     {
         private string type;
         private string comment;
