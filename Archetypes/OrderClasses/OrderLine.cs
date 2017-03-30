@@ -16,7 +16,7 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref producttype, value); }
         }
 
-        public  string ChargeLineId
+        public string ChargeLineId
         { 
                 get { return SetDefault(ref chargelineid); }
                 set { SetValue(ref chargelineid, value); }
@@ -45,14 +45,9 @@ namespace Open.Archetypes.OrderClasses
 
         public DeliveryReceivers GetDeliveryReceiver
         {
-            get
-            {
-                return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);
-            }
+            get { return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);}
         }
     
-
-
         public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
         {
             DeliveryReceivers.RemoveByOrderLineReceiver(receiver);
@@ -64,11 +59,12 @@ namespace Open.Archetypes.OrderClasses
             TaxOnLines.Instance.Add(tax);
         }
 
-        public TaxOnLines GetTax()
+        public TaxOnLines GetTax
         {
 
-            return TaxOnLines.GetTaxOnLines(TaxId);
-        } 
+            get { return TaxOnLines.GetTaxOnLines(TaxId);}
+        }
+ 
 
         public void RemoveTax(TaxOnLine tax)
         {
@@ -94,7 +90,6 @@ namespace Open.Archetypes.OrderClasses
         {
             return new OrderLine();
         }
-
 
         public new static OrderLine Random()
         {
