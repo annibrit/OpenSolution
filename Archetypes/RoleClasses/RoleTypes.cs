@@ -1,9 +1,17 @@
 ﻿using Open.Aids;
 using Open.Archetypes.BaseClasses;
-namespace Open.Archetypes.RoleClasses {
-    public class RoleTypes : Archetypes<RoleType> {
+
+namespace Open.Archetypes.RoleClasses
+{
+    public class RoleTypes : Archetypes<RoleType>
+    {
         public static RoleTypes Instance { get; } = new RoleTypes();
-        public static RoleType Find(string uniqueId) { return Instance.Find(x => x.IsThisUniqueId(uniqueId)); }
+
+        public static RoleType Find(string uniqueId)
+        {
+            return Instance.Find(x => x.IsThisUniqueId(uniqueId));
+        }
+
         public static RoleTypes Random()
         {
             var r = new RoleTypes();

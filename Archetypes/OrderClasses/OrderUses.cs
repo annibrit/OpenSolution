@@ -1,10 +1,5 @@
-﻿using Open.Archetypes.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Open.Aids;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -19,5 +14,4 @@ namespace Open.Archetypes.OrderClasses
             return r;
         }
     }
-
 }

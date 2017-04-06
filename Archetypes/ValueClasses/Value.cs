@@ -1,7 +1,8 @@
 ﻿using Open.Archetypes.BaseClasses;
+
 namespace Open.Archetypes.ValueClasses
 {
-    public class Value: Archetype
+    public class Value : Archetype
     {
     }
 }

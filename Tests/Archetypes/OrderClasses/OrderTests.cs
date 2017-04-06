@@ -1,16 +1,85 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Open.Aids;
 using Open.Archetypes.BaseClasses;
+using Open.Archetypes.OrderClasses;
+
 namespace Open.Tests.Archetypes.OrderClasses
 {
-
     [TestClass]
-    public class OrderTests : ClassTests<Open.Archetypes.OrderClasses.Order>
+    public class OrderTests : CommonTests<Order>
     {
+        protected override Order GetRandomObj()
+        {
+            return Order.Random();
+        }
+
+        [TestInitialize]
+        public override void TestInitialize()
+        {
+            base.TestInitialize();
+            OrderLines.Instance.AddRange(OrderLines.Random());
+        }
+
+        [TestCleanup]
+        public override void TestCleanup()
+        {
+            base.TestCleanup();
+            OrderLines.Instance.Clear();
+        }
+
         [TestMethod]
         public void ConstructorTest()
         {
-            var a = new Open.Archetypes.OrderClasses.Order().GetType().BaseType;
-            Assert.AreEqual(a, typeof(Archetype));
+            var a = new Order().GetType().BaseType;
+            Assert.AreEqual(a, typeof(UniqueEntity));
+        }
+
+        [TestMethod]
+        public void DateCreatedTest()
+        {
+            TestProperty(() => Obj.DateCreated, x => Obj.DateCreated = x);
+        }
+
+        [TestMethod]
+        public void SalesChannelTest()
+        {
+            TestProperty(() => Obj.SalesChannel, x => Obj.SalesChannel = x);
+        }
+
+        [TestMethod]
+        public void TermsAndConditionsTest()
+        {
+            TestProperty(() => Obj.TermsAndConditions, x => Obj.TermsAndConditions = x);
+        }
+
+        [TestMethod]
+        public void AddOrderLineTest()
+        {
+            var orderLine = OrderLine.Random();
+            var count = OrderLines.Instance.Count;
+            Obj.AddOrderLine(orderLine);
+            Assert.AreEqual(count + 1, OrderLines.Instance.Count);
+            Assert.AreEqual(orderLine, OrderLines.Instance.Find(x => x.IsSameContent(orderLine)));
+        }
+
+        [TestMethod]
+        public void RemoveOrderLineTest()
+        {
+            var orderLine = OrderLines.Instance.Get(GetRandom.Int32(0, OrderLines.Instance.Count - 1));
+            var count = OrderLines.Instance.Count;
+            Obj.RemoveOrderLine(orderLine);
+            Assert.AreEqual(count - 1, OrderLines.Instance.Count);
+            Assert.AreEqual(null, OrderLines.Instance.Find(x => x.IsSameContent(orderLine)));
+        }
+
+        [TestMethod]
+        public void GetOrderLinesTest()
+        {
+            var orderLine = OrderLine.Random();
+            orderLine.OrderId = Obj.UniqueId;
+            OrderLines.Instance.Add(orderLine);
+            Assert.AreEqual(1, Obj.GetOrderLines.Count);
+            Assert.AreEqual(orderLine, Obj.GetOrderLines.Get(0));
         }
     }
 }

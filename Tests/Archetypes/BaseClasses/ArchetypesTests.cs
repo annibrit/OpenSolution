@@ -4,35 +4,41 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
+
 namespace Open.Tests.Archetypes.BaseClasses
 {
     [TestClass]
-    public class ArchetypesTests: CommonTests<Archetypes<string>>
+    public class ArchetypesTests : CommonTests<Archetypes<string>>
     {
-        protected override Archetypes<string> GetRandomObj() {
+        protected override Archetypes<string> GetRandomObj()
+        {
             var a = new Archetypes<string>();
             var c = GetRandom.Count();
             for (var i = 0; i < c; i++) a.Add(GetRandom.String());
             return a;
         }
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
             Obj.OnChanged += DoOnChanged;
         }
+
         [TestMethod]
         public void ConstructorTest()
         {
             Assert.AreEqual(Obj.GetType().BaseType, typeof(Archetype));
             Assert.IsInstanceOfType(Obj, typeof(IList<string>));
         }
+
         [TestMethod]
         public void GetEnumeratorTest()
         {
             Assert.IsNotNull(Obj.GetEnumerator());
             TestDoOnChange();
         }
+
         [TestMethod]
         public void AddTest()
         {
@@ -43,10 +49,11 @@ namespace Open.Tests.Archetypes.BaseClasses
             TestDoOnChange("Add", s, null, 0);
             Assert.AreEqual(c + 1, Obj.Count);
         }
+
         [TestMethod]
         public void IsSetTest()
         {
-            Obj = new Archetypes<string> { IsSet = true };
+            Obj = new Archetypes<string> {IsSet = true};
             Obj.Add("A");
             Assert.AreEqual(1, Obj.Count);
             Obj.Add("A");
@@ -55,11 +62,12 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.AreEqual(2, Obj.Count);
             Obj.Insert(0, "B");
             Assert.AreEqual(2, Obj.Count);
-            Obj.AddRange(new List<string> { "C", "D" });
+            Obj.AddRange(new List<string> {"C", "D"});
             Assert.AreEqual(4, Obj.Count);
-            Obj.AddRange(new List<string> { "C", "D", "E" });
+            Obj.AddRange(new List<string> {"C", "D", "E"});
             Assert.AreEqual(5, Obj.Count);
         }
+
         [TestMethod]
         public void AddRangeTest()
         {
@@ -67,6 +75,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Obj.AddRange(a);
             TestDoOnChange("AddRange", a, null, 0);
         }
+
         [TestMethod]
         public void AsReadOnlyTest()
         {
@@ -78,6 +87,7 @@ namespace Open.Tests.Archetypes.BaseClasses
                 Assert.AreEqual(o[i], Obj[i]);
             TestDoOnChange();
         }
+
         [TestMethod]
         public void ClearTest()
         {
@@ -88,6 +98,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             TestDoOnChange("Clear", null, null, 0);
             Assert.AreEqual(0, Obj.Count);
         }
+
         [TestMethod]
         public void ContainsTest()
         {
@@ -99,6 +110,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.IsTrue(Obj.Contains(s));
             TestDoOnChange();
         }
+
         [TestMethod]
         public void CopyToTest()
         {
@@ -110,6 +122,7 @@ namespace Open.Tests.Archetypes.BaseClasses
                 Assert.AreEqual(a[i], Obj[i]);
             TestDoOnChange();
         }
+
         [TestMethod]
         public void CountTest()
         {
@@ -117,11 +130,13 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.AreEqual(0, Obj.Count);
             TestDoOnChange();
         }
+
         [TestMethod]
         public void DefaultValueTest()
         {
             Assert.AreEqual(null, Obj.DefaultValue());
         }
+
         [TestMethod]
         public void FindTest()
         {
@@ -135,6 +150,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             a = test();
             Assert.AreEqual(s, a);
         }
+
         [TestMethod]
         public void FindLastTest()
         {
@@ -150,6 +166,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             a = test();
             Assert.AreEqual(s2, a);
         }
+
         [TestMethod]
         public void FindAllTest()
         {
@@ -167,6 +184,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.AreEqual(s1, a[0]);
             Assert.AreEqual(s2, a[1]);
         }
+
         [TestMethod]
         public void FindIndexTest()
         {
@@ -179,6 +197,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             a = Obj.FindIndex(o => o.StartsWith(s.Substring(0, 10)));
             Assert.AreEqual(i, a);
         }
+
         [TestMethod]
         public void FindLastIndexTest()
         {
@@ -194,6 +213,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             a = test();
             Assert.AreEqual(Obj.Count - 1, a);
         }
+
         [TestMethod]
         public void GetTest()
         {
@@ -206,12 +226,14 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.AreEqual(s2, Obj.Get(Obj.Count - 1));
             Assert.AreEqual(null, Obj.Get(Obj.Count));
         }
+
         [TestMethod]
         public void IsReadOnlyTest()
         {
             Assert.IsFalse(Obj.IsReadOnly);
             TestDoOnChange();
         }
+
         [TestMethod]
         public void IndexOfTest()
         {
@@ -223,16 +245,18 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.AreEqual(Obj.Count - 1, Obj.IndexOf(s));
             TestDoOnChange();
         }
+
         [TestMethod]
         public void InsertTest()
         {
             AddTest();
             ClearDoOnChanged();
             var s = GetRandom.String();
-            var c = GetRandom.UInt8(0, (byte)(Obj.Count - 1));
+            var c = GetRandom.UInt8(0, (byte) (Obj.Count - 1));
             Obj.Insert(c, s);
             TestDoOnChange("Insert", s, null, c);
         }
+
         [TestMethod]
         public void IsCorrectIndexTest()
         {
@@ -248,6 +272,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Assert.IsTrue(Obj.IsCorrectIndex(1));
             TestDoOnChange();
         }
+
         [TestMethod]
         public void RemoveTest()
         {
@@ -259,6 +284,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Obj.Remove(s);
             TestDoOnChange("Remove", null, s, c);
         }
+
         [TestMethod]
         public void RemoveAtTest()
         {
@@ -270,6 +296,7 @@ namespace Open.Tests.Archetypes.BaseClasses
             Obj.RemoveAt(c);
             TestDoOnChange("RemoveAt", null, s, c);
         }
+
         [TestMethod]
         public void ItemTest()
         {

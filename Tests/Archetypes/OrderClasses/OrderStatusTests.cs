@@ -5,48 +5,18 @@ using Open.Archetypes.OrderClasses;
 namespace Open.Tests.Archetypes.OrderClasses
 {
     [TestClass]
-    public class OrderStatusTests
+    public class OrderStatusTests : ClassTests<OrderStatus>
     {
         [TestMethod]
         public void ConstructorTest()
         {
-            Assert.AreEqual(7, Enum.GetNames(typeof(OrderStatus.Status)).Length);
+            Assert.AreEqual(4, Enum.GetNames(typeof(OrderStatus)).Length);
         }
 
         [TestMethod]
-        public void MakstudTest()
+        public void InitializingTest()
         {
-            Assert.AreEqual(0, (int)OrderStatus.Status.Makstud);
-        }
-        [TestMethod]
-        public void LaosTest()
-        {
-            Assert.AreEqual(1, (int)OrderStatus.Status.Laos);
-        }
-        [TestMethod]
-        public void TellimiselTest()
-        {
-            Assert.AreEqual(2, (int)OrderStatus.Status.Tellimisel);
-        }
-        [TestMethod]
-        public void KohaletoimetamiselTest()
-        {
-            Assert.AreEqual(3, (int)OrderStatus.Status.Kohaletoimetamisel);
-        }
-        [TestMethod]
-        public void KohaletoimetatudTest()
-        {
-            Assert.AreEqual(4, (int)OrderStatus.Status.Kohaletoimetatud);
-        }
-        [TestMethod]
-        public void TühistatudTest()
-        {
-            Assert.AreEqual(5, (int)OrderStatus.Status.Tühistatud);
-        }
-        [TestMethod]
-        public void TagastatudTest()
-        {
-            Assert.AreEqual(6, (int)OrderStatus.Status.Tagastatud);
+            Assert.AreEqual(0, (int) OrderStatus.Initializing);
         }
     }
 }

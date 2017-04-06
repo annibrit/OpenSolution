@@ -2,32 +2,40 @@
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class TaxOnLine : Order
+    public class TaxOnLine : UniqueEntity
     {
-        private string type;
-        private string comment;
+        private string order_line_id;
 
-        public int taxationRate { get; set; }
-
-        public TaxOnLine tax { get; set; }
-
-        public string id { get; set; }
-
-        public double Rate { get; set; }
-
-        public string Type
+        public string OrderLineId
         {
-            get { return SetDefault(ref type); }
-            set { SetValue(ref type, value); }
+            get { return SetDefault(ref order_line_id); }
+            set { SetValue(ref order_line_id, value); }
         }
 
-        public string Comment
-        {
-            get { return SetDefault(ref comment); }
-            set { SetValue(ref comment, value); }
-        }
+        //private string type;
+        //private string comment;
 
-        public new static TaxOnLine Random()
+        //public int taxationRate { get; set; }
+
+        ////public TaxOnLine tax { get; set; }
+
+        //public string id { get; set; }
+
+        //public double Rate { get; set; }
+
+        //public string Type
+        //{
+        //    get { return SetDefault(ref type); }
+        //    set { SetValue(ref type, value); }
+        //}
+
+        //public string Comment
+        //{
+        //    get { return SetDefault(ref comment); }
+        //    set { SetValue(ref comment, value); }
+        //}
+
+        public static TaxOnLine Random()
         {
             var x = new TaxOnLine();
             x.SetRandomValues();

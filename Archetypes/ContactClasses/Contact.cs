@@ -1,7 +1,8 @@
 ﻿using Open.Archetypes.BaseClasses;
+
 namespace Open.Archetypes.ContactClasses
 {
-    public class Contact: Archetype
+    public class Contact : Archetype
     {
     }
 }

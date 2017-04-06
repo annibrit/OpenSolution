@@ -1,6 +1,6 @@
 ﻿namespace Open.Archetypes.ProductClasses
 {
-    public class CompletedService: Service
+    public class CompletedService : Service
     {
     }
 }

@@ -1,6 +1,4 @@
-﻿using Order;
-
-namespace Open.Archetypes.OrderClasses
+﻿namespace Open.Archetypes.OrderClasses
 {
     public class OrderIdentifier : UniqueIdentifier
     {

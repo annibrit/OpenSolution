@@ -1,25 +1,10 @@
-﻿using Open.Archetypes.BaseClasses;
-
-namespace Open.Archetypes.OrderClasses
+﻿namespace Open.Archetypes.OrderClasses
 {
-   public class OrderStatus : Archetype
+    public enum OrderStatus
     {
-        public enum Status
-        {
-            Makstud = 0,
-            Laos = 1,
-            Tellimisel = 2,
-            Kohaletoimetamisel = 3,
-            Kohaletoimetatud = 4,
-            Tühistatud = 5,
-            Tagastatud = 6
-        }
-
-        public new static OrderStatus Random()
-        {
-            var x = new OrderStatus();
-            x.SetRandomValues();
-            return x;
-        }
+        Initializing = 0,
+        Open = 1,
+        Close = 2,
+        Cancelled = 3
     }
 }

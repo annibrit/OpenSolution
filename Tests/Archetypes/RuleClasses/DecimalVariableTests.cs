@@ -1,14 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.RuleClasses;
+
 namespace Open.Tests.Archetypes.RuleClasses
 {
     [TestClass]
-    public class DecimalVariableTests: CommonTests<DecimalVariable>
+    public class DecimalVariableTests : CommonTests<DecimalVariable>
     {
-        protected override DecimalVariable GetRandomObj() {
+        protected override DecimalVariable GetRandomObj()
+        {
             return DecimalVariable.Random();
         }
+
         [TestMethod]
         public override void IsEqualTest()
         {
@@ -16,6 +19,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsEqual(s));
             Assert.IsTrue(Obj.IsEqual(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotEqualTest()
         {
@@ -23,6 +27,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsNotEqual(s));
             Assert.IsFalse(Obj.IsNotEqual(Obj.Value));
         }
+
         [TestMethod]
         public void IsGreaterTest()
         {
@@ -30,6 +35,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsGreater(s));
             Assert.IsFalse(Obj.IsGreater(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotGreaterTest()
         {
@@ -37,6 +43,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsNotGreater(s));
             Assert.IsTrue(Obj.IsNotGreater(Obj.Value));
         }
+
         [TestMethod]
         public void IsLessTest()
         {
@@ -44,6 +51,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsLess(s));
             Assert.IsFalse(Obj.IsLess(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotLessTest()
         {
@@ -51,6 +59,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsNotLess(s));
             Assert.IsTrue(Obj.IsNotLess(Obj.Value));
         }
+
         [TestMethod]
         public void ConvertTest()
         {
@@ -59,12 +68,14 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.AreEqual(s.ToString(UseCulture.Invariant),
                 s1.ToString(UseCulture.Invariant));
         }
+
         [TestMethod]
         public void ValueTest()
         {
             Obj = new DecimalVariable();
             TestProperty(() => Obj.Value, x => Obj.Value = x, 0);
         }
+
         [TestMethod]
         public void IsEmptyTest()
         {
@@ -73,6 +84,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(DoubleVariable.Random().IsEmpty());
             Assert.IsTrue(DoubleVariable.Empty.IsEmpty());
         }
+
         [TestMethod]
         public void EmptyTest()
         {

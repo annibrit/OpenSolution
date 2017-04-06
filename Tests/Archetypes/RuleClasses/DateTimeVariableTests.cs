@@ -2,14 +2,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.RuleClasses;
+
 namespace Open.Tests.Archetypes.RuleClasses
 {
     [TestClass]
-    public class DateTimeVariableTests: CommonTests<DateTimeVariable>
+    public class DateTimeVariableTests : CommonTests<DateTimeVariable>
     {
-        protected override DateTimeVariable GetRandomObj() {
+        protected override DateTimeVariable GetRandomObj()
+        {
             return DateTimeVariable.Random();
         }
+
         [TestMethod]
         public override void IsEqualTest()
         {
@@ -17,6 +20,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsEqual(x));
             Assert.IsTrue(Obj.IsEqual(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotEqualTest()
         {
@@ -24,6 +28,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsNotEqual(x));
             Assert.IsFalse(Obj.IsNotEqual(Obj.Value));
         }
+
         [TestMethod]
         public void IsGreaterTest()
         {
@@ -31,6 +36,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsGreater(x));
             Assert.IsFalse(Obj.IsGreater(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotGreaterTest()
         {
@@ -38,6 +44,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsNotGreater(x));
             Assert.IsTrue(Obj.IsNotGreater(Obj.Value));
         }
+
         [TestMethod]
         public void IsLessTest()
         {
@@ -45,6 +52,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsTrue(Obj.IsLess(x));
             Assert.IsFalse(Obj.IsLess(Obj.Value));
         }
+
         [TestMethod]
         public void IsNotLessTest()
         {
@@ -52,6 +60,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(Obj.IsNotLess(x));
             Assert.IsTrue(Obj.IsNotLess(Obj.Value));
         }
+
         [TestMethod]
         public void ConvertTest()
         {
@@ -59,12 +68,14 @@ namespace Open.Tests.Archetypes.RuleClasses
             var s = x.ToString("s");
             Assert.AreEqual(x.ToString(UseCulture.Invariant), Obj.Convert(s).ToString(UseCulture.Invariant));
         }
+
         [TestMethod]
         public void ValueTest()
         {
             Obj = new DateTimeVariable();
             TestProperty(() => Obj.Value, x => Obj.Value = x, DateTime.MinValue);
         }
+
         [TestMethod]
         public void IsEmptyTest()
         {
@@ -73,6 +84,7 @@ namespace Open.Tests.Archetypes.RuleClasses
             Assert.IsFalse(DateTimeVariable.Random().IsEmpty());
             Assert.IsTrue(DateTimeVariable.Empty.IsEmpty());
         }
+
         [TestMethod]
         public void EmptyTest()
         {

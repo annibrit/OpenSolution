@@ -1,6 +1,6 @@
 ﻿namespace Open.Archetypes.ProductClasses
 {
-    public class CanceledService: Service
+    public class CanceledService : Service
     {
     }
 }

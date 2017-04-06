@@ -1,10 +1,20 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
-namespace Open.Tests.Archetypes.BaseClasses {
-    [TestClass] public class EntitiesTests : CommonTests<Entities> {
-        protected override Entities GetRandomObj() { return Entities.Random(); }
-        [TestMethod] public void FindTest() {
+
+namespace Open.Tests.Archetypes.BaseClasses
+{
+    [TestClass]
+    public class EntitiesTests : CommonTests<Entities>
+    {
+        protected override Entities GetRandomObj()
+        {
+            return Entities.Random();
+        }
+
+        [TestMethod]
+        public void FindTest()
+        {
             Entities.Instance.AddRange(Obj);
             var e = Entity.Random();
             Assert.IsNull(Entities.Find(e.UniqueId));
@@ -12,8 +22,11 @@ namespace Open.Tests.Archetypes.BaseClasses {
             Entities.Instance.Insert(c, e);
             Assert.AreEqual(e, Entities.Find(e.UniqueId));
         }
-        [TestMethod] public void InstanceTest() {
-            TestSingleton(()=> Entities.Instance);
+
+        [TestMethod]
+        public void InstanceTest()
+        {
+            TestSingleton(() => Entities.Instance);
         }
     }
 }

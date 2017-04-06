@@ -1,5 +1,7 @@
-﻿namespace Open.Archetypes.RuleClasses {
-    public enum Operation {
+﻿namespace Open.Archetypes.RuleClasses
+{
+    public enum Operation
+    {
         Dummy,
         And,
         Or,

@@ -1,48 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Archetypes.OrderClasses;
-using Order;
-
-namespace Open.Tests.Archetypes.OrderClasses
+﻿namespace Open.Tests.Archetypes.OrderClasses
 {
-    [TestClass]
-    public class ChargeLineTests : OrderCommonTests
-    {
-        private ChargeLine m;
+    //[TestClass]
+    //public class ChargeLineTests : CommonTests<ChargeLine>
+    //{
+    //    protected override ChargeLine GetRandomObj() {
+    //        return ChargeLine.Random();
+    //    }
+    //    [TestInitialize]
+    //    public override void TestInitialize() {
+    //        base.TestInitialize();
+    //    }
+    //    [TestCleanup]
+    //    public override void TestCleanup() {
+    //        base.TestCleanup();
+    //    }
 
-        [TestInitialize]
-        public void Init()
-        {
-            m = new ChargeLine();
-        }
-        [TestMethod]
-        public void AmountTest()
-        {
-            DoublePropertyTest(() => m.Amount, x => m.Amount = x);
-        }
-        [TestMethod]
-        public void CommentTest()
-        {
-            StringPropertyTest(() => m.Comment, x => m.Comment = x);
-        }
-        [TestMethod]
-        public void IdTest()
-        {
-            StringPropertyTest(() => m.Id, x => m.Id = x);
-        }
-        [TestMethod]
-        public void TaxIdTest()
-        {
-            StringPropertyTest(() => m.TaxId, x => m.TaxId = x);
-        }
-        [TestMethod]
-        public void DescriptionTest()
-        {
-            StringPropertyTest(() => m.Description, x => m.Description = x);
-        }     
-    }
+    //    [TestMethod]
+    //    public void AmountTest() {
+    //        TestProperty(() => Obj.Amount, x => Obj.Amount = x);
+    //    }
+    //    [TestMethod]
+    //    public void CommentTest() {
+    //        TestProperty(() => Obj.Comment, x => Obj.Comment = x);
+    //    }
+    //    [TestMethod]
+    //    public void IdTest() {
+    //        TestProperty(() => Obj.Id, x => Obj.Id = x);
+    //    }
+    //    [TestMethod]
+    //    public void TaxIdTest() {
+    //        TestProperty(() => Obj.TaxId, x => Obj.TaxId = x);
+    //    }
+    //    [TestMethod]
+    //    public void DescriptionTest() {
+    //        TestProperty(() => Obj.Description, x => Obj.Description = x);
+    //    }
+    //}
 }

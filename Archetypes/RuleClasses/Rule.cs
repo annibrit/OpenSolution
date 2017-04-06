@@ -1,4 +1,8 @@
 ﻿using Open.Archetypes.BaseClasses;
-namespace Open.Archetypes.RuleClasses {
-    public class Rule : UniqueEntity {}
+
+namespace Open.Archetypes.RuleClasses
+{
+    public class Rule : UniqueEntity
+    {
+    }
 }

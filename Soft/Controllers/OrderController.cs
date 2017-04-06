@@ -1,32 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using Open.Archetypes.OrderClasses;
+using Open.Logic.OrderClasses;
 
 namespace Soft.Controllers
 {
-    public class OrderLineController : Controller
+    public class OrderController : Controller
     {
-        // GET: OrderLine
+        private static bool isCreated;
+        // GET: Order
         public ActionResult Index()
+        {
+            if (!isCreated) Orders.Instance.AddRange(Orders.Random());
+            isCreated = true;
+            var m = new List<OrderViewModel>();
+            foreach (var e in Orders.Instance)
+            {
+                var x = new OrderViewModel(e);
+                m.Add(x);
+            }
+            return View(m);
+        }
+
+        // GET: Order/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: OrderLine/Details/5
-        public ActionResult Details(int id)
-        {
-            return null;
-        }
-
-        // GET: OrderLine/Create
+        // GET: Order/Create
         public ActionResult Create()
         {
-            return null;
+            return View();
         }
 
-        // POST: OrderLine/Create
+        // POST: Order/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -38,17 +46,17 @@ namespace Soft.Controllers
             }
             catch
             {
-                return null;
+                return View();
             }
         }
 
-        // GET: OrderLine/Edit/5
+        // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {
-            return null;
+            return View();
         }
 
-        // POST: OrderLine/Edit/5
+        // POST: Order/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -60,17 +68,17 @@ namespace Soft.Controllers
             }
             catch
             {
-                return null;
+                return View();
             }
         }
 
-        // GET: OrderLine/Delete/5
+        // GET: Order/Delete/5
         public ActionResult Delete(int id)
         {
-            return null;
+            return View();
         }
 
-        // POST: OrderLine/Delete/5
+        // POST: Order/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -82,7 +90,7 @@ namespace Soft.Controllers
             }
             catch
             {
-                return null;
+                return View();
             }
         }
     }

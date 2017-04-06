@@ -1,24 +1,35 @@
 ﻿using Open.Aids;
-namespace Open.Archetypes.BaseClasses {
-    public class Attribute : Archetype {
-        private Archetypes<string> tags;
+
+namespace Open.Archetypes.BaseClasses
+{
+    public class Attribute : Archetype
+    {
         private string entityId;
-        public string EntityId {
+        private Archetypes<string> tags;
+
+        public string EntityId
+        {
             get { return SetDefault(ref entityId); }
             set { SetValue(ref entityId, value); }
         }
-        public static Attribute Random() {
+
+        public Archetypes<string> Tags
+        {
+            get { return SetDefault(ref tags); }
+            set { SetValue(ref tags, value); }
+        }
+
+        public static Attribute Random()
+        {
             var a = new Attribute();
             a.SetRandomValues();
             return a;
         }
-        protected override void SetRandomValues() {
+
+        protected override void SetRandomValues()
+        {
             base.SetRandomValues();
             entityId = GetRandom.String();
-        }
-        public Archetypes<string> Tags {
-            get { return SetDefault(ref tags); }
-            set { SetValue(ref tags, value); }
         }
     }
 }

@@ -6,7 +6,5 @@
         {
             return string.IsNullOrEmpty(s) ? string.Empty : s;
         }
-
     }
 }
-

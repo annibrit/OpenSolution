@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Archetypes.BaseClasses;
 using Open.Archetypes.InventoryClasses;
+
 namespace Open.Tests.Archetypes.InventoryClasses
 {
     [TestClass]

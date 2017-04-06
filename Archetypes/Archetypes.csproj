@@ -68,10 +68,10 @@
     <Compile Include="OrderClasses\OrderIdentifier.cs" />
     <Compile Include="OrderClasses\OrderLine.cs" />
     <Compile Include="OrderClasses\OrderLines.cs" />
+    <Compile Include="OrderClasses\Orders.cs" />
     <Compile Include="OrderClasses\OrderStatus.cs" />
     <Compile Include="OrderClasses\OrderUsage.cs" />
     <Compile Include="OrderClasses\OrderUses.cs" />
-    <Compile Include="OrderClasses\ProductIdentifier.cs" />
     <Compile Include="OrderClasses\PurchaseOrder.cs" />
     <Compile Include="OrderClasses\SalesOrder.cs" />
     <Compile Include="OrderClasses\SalesTaxPolicy.cs" />
@@ -120,7 +120,7 @@
     <None Include="BaseEntity.cd" />
     <None Include="Entity.cd" />
     <None Include="Open.cd" />
-    <None Include="OrderClasses\Order.cd" />
+    <None Include="OrderClasses\Orderr.cd" />
     <None Include="Period.cd" />
     <None Include="ProductClasses\ServiceStates.cd" />
     <None Include="Roles.cd" />

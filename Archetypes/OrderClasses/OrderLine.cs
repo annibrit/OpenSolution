@@ -1,106 +1,114 @@
-﻿using Open.Archetypes.BaseClasses;
-using Order;
+﻿using System;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
     public class OrderLine : UniqueEntity
     {
-        private string producttype;
-        private string chargelineid;
-        private string taxid;
-        private string deliveryreciverid;
-        
-        public string ProductType
-        {
-            get { return SetDefault(ref producttype); }
-            set { SetValue(ref producttype, value); }
-        }
+        private string comment;
+        private string delivery_receiver_id;
+        private string description;
+        private DateTime expected_delivery_date;
+        private int number_ordered;
+        private string order_id;
+        private string product_type_id;
 
-        public string ChargeLineId
-        { 
-                get { return SetDefault(ref chargelineid); }
-                set { SetValue(ref chargelineid, value); }
-        }
-
-        public string TaxId
+        public string OrderId
         {
-            get { return SetDefault(ref taxid); }
-            set { SetValue(ref taxid, value); }
+            get { return SetDefault(ref order_id); }
+            set { SetValue(ref order_id, value); }
         }
 
         public string DeliveryReceiverId
         {
-            get { return SetDefault(ref deliveryreciverid); }
-            set { SetValue(ref deliveryreciverid, value); }
+            get { return SetDefault(ref delivery_receiver_id); }
+            set { SetValue(ref delivery_receiver_id, value); }
         }
 
-        public int SerialNumber { get; set; }
-        public int NumberOrdered { get; set; }
-        public int UnitPrice { get; set; }
+        public string ProductTypeId
+        {
+            get { return SetDefault(ref product_type_id); }
+            set { SetValue(ref product_type_id, value); }
+        }
+
+        public string Description
+        {
+            get { return SetDefault(ref description); }
+            set { SetValue(ref description, value); }
+        }
+
+        public string Comment
+        {
+            get { return SetDefault(ref comment); }
+            set { SetValue(ref comment, value); }
+        }
+
+        public int NumberOrdered
+        {
+            get { return SetDefault(ref number_ordered); }
+            set { SetValue(ref number_ordered, value); }
+        }
+
+        public DateTime ExpectedDeliveryDate
+        {
+            get { return SetDefault(ref expected_delivery_date); }
+            set { SetValue(ref expected_delivery_date, value); }
+        }
+
+        public DeliveryReceiver GetDeliveryReceiver => DeliveryReceivers.Find(DeliveryReceiverId);
+        public TaxOnLines GetTaxes => TaxOnLines.GetTaxOnLinesByOrderLineId(UniqueId);
+        public ChargeLines GetChargeLine => ChargeLines.GetChargeLinesByOrderLineId(UniqueId);
+        public OrderLine Clone => this;
+
+        public void IncrementNumberOrdered(int value)
+        {
+            number_ordered += value;
+        }
+
+        public void DecrementNumberOrdered(int value)
+        {
+            number_ordered -= value;
+        }
 
         public void AddDeliveryReceiver(DeliveryReceiver reciever)
         {
             DeliveryReceivers.Instance.Add(reciever);
         }
 
-        public DeliveryReceivers GetDeliveryReceiver
-        {
-            get { return DeliveryReceivers.GetDeliveryReceivers(DeliveryReceiverId);}
-        }
-    
         public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
         {
-            DeliveryReceivers.RemoveByOrderLineReceiver(receiver);
+            DeliveryReceivers.Instance.Remove(receiver);
         }
-
 
         public void AddTax(TaxOnLine tax)
         {
             TaxOnLines.Instance.Add(tax);
         }
 
-        public TaxOnLines GetTax
-        {
-
-            get { return TaxOnLines.GetTaxOnLines(TaxId);}
-        }
- 
-
         public void RemoveTax(TaxOnLine tax)
         {
-            TaxOnLines.RemoveByOrderLineTax(tax);
-        } 
-
-        public void AddChargeLine(ChargeLine line)
-        {
-            ChargeLines.Instance.Add(line);
+            TaxOnLines.Instance.Remove(tax);
         }
 
-        public ChargeLines GetChargeLine
+        public void AddChargeLine(ChargeLine chargeLine)
         {
-           get { return ChargeLines.GetChargeLines(ChargeLineId); }
-        } 
-
-        public void RemoveChargeLine(string id)
-        {
-            ChargeLines.RemoveByOrderLineId(id);
-        } 
-
-        public OrderLine Clone()
-        {
-            return new OrderLine();
+            ChargeLines.Instance.Add(chargeLine);
         }
 
-        public new static OrderLine Random()
+        public void RemoveChargeLine(ChargeLine chargeLine)
+        {
+            ChargeLines.Instance.Remove(chargeLine);
+        }
+
+        public static OrderLine Random()
         {
             var x = new OrderLine();
             x.SetRandomValues();
             return x;
         }
 
+        //public Money UnitPrice { get; set; }
 
-        //incrementNumberOrdered - Increments the number of ProductInstance recorded by the OrderLine
-        //getNumberOrdered() - Returns the number of ProductInstances recorded by the OrderLine
-        //decrementNumberOrdered - Decrements the number of ProductInstances recorded by the OrderLine
+        //public SerialNumber SerialNumber { get; set; }
     }
 }

@@ -1,32 +1,33 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Open.Archetypes.OrderClasses;
-
-namespace Open.Tests.Archetypes.OrderClasses
+﻿namespace Open.Tests.Archetypes.OrderClasses
 {
+    //    [TestClass]
+    //    public class TaxOnLineTests : CommonTests<TaxOnLine>
+    //    {
+    //        protected override TaxOnLine GetRandomObj() {
+    //            return TaxOnLine.Random();
+    //        }
+    //        [TestInitialize]
+    //        public override void TestInitialize() {
+    //            base.TestInitialize();
+    //        }
+    //        [TestCleanup]
+    //        public override void TestCleanup() {
+    //            base.TestCleanup();
+    //        }
 
-    [TestClass]
-    public class TaxOnLineTests : OrderCommonTests
-    {
-        private TaxOnLine T;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            T = new TaxOnLine();
-        }
-
-        [TestMethod]
-        public void CommentTest()
-        {
-            StringPropertyTest(() => T.Comment, x => T.Comment = x);
-        }
+    //        [TestMethod]
+    //        public void CommentTest()
+    //        {
+    //            TestProperty(() => Obj.Comment, x => Obj.Comment = x);
+    //        }
 
 
-        [TestMethod]
-        public void TypeTest()
-        {
-            StringPropertyTest(() => T.Type, x => T.Type = x);
-        }
-    }
+    //        [TestMethod]
+    //        public void TypeTest()
+    //        {
+    //            TestProperty(() => Obj.Type, x => Obj.Type = x);
+    //        }
+
+
+    //    }
 }
-

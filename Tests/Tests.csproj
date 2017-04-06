@@ -140,7 +140,6 @@
     <Compile Include="IsLogicTested.cs" />
     <Compile Include="IsTestedBase.cs" />
     <Compile Include="Logic\DummyTests.cs" />
-    <Compile Include="OrderCommonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyTests.cs" />
     <Compile Include="CommonTests.cs" />

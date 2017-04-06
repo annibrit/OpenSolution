@@ -1,16 +1,21 @@
 ﻿using Open.Archetypes.BaseClasses;
-using Open.Archetypes.OrderClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
     public class ChargeLine : UniqueEntity
     {
-        
         private double amount;
-        private string description;
         private string comment;
+        private string description;
+        private string id;
+        private string order_line_id;
         private string taxid;
-        public string id;
+
+        public string OrderLineId
+        {
+            get { return SetDefault(ref order_line_id); }
+            set { SetValue(ref order_line_id, value); }
+        }
 
         public string Id
         {
@@ -23,11 +28,13 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref amount); }
             set { SetValue(ref amount, value); }
         }
+
         public string Description
         {
             get { return SetDefault(ref description); }
             set { SetValue(ref description, value); }
         }
+
         public string Comment
         {
             get { return SetDefault(ref comment); }
@@ -45,18 +52,18 @@ namespace Open.Archetypes.OrderClasses
             TaxOnLines.Instance.Add(tax);
         }
 
-        public TaxOnLines GetTax()
-        {
+        //public TaxOnLines GetTax()
+        //{
 
-            return TaxOnLines.GetTaxOnLines(TaxId);
-        }
+        //    return TaxOnLines.GetTaxOnLines(TaxId);
+        //}
 
-        public void RemoveTax(TaxOnLine tax)
-        {
-            TaxOnLines.RemoveByOrderLineTax(tax);
-        }
+        //public void RemoveTax(TaxOnLine tax)
+        //{
+        //    TaxOnLines.RemoveByOrderLineTax(tax);
+        //}
 
-        public new static ChargeLine Random()
+        public static ChargeLine Random()
         {
             var x = new ChargeLine();
             x.SetRandomValues();
@@ -65,6 +72,4 @@ namespace Open.Archetypes.OrderClasses
 
         //public override Order Type { get; }
     }
-
-    
 }

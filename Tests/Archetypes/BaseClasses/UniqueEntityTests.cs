@@ -1,46 +1,69 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
-namespace Open.Tests.Archetypes.BaseClasses {
-    [TestClass] public class UniqueEntityTests : ClassTests<UniqueEntity> {
-        private class TestClass : UniqueEntity {
-            public static UniqueEntity Random() {
-                var o = new TestClass();
-                o.SetRandomValues();
-                return o;
-            }
-        }
+
+namespace Open.Tests.Archetypes.BaseClasses
+{
+    [TestClass]
+    public class UniqueEntityTests : ClassTests<UniqueEntity>
+    {
         private UniqueEntity obj;
-        [TestInitialize] public override void TestInitialize() {
+
+        [TestInitialize]
+        public override void TestInitialize()
+        {
             base.TestInitialize();
             obj = TestClass.Random();
             var c = GetRandom.Count();
             for (var i = 0; i < c; i++) Attributes.Instance.Add(Attribute.Random());
         }
-        [TestMethod] public void ConstructorTest() {
+
+        [TestMethod]
+        public void ConstructorTest()
+        {
             var a = new TestClass().GetType().BaseType.BaseType;
             Assert.AreEqual(a, typeof(AttributedEntity));
         }
-        [TestMethod] public void AttributesTest() {
+
+        [TestMethod]
+        public void AttributesTest()
+        {
             Assert.AreEqual(0, obj.Attributes.Count);
             var c = GetRandom.Count();
-            for (var i = 0; i < c; i++) {
+            for (var i = 0; i < c; i++)
+            {
                 var a = Attribute.Random();
                 a.EntityId = obj.UniqueId;
                 Attributes.Instance.Add(a);
             }
             Assert.AreEqual(c, obj.Attributes.Count);
         }
-        [TestMethod] public void IsThisUniqueIdTest() {
+
+        [TestMethod]
+        public void IsThisUniqueIdTest()
+        {
             Assert.IsFalse(obj.IsThisUniqueId(null));
             Assert.IsFalse(obj.IsThisUniqueId(string.Empty));
             Assert.IsFalse(obj.IsThisUniqueId("   "));
             Assert.IsFalse(obj.IsThisUniqueId(GetRandom.String()));
             Assert.IsTrue(obj.IsThisUniqueId(obj.UniqueId));
         }
-        [TestMethod] public void UniqueIdTest() {
+
+        [TestMethod]
+        public void UniqueIdTest()
+        {
             obj = new TestClass();
-            TestProperty(()=>obj.UniqueId, x=>obj.UniqueId=x);
+            TestProperty(() => obj.UniqueId, x => obj.UniqueId = x);
+        }
+
+        private class TestClass : UniqueEntity
+        {
+            public static UniqueEntity Random()
+            {
+                var o = new TestClass();
+                o.SetRandomValues();
+                return o;
+            }
         }
     }
 }

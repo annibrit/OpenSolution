@@ -5,8 +5,8 @@ namespace Open.Archetypes.OrderClasses
     public class SalesTaxPolicy : Archetype
 
     {
-        private string taxtype;
         private double rate;
+        private string taxtype;
 
         public string TaxType
         {
@@ -18,6 +18,13 @@ namespace Open.Archetypes.OrderClasses
         {
             get { return SetDefault(ref rate); }
             set { SetValue(ref rate, value); }
+        }
+
+        public static SalesTaxPolicy Random()
+        {
+            var x = new SalesTaxPolicy();
+            x.SetRandomValues();
+            return x;
         }
     }
 }

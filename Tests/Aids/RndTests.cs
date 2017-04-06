@@ -30,7 +30,6 @@ namespace Tests.Aids
         {
             Assert.AreNotEqual(Rnd.Double(), Rnd.Double());
             Assert.AreEqual(1, Rnd.Double(1, 1));
-
         }
     }
 }

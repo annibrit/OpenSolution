@@ -1,18 +1,26 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Open.Aids;
 using Open.Archetypes.RelationshipClasses;
+
 namespace Open.Tests.Archetypes.RelationshipClasses
 {
     [TestClass]
     public class RelationshipConstraintsTests : CommonTests<RelationshipConstraints>
     {
-        protected override RelationshipConstraints GetRandomObj() {
+        protected override RelationshipConstraints GetRandomObj()
+        {
             return RelationshipConstraints.Random();
         }
-        [TestMethod] public void InstanceTest() {
-            TestSingleton(()=> RelationshipConstraints.Instance);            
+
+        [TestMethod]
+        public void InstanceTest()
+        {
+            TestSingleton(() => RelationshipConstraints.Instance);
         }
-        [TestMethod] public void GetTypeConstraintsTest() {
+
+        [TestMethod]
+        public void GetTypeConstraintsTest()
+        {
             var s = GetRandom.String();
             RelationshipConstraints.Instance.AddRange(RelationshipConstraints.Random());
             Assert.AreEqual(0, RelationshipConstraints.GetTypeConstraints(s).Count);
