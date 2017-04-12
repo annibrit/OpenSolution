@@ -178,6 +178,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aids\Aids.csproj">
+      <Project>{b4620d17-caa0-4f62-ad02-812b7254f6ae}</Project>
+      <Name>Aids</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Archetypes\Archetypes.csproj">
       <Project>{ee23228f-dc50-4c25-bbc3-5c11d8e29c32}</Project>
       <Name>Archetypes</Name>

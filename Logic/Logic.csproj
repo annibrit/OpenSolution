@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Archetypes\Archetypes.csproj">
-      <Project>{EE23228F-DC50-4C25-BBC3-5C11D8E29C32}</Project>
+      <Project>{ee23228f-dc50-4c25-bbc3-5c11d8e29c32}</Project>
       <Name>Archetypes</Name>
     </ProjectReference>
   </ItemGroup>
