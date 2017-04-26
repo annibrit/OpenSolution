@@ -1,12 +1,11 @@
-﻿using Open.Archetypes.BaseClasses;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class ChargeLine : UniqueEntity
+    public class ChargeLine : BaseOrderLine
     {
         private double amount;
-        private string comment;
-        private string description;
         private string id;
         private string order_line_id;
         private string taxid;
@@ -29,39 +28,23 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref amount, value); }
         }
 
-        public string Description
-        {
-            get { return SetDefault(ref description); }
-            set { SetValue(ref description, value); }
-        }
-
-        public string Comment
-        {
-            get { return SetDefault(ref comment); }
-            set { SetValue(ref comment, value); }
-        }
-
         public string TaxId
         {
             get { return SetDefault(ref taxid); }
             set { SetValue(ref taxid, value); }
         }
+        //TODO kuidas siduda Tax ChargeLine külge ja on seda üldse vaja?
+        public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
 
         public void AddTax(TaxOnLine tax)
         {
-            TaxOnLines.Instance.Add(tax);
+            OrderLines.Instance.Add(tax);
         }
 
-        //public TaxOnLines GetTax()
-        //{
-
-        //    return TaxOnLines.GetTaxOnLines(TaxId);
-        //}
-
-        //public void RemoveTax(TaxOnLine tax)
-        //{
-        //    TaxOnLines.RemoveByOrderLineTax(tax);
-        //}
+        public void RemoveTax(TaxOnLine tax)
+        {
+            OrderLines.Instance.Remove(tax);
+        }
 
         public static ChargeLine Random()
         {
@@ -70,6 +53,13 @@ namespace Open.Archetypes.OrderClasses
             return x;
         }
 
-        //public override Order Type { get; }
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            amount = GetRandom.Double();
+            id = GetRandom.String();
+            order_line_id = GetRandom.String();
+            taxid = GetRandom.String();
+        }
     }
 }

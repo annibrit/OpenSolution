@@ -91,7 +91,9 @@
     <Compile Include="Archetypes\ContactClasses\ContactTests.cs" />
     <Compile Include="Archetypes\InventoryClasses\InventoryTests.cs" />
     <Compile Include="Archetypes\MoneyClasses\MoneyTests.cs" />
+    <Compile Include="Archetypes\OrderClasses\BaseOrderLineTests.cs" />
     <Compile Include="Archetypes\OrderClasses\ChargeLineTests.cs" />
+    <Compile Include="Archetypes\OrderClasses\DeliveryReceiversTests.cs" />
     <Compile Include="Archetypes\OrderClasses\DiscountTests.cs" />
     <Compile Include="Archetypes\OrderClasses\OrderLineTests.cs" />
     <Compile Include="Archetypes\OrderClasses\OrderStatusTests.cs" />

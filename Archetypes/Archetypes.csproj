@@ -58,13 +58,11 @@
     <Compile Include="ContactClasses\Contact.cs" />
     <Compile Include="InventoryClasses\Inventory.cs" />
     <Compile Include="MoneyClasses\Money.cs" />
+    <Compile Include="OrderClasses\BaseOrderLine.cs" />
     <Compile Include="OrderClasses\ChargeLine.cs" />
-    <Compile Include="OrderClasses\ChargeLines.cs" />
     <Compile Include="OrderClasses\DeliveryReceiver.cs" />
-    <Compile Include="OrderClasses\DeliveryReceivers.cs" />
     <Compile Include="OrderClasses\Discount.cs" />
     <Compile Include="OrderClasses\Order.cs" />
-    <Compile Include="OrderClasses\OrderEvent.cs" />
     <Compile Include="OrderClasses\OrderIdentifier.cs" />
     <Compile Include="OrderClasses\OrderLine.cs" />
     <Compile Include="OrderClasses\OrderLines.cs" />
@@ -72,11 +70,8 @@
     <Compile Include="OrderClasses\OrderStatus.cs" />
     <Compile Include="OrderClasses\OrderUsage.cs" />
     <Compile Include="OrderClasses\OrderUses.cs" />
-    <Compile Include="OrderClasses\PurchaseOrder.cs" />
-    <Compile Include="OrderClasses\SalesOrder.cs" />
     <Compile Include="OrderClasses\SalesTaxPolicy.cs" />
     <Compile Include="OrderClasses\TaxOnLine.cs" />
-    <Compile Include="OrderClasses\TaxOnLines.cs" />
     <Compile Include="OrderClasses\UniqueIdentifier.cs" />
     <Compile Include="PartyClasses\Party.cs" />
     <Compile Include="ProcessClasses\Process.cs" />

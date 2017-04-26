@@ -24,13 +24,13 @@ namespace Open.Tests.Archetypes.BaseClasses
         [TestMethod]
         public void FromTest()
         {
-            TestProperty(() => Obj.From, x => Obj.From = x, int.MinValue);
+            TestProperty(() => Obj.From, x => Obj.From = x);
         }
 
         [TestMethod]
         public void ToTest()
         {
-            TestProperty(() => Obj.To, x => Obj.To = x, int.MaxValue);
+            TestProperty(() => Obj.To, x => Obj.To = x);
         }
 
         [TestMethod]

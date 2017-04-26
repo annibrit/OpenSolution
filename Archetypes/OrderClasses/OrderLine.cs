@@ -1,46 +1,23 @@
 ﻿using System;
+using Open.Aids;
 using Open.Archetypes.BaseClasses;
+using Open.Archetypes.OrderClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class OrderLine : UniqueEntity
+    public class OrderLine : BaseOrderLine
     {
-        private string comment;
-        private string delivery_receiver_id;
-        private string description;
-        private DateTime expected_delivery_date;
+        //TODO kas alati peab privaatsed muutujad väärtustama? (SetRandomValues)
         private int number_ordered;
-        private string order_id;
+        private DateTime expected_delivery_date;
         private string product_type_id;
+        private string order_line_id;
+        private string delivery_receiver_id;
 
-        public string OrderId
+        public string OrderLineId
         {
-            get { return SetDefault(ref order_id); }
-            set { SetValue(ref order_id, value); }
-        }
-
-        public string DeliveryReceiverId
-        {
-            get { return SetDefault(ref delivery_receiver_id); }
-            set { SetValue(ref delivery_receiver_id, value); }
-        }
-
-        public string ProductTypeId
-        {
-            get { return SetDefault(ref product_type_id); }
-            set { SetValue(ref product_type_id, value); }
-        }
-
-        public string Description
-        {
-            get { return SetDefault(ref description); }
-            set { SetValue(ref description, value); }
-        }
-
-        public string Comment
-        {
-            get { return SetDefault(ref comment); }
-            set { SetValue(ref comment, value); }
+            get { return SetDefault(ref order_line_id); }
+            set { SetValue(ref order_line_id, value); }
         }
 
         public int NumberOrdered
@@ -49,15 +26,26 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref number_ordered, value); }
         }
 
+        public string ProductTypeId
+        {
+            get { return SetDefault(ref product_type_id); }
+            set { SetValue(ref product_type_id, value); }
+        }
         public DateTime ExpectedDeliveryDate
         {
             get { return SetDefault(ref expected_delivery_date); }
             set { SetValue(ref expected_delivery_date, value); }
         }
 
-        public DeliveryReceiver GetDeliveryReceiver => DeliveryReceivers.Find(DeliveryReceiverId);
-        public TaxOnLines GetTaxes => TaxOnLines.GetTaxOnLinesByOrderLineId(UniqueId);
-        public ChargeLines GetChargeLine => ChargeLines.GetChargeLinesByOrderLineId(UniqueId);
+        public string DeliveryReceiverId
+        {
+            get { return SetDefault(ref delivery_receiver_id); }
+            set { SetValue(ref delivery_receiver_id, value); }
+        }
+
+
+        public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
+        public ChargeLine GetChargeLine => OrderLines.GetChargeLineByOrderLineId(UniqueId);
         public OrderLine Clone => this;
 
         public void IncrementNumberOrdered(int value)
@@ -70,45 +58,60 @@ namespace Open.Archetypes.OrderClasses
             number_ordered -= value;
         }
 
-        public void AddDeliveryReceiver(DeliveryReceiver reciever)
-        {
-            DeliveryReceivers.Instance.Add(reciever);
-        }
-
-        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
-        {
-            DeliveryReceivers.Instance.Remove(receiver);
-        }
-
         public void AddTax(TaxOnLine tax)
         {
-            TaxOnLines.Instance.Add(tax);
+            OrderLines.Instance.Add(tax);
         }
 
         public void RemoveTax(TaxOnLine tax)
         {
-            TaxOnLines.Instance.Remove(tax);
+            OrderLines.Instance.Remove(tax);
         }
 
         public void AddChargeLine(ChargeLine chargeLine)
         {
-            ChargeLines.Instance.Add(chargeLine);
+            if (IsNull(chargeLine)) return;
+            chargeLine.OrderLineId = UniqueId;
+            chargeLine.OrderId = OrderId;
+            OrderLines.Instance.Add(chargeLine);
         }
 
         public void RemoveChargeLine(ChargeLine chargeLine)
         {
-            ChargeLines.Instance.Remove(chargeLine);
+            OrderLines.Instance.Remove(chargeLine);
         }
-
+        //TODO nimekordus - kuidas parandada?
         public static OrderLine Random()
         {
-            var x = new OrderLine();
-            x.SetRandomValues();
-            return x;
+            var o = new OrderLine();
+            o.SetRandomValues();
+            return o;
         }
 
-        //public Money UnitPrice { get; set; }
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            number_ordered = GetRandom.Int32();
+            delivery_receiver_id = GetRandom.String();
+            expected_delivery_date = GetRandom.DateTime();
+            product_type_id = GetRandom.String();
+            order_line_id = GetRandom.String();
+        }
 
-        //public SerialNumber SerialNumber { get; set; }
+        public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
+
+        public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
+        {
+
+            if (IsNull(deliveryReceiver)) return;
+            deliveryReceiver.OrderLineId = UniqueId;
+            deliveryReceiver.OrderId = OrderId;
+            OrderLines.Instance.Add(deliveryReceiver);
+        }
+
+        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
+        {
+            OrderLines.Instance.Remove(receiver);
+        }
     }
 }

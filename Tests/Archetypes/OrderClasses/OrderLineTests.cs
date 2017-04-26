@@ -15,6 +15,8 @@ namespace Open.Tests.Archetypes.OrderClasses
         public override void TestInitialize()
         {
             base.TestInitialize();
+            //DONE kui te iga testi juures lisate midagi order line instance kollektsiooni siis siin on mõistlik alati OrderLine nullida
+            OrderLines.Instance.Clear();
         }
 
         [TestCleanup]
@@ -29,59 +31,11 @@ namespace Open.Tests.Archetypes.OrderClasses
             TestProperty(() => Obj.OrderId, x => Obj.OrderId = x);
         }
 
-        //[TestMethod]
-        //public void ChargeLineIdTest() {
-        //    TestProperty(() => Obj.ChargeLineId, x => Obj.ChargeLineId = x);
-        //}
-
-        //[TestMethod]
-        //public void TaxIdTest() {
-        //    TestProperty(() => Obj.TaxId, x => Obj.TaxId = x);
-        //}
-
-        //[TestMethod]
-        //public void DeliveryReceiverIdTest() {
-        //    TestProperty(() => Obj.DeliveryReceiverId, x => Obj.DeliveryReceiverId = x);
-        //}
-
-        //[TestMethod]
-        //public void SerialNumberTest() {
-        //    TestProperty(() => Obj.SerialNumber, x => Obj.SerialNumber = x);
-        //}
-
-        //[TestMethod]
-        //public void NumberOrderedTest() {
-        //    TestProperty(() => Obj.NumberOrdered, x => Obj.NumberOrdered = x);
-        //}
-
-        //[TestMethod]
-        //public void UnitPriceTest() {
-        //    TestProperty(() => Obj.UnitPrice, x => Obj.UnitPrice = x);
-        //}
-
         [TestMethod]
-        public void AddDeliveryReceiverTest()
+        public void NumberOrderedTest()
         {
-            var fakeDeliveryReceiverOne = new DeliveryReceiver();
-            var fakeDeliveryReceiverTwo = new DeliveryReceiver();
-            Obj.AddDeliveryReceiver(fakeDeliveryReceiverOne);
-            Assert.AreEqual(1, DeliveryReceivers.Instance.Count);
-            Obj.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
-            Assert.AreEqual(2, DeliveryReceivers.Instance.Count);
+            TestProperty(() => Obj.NumberOrdered, x => Obj.NumberOrdered = x);
         }
-
-        //[TestMethod]
-        //public void RemoveDeliveryReceiverTest() {
-        //    var fakeDeliveryReceiverOne = new DeliveryReceiver();
-        //    fakeDeliveryReceiverOne.receiver = new DeliveryReceiver();
-        //    var fakeDeliveryReceiverTwo = new DeliveryReceiver();
-        //    fakeDeliveryReceiverTwo.receiver = new DeliveryReceiver();
-        //    Obj.AddDeliveryReceiver(fakeDeliveryReceiverOne);
-        //    Obj.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
-        //    Assert.AreEqual(2, DeliveryReceivers.Instance.Count);
-        //    Obj.RemoveDeliveryReceiver(fakeDeliveryReceiverOne.receiver);
-        //    Assert.AreEqual(1, DeliveryReceivers.Instance.Count);
-        //}
 
         [TestMethod]
         public void AddTaxTest()
@@ -89,24 +43,22 @@ namespace Open.Tests.Archetypes.OrderClasses
             var fakeTaxOnLineOne = new TaxOnLine();
             var fakeTaxOnLineTwo = new TaxOnLine();
             Obj.AddTax(fakeTaxOnLineOne);
-            Assert.AreEqual(1, TaxOnLines.Instance.Count);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
             Obj.AddTax(fakeTaxOnLineTwo);
-            Assert.AreEqual(2, TaxOnLines.Instance.Count);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
         }
 
-        //[TestMethod]
-        //public void RemoveTaxOnLineTest()
-        //{
-        //    var fakeTaxOnLineOne = new TaxOnLine();
-        //    fakeTaxOnLineOne.tax = new TaxOnLine();
-        //    var fakeTaxOnLineTwo = new TaxOnLine();
-        //    fakeTaxOnLineTwo.tax = new TaxOnLine();
-        //    Obj.AddTax(fakeTaxOnLineOne);
-        //    Obj.AddTax(fakeTaxOnLineTwo);
-        //    Assert.AreEqual(2, TaxOnLines.Instance.Count);
-        //    Obj.RemoveTax(fakeTaxOnLineOne.tax);
-        //    Assert.AreEqual(1, TaxOnLines.Instance.Count);
-        //}
+        [TestMethod]
+        public void RemoveTaxOnLineTest()
+        {
+            var fakeTaxOnLineOne = TaxOnLine.Random();
+            var fakeTaxOnLineTwo = TaxOnLine.Random();
+            Obj.AddTax(fakeTaxOnLineOne);
+            Obj.AddTax(fakeTaxOnLineTwo);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
+            Obj.RemoveTax(fakeTaxOnLineOne);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
+        }
 
         [TestMethod]
         public void AddChargeLineTest()
@@ -114,26 +66,52 @@ namespace Open.Tests.Archetypes.OrderClasses
             var fakeChargeLineOne = new ChargeLine();
             var fakeChargeLineTwo = new ChargeLine();
             Obj.AddChargeLine(fakeChargeLineOne);
-            Assert.AreEqual(1, ChargeLines.Instance.Count);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
             Obj.AddChargeLine(fakeChargeLineTwo);
-            Assert.AreEqual(2, ChargeLines.Instance.Count);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
         }
 
-
-        /*
         [TestMethod]
         public void RemoveChargeLineTest()
         {
-            var fakeChargeLineOne = new ChargeLine();
-            fakeChargeLineOne.id = new OrderLineIdentifier();
-            var fakeChargeLineTwo = new ChargeLine();
-            fakeChargeLineTwo.id = new OrderLineIdentifier();
+            var fakeChargeLineOne = ChargeLine.Random();
+            var fakeChargeLineTwo = ChargeLine.Random();
             Obj.AddChargeLine(fakeChargeLineOne);
             Obj.AddChargeLine(fakeChargeLineTwo);
-            Assert.AreEqual(2, ChargeLines.Instance.Count);
-            Obj.RemoveChargeLine(fakeChargeLineOne.id);
-            Assert.AreEqual(1, ChargeLines.Instance.Count);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
+            Obj.RemoveChargeLine(fakeChargeLineOne);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
         }
-        */
+        
+        [TestMethod]
+        public void DeliveryReceiverIdTest()
+        {
+            TestProperty(() => Obj.DeliveryReceiverId, x => Obj.DeliveryReceiverId = x);
+        }
+
+        [TestMethod]
+        public void AddDeliveryReceiverTest()
+        {
+            //TODO mis on obj? testi loogika on imelik 
+            var fakeDeliveryReceiverOne = DeliveryReceiver.Random();
+            var fakeDeliveryReceiverTwo = DeliveryReceiver.Random();
+            Obj.AddDeliveryReceiver(fakeDeliveryReceiverOne);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
+            Obj.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
+        }
+
+        [TestMethod]
+        public void RemoveDeliveryReceiverTest()
+        {
+            //DONE kasutage ikka random asju testimisel
+            var fakeDeliveryReceiverOne = DeliveryReceiver.Random();
+            var fakeDeliveryReceiverTwo = DeliveryReceiver.Random();
+            Obj.AddDeliveryReceiver(fakeDeliveryReceiverOne);
+            Obj.AddDeliveryReceiver(fakeDeliveryReceiverTwo);
+            Assert.AreEqual(2, OrderLines.Instance.Count);
+            Obj.RemoveDeliveryReceiver(fakeDeliveryReceiverOne);
+            Assert.AreEqual(1, OrderLines.Instance.Count);
+        }
     }
 }

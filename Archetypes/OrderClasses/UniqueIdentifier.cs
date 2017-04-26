@@ -4,6 +4,6 @@ namespace Open.Archetypes.OrderClasses
 {
     public class UniqueIdentifier : UniqueEntity
     {
-        //public String UniqueIdentifier??
+        //TODO kas see klass on vajalik?
     }
 }

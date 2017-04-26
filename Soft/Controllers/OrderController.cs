@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using Open.Archetypes.OrderClasses;
 using Open.Logic.OrderClasses;
@@ -73,25 +75,27 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
+            if (order == null) return HttpNotFound();
+            return View(new OrderViewModel(order));
         }
-
         // POST: Order/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
+                //order.Valid.To = DateTime.Now;
             }
             catch
             {
-                return View();
+                ;
             }
+            return RedirectToAction("Index");
         }
     }
 }

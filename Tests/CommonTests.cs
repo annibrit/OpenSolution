@@ -33,8 +33,8 @@ namespace Open.Tests
         [TestMethod]
         public void FromJsonTest()
         {
-            ToFromJsonTest(new T());
             ToFromJsonTest(GetRandomObj());
+            ToFromJsonTest(new T());
         }
 
         [TestMethod]

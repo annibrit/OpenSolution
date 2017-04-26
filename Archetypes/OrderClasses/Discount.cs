@@ -1,4 +1,5 @@
-﻿using Open.Archetypes.BaseClasses;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -6,18 +7,25 @@ namespace Open.Archetypes.OrderClasses
     {
         private string reason;
 
-        public string Reason
-        {
-            get { return SetDefault(ref reason); }
-            set { SetValue(ref reason, value); }
-        }
-
-        //CalculateDiscountPrice(price : Price) : Price
         public static Discount Random()
         {
             var x = new Discount();
             x.SetRandomValues();
             return x;
         }
-    }
+        
+        // Alati, kui on Random ja klassis on privaatsed 
+        // muutujad tuleb need SetRandomValues meetodis väärtustada
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            reason = GetRandom.String();
+        }
+
+        public string Reason
+        {
+            get { return SetDefault(ref reason); }
+            set { SetValue(ref reason, value); }
+        }
+    } 
 }

@@ -3,27 +3,25 @@ using Open.Archetypes.OrderClasses;
 
 namespace Open.Tests.Archetypes.OrderClasses
 {
+
     [TestClass]
-    public class DiscountTests : CommonTests<Discount>
+    public class DeliveryReceiversTests : CommonTests<DeliveryReceiver>
     {
-        protected override Discount GetRandomObj()
+        protected override DeliveryReceiver GetRandomObj()
         {
-            return Discount.Random();
+            return DeliveryReceiver.Random();
         }
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
         }
+
         [TestCleanup]
         public override void TestCleanup()
         {
             base.TestCleanup();
-        }
-        [TestMethod]
-        public void ReasonTest()
-        {
-            TestProperty(() => Obj.Reason, x => Obj.Reason = x);
         }
     }
 }

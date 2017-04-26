@@ -73,7 +73,8 @@ namespace Open.Tests.Archetypes.RuleClasses
         public void ValueTest()
         {
             Obj = new DateTimeVariable();
-            TestProperty(() => Obj.Value, x => Obj.Value = x, DateTime.MinValue);
+            //TestProperty(() => Obj.Value, x => Obj.Value = x, DateTime.MinValue);
+            TestProperty(() => Obj.Value, x => Obj.Value = x);
         }
 
         [TestMethod]

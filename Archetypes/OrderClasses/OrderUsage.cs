@@ -4,6 +4,7 @@ using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
+    //TODO mis on selle klassi ja OrderUses eesmärk?
     [KnownType(typeof(ChargeLine))]
     [KnownType(typeof(OrderLine))]
     [KnownType(typeof(OrderStatus))]

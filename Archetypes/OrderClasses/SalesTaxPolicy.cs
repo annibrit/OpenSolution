@@ -3,7 +3,6 @@
 namespace Open.Archetypes.OrderClasses
 {
     public class SalesTaxPolicy : Archetype
-
     {
         private double rate;
         private string taxtype;

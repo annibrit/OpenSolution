@@ -77,7 +77,7 @@ namespace Open.Tests.Archetypes.RuleClasses
         public void ValueTest()
         {
             Obj = new BooleanVariable();
-            TestProperty(() => Obj.Value, x => Obj.Value = x, false);
+            TestProperty(() => Obj.Value, x => Obj.Value = x);
         }
 
         [TestMethod]

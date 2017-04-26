@@ -25,7 +25,7 @@ namespace Open.Tests.Archetypes.BaseClasses
         public void FromTest()
         {
             Obj = new Period();
-            TestProperty(() => Obj.From, x => Obj.From = x, Period.MinValue);
+            TestProperty(() => Obj.From, x => Obj.From = x);
         }
 
         [TestMethod]
@@ -72,7 +72,7 @@ namespace Open.Tests.Archetypes.BaseClasses
         public void ToTest()
         {
             Obj = new Period();
-            TestProperty(() => Obj.To, x => Obj.To = x, Period.MaxValue);
+            TestProperty(() => Obj.To, x => Obj.To = x);
         }
 
         protected override Period GetRandomObj()

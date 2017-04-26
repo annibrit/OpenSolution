@@ -31,6 +31,7 @@ namespace Open.Tests.Archetypes.OrderClasses
         public void ConstructorTest()
         {
             var a = new Order().GetType().BaseType;
+            //DONE siin kontrollite, et baastüüp oleks UnigueEntity
             Assert.AreEqual(a, typeof(UniqueEntity));
         }
 
@@ -65,11 +66,13 @@ namespace Open.Tests.Archetypes.OrderClasses
         [TestMethod]
         public void RemoveOrderLineTest()
         {
-            var orderLine = OrderLines.Instance.Get(GetRandom.Int32(0, OrderLines.Instance.Count - 1));
-            var count = OrderLines.Instance.Count;
-            Obj.RemoveOrderLine(orderLine);
-            Assert.AreEqual(count - 1, OrderLines.Instance.Count);
-            Assert.AreEqual(null, OrderLines.Instance.Find(x => x.IsSameContent(orderLine)));
+            var l = OrderLine.Random();
+            Obj.AddOrderLine(l);
+            var count = Obj.GetOrderLines().Count;
+            Assert.AreEqual(l, OrderLines.Instance.Find(x => x.UniqueId == l.UniqueId));
+            Obj.RemoveOrderLine(l);
+            Assert.AreEqual(count - 1, Obj.GetOrderLines().Count);
+            Assert.IsNull(OrderLines.Instance.Find(x => x.UniqueId == l.UniqueId));
         }
 
         [TestMethod]
@@ -78,8 +81,8 @@ namespace Open.Tests.Archetypes.OrderClasses
             var orderLine = OrderLine.Random();
             orderLine.OrderId = Obj.UniqueId;
             OrderLines.Instance.Add(orderLine);
-            Assert.AreEqual(1, Obj.GetOrderLines.Count);
-            Assert.AreEqual(orderLine, Obj.GetOrderLines.Get(0));
+            Assert.AreEqual(1, Obj.GetOrderLines().Count);
+            Assert.AreEqual(orderLine, Obj.GetOrderLines().Get(0));
         }
     }
 }

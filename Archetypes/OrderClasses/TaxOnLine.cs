@@ -1,10 +1,14 @@
-﻿using Open.Archetypes.BaseClasses;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class TaxOnLine : UniqueEntity
+    public class TaxOnLine : BaseOrderLine
     {
         private string order_line_id;
+        private string type;
+        private string id;
+        private double rate;
 
         public string OrderLineId
         {
@@ -12,34 +16,38 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref order_line_id, value); }
         }
 
-        //private string type;
-        //private string comment;
+        public string Type
+        {
+            get { return SetDefault(ref type); }
+            set { SetValue(ref type, value); }
+        }
 
-        //public int taxationRate { get; set; }
+        public string Id
+        {
+            get { return SetDefault(ref id); }
+            set { SetValue(ref id, value); }
+        }
 
-        ////public TaxOnLine tax { get; set; }
-
-        //public string id { get; set; }
-
-        //public double Rate { get; set; }
-
-        //public string Type
-        //{
-        //    get { return SetDefault(ref type); }
-        //    set { SetValue(ref type, value); }
-        //}
-
-        //public string Comment
-        //{
-        //    get { return SetDefault(ref comment); }
-        //    set { SetValue(ref comment, value); }
-        //}
+        public double Rate
+        {
+            get { return SetDefault(ref rate); }
+            set { SetValue(ref rate, value); }
+        }
 
         public static TaxOnLine Random()
         {
             var x = new TaxOnLine();
             x.SetRandomValues();
             return x;
+        }
+
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            rate = GetRandom.Double();
+            id = GetRandom.String();
+            order_line_id = GetRandom.String();
+            type = GetRandom.String();
         }
     }
 }

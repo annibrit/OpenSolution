@@ -32,7 +32,14 @@ namespace Open.Aids
             if (t <= f) return f;
             var r = (t - f).Ticks;
             var x = new TimeSpan((long) (rnd.NextDouble() * r));
-            return f + x;
+            var d = f + x;
+            d = fixPossibleXmlSummerTimeIssue(d);
+            return d;
+        }
+
+        private static DateTime fixPossibleXmlSummerTimeIssue(DateTime d) {
+            if (d.Hour == 3) d = d.AddHours(GetRandom.UInt8(4, 22));
+            return d;
         }
 
         public static decimal Decimal(decimal min = decimal.MinValue,

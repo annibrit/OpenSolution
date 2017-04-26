@@ -9,8 +9,8 @@ namespace Open.Tests
     {
         protected void TestProperty(Func<string> get, Action<string> set)
         {
-            Assert.AreEqual(string.Empty, get());
             var s = GetRandom.String();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
             set(null);
@@ -29,51 +29,51 @@ namespace Open.Tests
             set(default(T));
             Assert.IsNotNull(get());
         }
-
-        public void TestProperty(Func<DateTime> get, Action<DateTime> set, DateTime initialValue)
+         public void TestProperty(Func<DateTime> get, Action<DateTime> set)
         {
-            Assert.AreEqual(initialValue, get());
             var s = GetRandom.DateTime();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
         }
-
-        public void TestProperty(Func<bool> get, Action<bool> set, bool initialValue)
+        public void TestProperty(Func<bool> get, Action<bool> set)
         {
-            Assert.AreEqual(initialValue, get());
-            var s = !initialValue;
-            set(s);
-            Assert.AreEqual(s, get());
+            var b = !get();
+            Assert.AreNotEqual(b, get());
+            set(b);
+            Assert.AreEqual(b, get());
         }
-
-        public void TestProperty(Func<double> get, Action<double> set, double initialValue)
+        
+        public void TestProperty(Func<double> get, Action<double> set)
         {
-            Assert.AreEqual(initialValue, get());
             var s = GetRandom.Double();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
         }
 
-        public void TestProperty(Func<decimal> get, Action<decimal> set, decimal initialValue)
+        
+        public void TestProperty(Func<decimal> get, Action<decimal> set)
         {
-            Assert.AreEqual(initialValue, get());
             var s = GetRandom.Decimal();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
         }
 
-        public void TestProperty(Func<int> get, Action<int> set, int initialValue)
+        
+        public void TestProperty(Func<int> get, Action<int> set)
         {
-            Assert.AreEqual(initialValue, get());
             var s = GetRandom.Int32();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
         }
 
-        public void TestProperty(Func<uint> get, Action<uint> set, uint initialValue)
+        public void TestProperty(Func<uint> get, Action<uint> set)
         {
-            Assert.AreEqual(initialValue, get());
             var s = GetRandom.UInt32();
+            Assert.AreNotEqual(s, get());
             set(s);
             Assert.AreEqual(s, get());
         }

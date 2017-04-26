@@ -5,11 +5,13 @@ using Open.Archetypes.BaseClasses;
 namespace Open.Archetypes.OrderClasses
 {
     public class Order : UniqueEntity
+        //DONE see ei ole OK, peab olema UniqueEntity
+
     {
         private DateTime date_created;
         private string sales_channel;
         private string terms_and_conditions;
-
+        
         public DateTime DateCreated
         {
             get { return SetDefault(ref date_created); }
@@ -28,10 +30,16 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref terms_and_conditions, value); }
         }
 
-        public OrderLines GetOrderLines => OrderLines.GetOrderLinesByOrderId(UniqueId); 
-
-        public void AddOrderLine(OrderLine orderLine)
+        //DONE teeme selle meetodiks, kuna JSON läheb lolliks, kui 
+        public OrderLines GetOrderLines()
         {
+            return OrderLines.GetOrderLinesByOrderId(UniqueId);
+        }
+
+    public void AddOrderLine(OrderLine orderLine)
+        {
+            if (IsNull(orderLine)) return;
+            orderLine.OrderId = UniqueId;
             OrderLines.Instance.Add(orderLine);
         }
 
@@ -47,12 +55,13 @@ namespace Open.Archetypes.OrderClasses
             return a;
         }
 
+        //DONE siin on parem kasutada omistamist privaatsetele muutujatele
         protected override void SetRandomValues()
         {
             base.SetRandomValues();
-            DateCreated = GetRandom.DateTime();
-            SalesChannel = GetRandom.String();
-            TermsAndConditions = GetRandom.String();
+            date_created = GetRandom.DateTime();
+            sales_channel = GetRandom.String();
+            terms_and_conditions = GetRandom.String();
 
         }
     }
