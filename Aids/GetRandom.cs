@@ -19,7 +19,7 @@ namespace Open.Aids
             return (char) i;
         }
 
-        public static byte Count(byte min = 5, byte max = 10)
+        public static byte Count(byte min = 10, byte max = 30)
         {
             return UInt8(min, max);
         }
@@ -110,7 +110,7 @@ namespace Open.Aids
         {
             var b = new StringBuilder();
             var size = Int32(min, max);
-            for (var i = 0; i < size; i++) b.Append(Char('A', 'z'));
+            for (var i = 0; i < size; i++) b.Append(Char('a', 'z'));
             return b.ToString();
         }
 
