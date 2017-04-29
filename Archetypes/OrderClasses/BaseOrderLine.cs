@@ -15,6 +15,7 @@ namespace Open.Archetypes.OrderClasses
             x.SetRandomValues();
             return x;
         }
+
         public string OrderId
         {
             get { return SetDefault(ref order_id); }
@@ -32,7 +33,5 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref comment); }
             set { SetValue(ref comment, value); }
         }
-
-
     }
 }

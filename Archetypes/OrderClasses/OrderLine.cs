@@ -7,7 +7,7 @@ namespace Open.Archetypes.OrderClasses
 {
     public class OrderLine : BaseOrderLine
     {
-        //TODO kas alati peab privaatsed muutujad väärtustama? (SetRandomValues)
+        //DONE Alati peab privaatsed muutujad väärtustama (SetRandomValues)
         private int number_ordered;
         private DateTime expected_delivery_date;
         private string product_type_id;
@@ -42,7 +42,6 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref delivery_receiver_id); }
             set { SetValue(ref delivery_receiver_id, value); }
         }
-
 
         public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
         public ChargeLine GetChargeLine => OrderLines.GetChargeLineByOrderLineId(UniqueId);
@@ -99,7 +98,6 @@ namespace Open.Archetypes.OrderClasses
         }
 
         public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
-
         public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
         {
 

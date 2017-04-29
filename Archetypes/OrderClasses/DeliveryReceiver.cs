@@ -5,7 +5,7 @@ namespace Open.Archetypes.OrderClasses
 {
     public class DeliveryReceiver : OrderLine
     {
-       //TODO kas vajab OrderId'd või on OrderLine kaudu juba seotud Orderiga
+       //TODO Kas DeliveryReceiver vajab OrderId'd või on OrderLine kaudu juba seotud Orderiga
         private string order_id;
         private string name;
         private string address;
@@ -31,7 +31,6 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref mobile_phone); }
             set { SetValue(ref mobile_phone, value); }
         }
-
 
         public static DeliveryReceiver Random()
         {
