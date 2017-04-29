@@ -79,7 +79,7 @@ namespace Open.Archetypes.OrderClasses
         {
             OrderLines.Instance.Remove(chargeLine);
         }
-        //TODO nimekordus - kuidas parandada?
+        //TODO Nimekordus - kuidas parandada?
         public static OrderLine Random()
         {
             var o = new OrderLine();

@@ -33,7 +33,7 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref taxid); }
             set { SetValue(ref taxid, value); }
         }
-        //TODO kuidas siduda Tax ChargeLine külge ja on seda üldse vaja?
+        //TODO Kuidas siduda Tax ChargeLine külge ja on seda üldse vaja?
         public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
 
         public void AddTax(TaxOnLine tax)

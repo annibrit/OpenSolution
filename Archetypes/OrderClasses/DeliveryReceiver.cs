@@ -5,7 +5,7 @@ namespace Open.Archetypes.OrderClasses
 {
     public class DeliveryReceiver : OrderLine
     {
-       //TODO Kas DeliveryReceiver vajab OrderId'd või on OrderLine kaudu juba seotud Orderiga
+       //TODO Kas DeliveryReceiver vajab OrderId'd või on OrderLine kaudu juba seotud Orderiga?
         private string order_id;
         private string name;
         private string address;

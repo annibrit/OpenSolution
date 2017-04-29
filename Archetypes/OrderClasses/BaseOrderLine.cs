@@ -3,7 +3,7 @@ namespace Open.Archetypes.OrderClasses
 {
     public class BaseOrderLine: UniqueEntity
     {
-        //TODO mis funk on baseorderlinel?
+        //TODO Mis funk on baseorderlinel?
 
         private string comment;
         private string description;
