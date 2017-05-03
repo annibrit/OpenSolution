@@ -73,8 +73,6 @@ namespace Open.Tests.Archetypes.RuleClasses
         public void ValueTest()
         {
             Obj = new DecimalVariable();
-            //TODO 
-            //TestProperty(() => Obj.Value, x => Obj.Value = x, 0);
             TestProperty(() => Obj.Value, x => Obj.Value = x);
         }
 

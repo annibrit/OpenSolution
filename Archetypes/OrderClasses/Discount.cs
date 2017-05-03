@@ -13,9 +13,7 @@ namespace Open.Archetypes.OrderClasses
             x.SetRandomValues();
             return x;
         }
-        
-        // Alati, kui on Random ja klassis on privaatsed 
-        // muutujad tuleb need SetRandomValues meetodis väärtustada
+
         protected override void SetRandomValues()
         {
             base.SetRandomValues();
