@@ -18,6 +18,7 @@ namespace Soft.Controllers
             var m = new List<OrderViewModel>();
             foreach (var e in Orders.Instance)
             {
+                if (e.Valid.To < DateTime.Now) continue;
                 var x = new OrderViewModel(e);
                 m.Add(x);
             }
@@ -25,7 +26,7 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             return View();
         }
@@ -80,7 +81,7 @@ namespace Soft.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
             if (order == null) return HttpNotFound();
-            return View(new OrderViewModel(order));
+            return View("Delete", new OrderViewModel(order));
         }
         // POST: Order/Delete/5
         [HttpPost]
@@ -89,7 +90,7 @@ namespace Soft.Controllers
             try
             {
                 var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
-                //order.Valid.To = DateTime.Now;
+                order.Valid.To = DateTime.Now;
             }
             catch
             {
