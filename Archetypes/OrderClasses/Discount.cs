@@ -7,6 +7,12 @@ namespace Open.Archetypes.OrderClasses
     {
         private string reason;
 
+        public string Reason
+        {
+            get { return SetDefault(ref reason); }
+            set { SetValue(ref reason, value); }
+        }
+
         public static Discount Random()
         {
             var x = new Discount();
@@ -18,12 +24,6 @@ namespace Open.Archetypes.OrderClasses
         {
             base.SetRandomValues();
             reason = GetRandom.String();
-        }
-
-        public string Reason
-        {
-            get { return SetDefault(ref reason); }
-            set { SetValue(ref reason, value); }
         }
     } 
 }

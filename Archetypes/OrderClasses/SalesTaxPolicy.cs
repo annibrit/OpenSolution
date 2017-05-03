@@ -1,4 +1,5 @@
-﻿using Open.Archetypes.BaseClasses;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -24,6 +25,13 @@ namespace Open.Archetypes.OrderClasses
             var x = new SalesTaxPolicy();
             x.SetRandomValues();
             return x;
+        }
+
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            rate = GetRandom.Double();
+            taxtype = GetRandom.String();
         }
     }
 }

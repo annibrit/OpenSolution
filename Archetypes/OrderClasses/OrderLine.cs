@@ -79,6 +79,22 @@ namespace Open.Archetypes.OrderClasses
         {
             OrderLines.Instance.Remove(chargeLine);
         }
+
+        public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
+        public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
+        {
+
+            if (IsNull(deliveryReceiver)) return;
+            deliveryReceiver.OrderLineId = UniqueId;
+            deliveryReceiver.OrderId = OrderId;
+            OrderLines.Instance.Add(deliveryReceiver);
+        }
+
+        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
+        {
+            OrderLines.Instance.Remove(receiver);
+        }
+
         //TODO Nimekordus - kuidas parandada?
         public static OrderLine Random()
         {
@@ -95,21 +111,6 @@ namespace Open.Archetypes.OrderClasses
             expected_delivery_date = GetRandom.DateTime();
             product_type_id = GetRandom.String();
             order_line_id = GetRandom.String();
-        }
-
-        public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
-        public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
-        {
-
-            if (IsNull(deliveryReceiver)) return;
-            deliveryReceiver.OrderLineId = UniqueId;
-            deliveryReceiver.OrderId = OrderId;
-            OrderLines.Instance.Add(deliveryReceiver);
-        }
-
-        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
-        {
-            OrderLines.Instance.Remove(receiver);
         }
     }
 }

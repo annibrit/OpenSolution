@@ -35,6 +35,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />
+    <Compile Include="OrderClasses\OrderDetailsModel.cs" />
+    <Compile Include="OrderClasses\OrderEditModel.cs" />
     <Compile Include="OrderClasses\OrderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

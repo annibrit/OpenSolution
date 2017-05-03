@@ -1,4 +1,5 @@
-﻿using Open.Archetypes.BaseClasses;
+﻿using Open.Aids;
+using Open.Archetypes.BaseClasses;
 namespace Open.Archetypes.OrderClasses
 {
     public class BaseOrderLine: UniqueEntity
@@ -8,13 +9,6 @@ namespace Open.Archetypes.OrderClasses
         private string comment;
         private string description;
         private string order_id;
-
-        public static BaseOrderLine Random()
-        {
-            var x = new BaseOrderLine();
-            x.SetRandomValues();
-            return x;
-        }
 
         public string OrderId
         {
@@ -32,6 +26,21 @@ namespace Open.Archetypes.OrderClasses
         {
             get { return SetDefault(ref comment); }
             set { SetValue(ref comment, value); }
+        }
+
+        public static BaseOrderLine Random()
+        {
+            var x = new BaseOrderLine();
+            x.SetRandomValues();
+            return x;
+        }
+
+        protected override void SetRandomValues()
+        {
+            base.SetRandomValues();
+            comment = GetRandom.String();
+            description = GetRandom.String();
+            order_id = GetRandom.String();
         }
     }
 }
