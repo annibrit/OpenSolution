@@ -13,11 +13,12 @@ namespace Soft.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            if (!isCreated) Orders.Instance.AddRange(Orders.Random()); //hiljem selle koha peal avame andmebaasi
+            if (!isCreated) Orders.Instance.AddRange(Orders.Random());
             isCreated = true;
-            var m = new List<OrderViewModel>(); //loome vahemudeli - kollektsiooni
+            var m = new List<OrderViewModel>();
             foreach (var e in Orders.Instance)
             {
+                if (e.Valid.To < DateTime.Now) continue;
                 var x = new OrderViewModel(e);
                 m.Add(x);
             }
@@ -25,56 +26,56 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             return View();
         }
 
         // GET: Order/Create
-        public ActionResult Create()
+        public ActionResult CreateOrder()
         {
-            return View();
+            var e = new OrderEditModel();
+            return View("CreateOrder", e);
         }
 
         // POST: Order/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateOrder(
+            [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")]
+        OrderEditModel k)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            if (!ModelState.IsValid) return View("EditOrder", k);
+            var order = new Order();
+            k.Update(order);
+            Orders.Instance.Add(order);
+            return RedirectToAction("Index");
+    }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
 
         // GET: Order/Edit/5
         public ActionResult Edit(string id)
-
         {
-
-            return View();
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
+            if (order == null) return HttpNotFound();
+            return View("EditOrder", new OrderEditModel(order));
         }
 
         // POST: Order/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        
+             [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEmail(
+            [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")] OrderEditModel e)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (!ModelState.IsValid) return View("EditOrder", e);
+            var order = Orders.Instance.Find(x => x.IsThisUniqueId(e.UniqueId));
+            if (order == null) return HttpNotFound();
+            e.Update(order);
+            return RedirectToAction("Index");
         }
+    
 
         // GET: Order/Delete/5
         public ActionResult Delete(string id)
@@ -82,7 +83,7 @@ namespace Soft.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
             if (order == null) return HttpNotFound();
-            return View(new OrderViewModel(order));
+            return View("Delete", new OrderViewModel(order));
         }
         // POST: Order/Delete/5
         [HttpPost]
@@ -91,7 +92,7 @@ namespace Soft.Controllers
             try
             {
                 var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
-                //order.Valid.To = DateTime.Now;
+                order.Valid.To = DateTime.Now;
             }
             catch
             {

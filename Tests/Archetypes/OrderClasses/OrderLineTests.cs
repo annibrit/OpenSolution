@@ -92,7 +92,7 @@ namespace Open.Tests.Archetypes.OrderClasses
         [TestMethod]
         public void AddDeliveryReceiverTest()
         {
-            //TODO mis on obj? testi loogika on imelik 
+            //TODO Mis on Obj? Testi loogikast ei saa aru.
             var fakeDeliveryReceiverOne = DeliveryReceiver.Random();
             var fakeDeliveryReceiverTwo = DeliveryReceiver.Random();
             Obj.AddDeliveryReceiver(fakeDeliveryReceiverOne);

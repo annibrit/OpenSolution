@@ -7,7 +7,7 @@ namespace Open.Archetypes.OrderClasses
 {
     public class OrderLine : BaseOrderLine
     {
-        //TODO kas alati peab privaatsed muutujad väärtustama? (SetRandomValues)
+        //DONE Alati peab privaatsed muutujad väärtustama (SetRandomValues)
         private int number_ordered;
         private DateTime expected_delivery_date;
         private string product_type_id;
@@ -42,7 +42,6 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref delivery_receiver_id); }
             set { SetValue(ref delivery_receiver_id, value); }
         }
-
 
         public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
         public ChargeLine GetChargeLine => OrderLines.GetChargeLineByOrderLineId(UniqueId);
@@ -80,7 +79,23 @@ namespace Open.Archetypes.OrderClasses
         {
             OrderLines.Instance.Remove(chargeLine);
         }
-        //TODO nimekordus - kuidas parandada?
+
+        public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
+        public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
+        {
+
+            if (IsNull(deliveryReceiver)) return;
+            deliveryReceiver.OrderLineId = UniqueId;
+            deliveryReceiver.OrderId = OrderId;
+            OrderLines.Instance.Add(deliveryReceiver);
+        }
+
+        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
+        {
+            OrderLines.Instance.Remove(receiver);
+        }
+
+        //TODO Nimekordus - kuidas parandada?
         public static OrderLine Random()
         {
             var o = new OrderLine();
@@ -96,22 +111,6 @@ namespace Open.Archetypes.OrderClasses
             expected_delivery_date = GetRandom.DateTime();
             product_type_id = GetRandom.String();
             order_line_id = GetRandom.String();
-        }
-
-        public DeliveryReceiver GetDeliveryReceiver => OrderLines.GetDeliveryReceiverByOrderLineId(UniqueId);
-
-        public void AddDeliveryReceiver(DeliveryReceiver deliveryReceiver)
-        {
-
-            if (IsNull(deliveryReceiver)) return;
-            deliveryReceiver.OrderLineId = UniqueId;
-            deliveryReceiver.OrderId = OrderId;
-            OrderLines.Instance.Add(deliveryReceiver);
-        }
-
-        public void RemoveDeliveryReceiver(DeliveryReceiver receiver)
-        {
-            OrderLines.Instance.Remove(receiver);
         }
     }
 }
