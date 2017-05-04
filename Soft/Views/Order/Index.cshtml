@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Open.Logic.OrderClasses.OrderViewModel>
+﻿@model IEnumerable<Open.Logic.OrderClasses.OrderViewModel>// mudel annab kollektsiooni kaasa
 
 @{
     ViewBag.Title = "Index";
@@ -42,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.TermsAndConditions)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
+                @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) | //siit saab ta selle vastava id stringi kätte!
                 @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
                 @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
             </td>

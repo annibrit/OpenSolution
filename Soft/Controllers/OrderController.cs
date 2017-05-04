@@ -13,9 +13,9 @@ namespace Soft.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            if (!isCreated) Orders.Instance.AddRange(Orders.Random());
+            if (!isCreated) Orders.Instance.AddRange(Orders.Random()); //hiljem selle koha peal avame andmebaasi
             isCreated = true;
-            var m = new List<OrderViewModel>();
+            var m = new List<OrderViewModel>(); //loome vahemudeli - kollektsiooni
             foreach (var e in Orders.Instance)
             {
                 var x = new OrderViewModel(e);
@@ -53,8 +53,10 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
+
         {
+
             return View();
         }
 
