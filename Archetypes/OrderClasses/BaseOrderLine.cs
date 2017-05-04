@@ -30,9 +30,10 @@ namespace Open.Archetypes.OrderClasses
 
         public static BaseOrderLine Random()
         {
-            var x = new BaseOrderLine();
-            x.SetRandomValues();
-            return x;
+            var i = GetRandom.UInt32()%4;
+            if (i == 0) return ChargeLine.Random();
+            if (i == 1) return TaxOnLine.Random();
+            return OrderLine.Random();
         }
 
         protected override void SetRandomValues()

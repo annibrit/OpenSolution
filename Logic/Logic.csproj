@@ -32,10 +32,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />
-    <Compile Include="OrderClasses\OrderDetailsModel.cs" />
+    <Compile Include="OrderClasses\OrderDetailsViewModel.cs" />
     <Compile Include="OrderClasses\OrderEditModel.cs" />
     <Compile Include="OrderClasses\OrderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

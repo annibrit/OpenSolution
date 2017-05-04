@@ -68,6 +68,7 @@
     <Compile Include="OrderClasses\OrderLines.cs" />
     <Compile Include="OrderClasses\Orders.cs" />
     <Compile Include="OrderClasses\OrderStatus.cs" />
+    <Compile Include="OrderClasses\ProductType.cs" />
     <Compile Include="OrderClasses\SalesTaxPolicy.cs" />
     <Compile Include="OrderClasses\TaxOnLine.cs" />
     <Compile Include="OrderClasses\UniqueIdentifier.cs" />

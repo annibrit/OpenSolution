@@ -11,7 +11,7 @@ namespace Open.Archetypes.OrderClasses
         {
             var r = new OrderLines();
             var c = GetRandom.Count();
-            for (var i = 0; i < c; i++) r.Add(OrderLine.Random());
+            for (var i = 0; i < c; i++) r.Add(BaseOrderLine.Random());
             return r;
         }
 

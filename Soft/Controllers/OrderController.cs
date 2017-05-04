@@ -28,7 +28,9 @@ namespace Soft.Controllers
         // GET: Order/Details/5
         public ActionResult Details(string id)
         {
-            return View();
+            var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
+            var model = new OrderDetailsViewModel(order);
+            return View(model);
         }
 
         // GET: Order/Create

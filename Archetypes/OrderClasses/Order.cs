@@ -60,6 +60,13 @@ namespace Open.Archetypes.OrderClasses
             date_created = GetRandom.DateTime();
             sales_channel = GetRandom.String();
             terms_and_conditions = GetRandom.String();
+            var lines = OrderLines.Random();
+            foreach (var l in lines)
+            {
+                l.OrderId = UniqueId;
+                OrderLines.Instance.Add(l);
+
+            }
         }
     }
 }
