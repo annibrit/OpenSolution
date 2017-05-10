@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderLineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,21 +160,24 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\OrderLine\Index.cshtml" />
+    <Content Include="Views\Order\Home\About.cshtml" />
+    <Content Include="Views\Order\Home\Contact.cshtml" />
+    <Content Include="Views\Order\Home\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Delete.cshtml" />
     <Content Include="Views\Order\EditOrder.cshtml" />
     <Content Include="Views\Order\CreateOrder.cshtml" />
-    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\OrderDetails.cshtml" />
+    <Content Include="Views\OrderLine\CreateOrderLine.cshtml" />
+    <Content Include="Views\TaxOnLine\CreateTaxOnLine.cshtml" />
+    <Content Include="Views\ChargeLine\CreateChargeLine.cshtml" />
+    <Content Include="Views\OrderLine\EditOrderLine.cshtml" />
+    <Content Include="Views\OrderLine\DeleteOrderLine.cshtml" />
+    <Content Include="Views\Order\OrderLineDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\ChargeLine\" />
-    <Folder Include="Views\TaxOnLine\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

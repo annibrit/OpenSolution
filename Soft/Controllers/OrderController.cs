@@ -11,6 +11,13 @@ namespace Soft.Controllers
     {
         private static bool isCreated;
         // GET: Order
+        public ActionResult OrderLineDetails(string id)
+        {
+            var orderline = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+            var model = new OrderLineDetailsViewModel(orderline);
+            return View(model);
+        }
+
         public ActionResult Index()
         {
             if (!isCreated) Orders.Instance.AddRange(Orders.Random());
@@ -26,7 +33,7 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Details/5
-        public ActionResult Details(string id)
+        public ActionResult OrderDetails(string id)
         {
             var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
             var model = new OrderDetailsViewModel(order);
