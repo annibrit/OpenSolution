@@ -14,7 +14,7 @@ namespace Soft.Controllers
         private OrderLine orderline;
         
         // GET: Order/Details/5
-        public ActionResult DetailsOrderLine(string id)
+        public ActionResult OrderLineDetails(string id)
         {
             var orderline = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
             var model = new OrderLineDetailsViewModel(orderline);
@@ -58,28 +58,5 @@ namespace Soft.Controllers
             return View("EditOrderLine", new OrderLineEditModel(orderline));
         }
 
-        // GET: Order/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var order = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (order == null) return HttpNotFound();
-            return View("DeleteOrderLine", new OrderLineViewModel(orderline));
-        }
-        // POST: Order/Delete/5
-        [HttpPost]
-        public ActionResult DeleteOrderLine(string id, FormCollection collection)
-        {
-            try
-            {
-                var orderline = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-                orderline.Valid.To = DateTime.Now;
-            }
-            catch
-            {
-                ;
-            }
-            return RedirectToAction("OrderDetails");
-        }
     }
 }
