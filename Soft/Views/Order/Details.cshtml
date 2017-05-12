@@ -1,0 +1,81 @@
+﻿@model Open.Logic.OrderClasses.OrderDetailsViewModel
+
+@{
+    ViewBag.Title = "Order Details";
+}
+
+<h2>Order @Html.DisplayFor(model => model.UniqueId)</h2>
+<div>
+    <h4></h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <dl class="dl-horizontal">
+        <dt> </dt>
+        <dd> </dd>
+        <dt> @Html.DisplayNameFor(model => model.UniqueId) </dt>
+        <dd> @Html.DisplayFor(model => model.UniqueId) </dd>
+        <dt> @Html.DisplayNameFor(model => model.DateCreated) </dt>
+        <dd> @Html.DisplayFor(model => model.DateCreated) </dd>
+        <dt> @Html.DisplayNameFor(model => model.SalesChannel) </dt>
+        <dd> @Html.DisplayFor(model => model.SalesChannel) </dd>
+        <dt> @Html.DisplayNameFor(model => model.TermsAndConditions) </dt>
+        <dd> @Html.DisplayFor(model => model.TermsAndConditions) </dd>
+    </dl>
+        <table class="table">
+            <tr>
+                <th>
+                @Html.Label("LineType")
+                </th>
+                <th>
+                @Html.Label("UniqueId")
+                </th>
+                <th>
+                @Html.Label("ExpectedDeliveryDate")
+                </th>
+                <th>
+                    @Html.Label("NumberOrdered")
+                </th>
+                <th>
+                    @Html.Label("TaxRate")
+                </th>
+                <th>
+                    @Html.Label("Comment")
+                </th>
+                <td>
+                </td>
+            </tr>
+
+            @foreach (var item in Model.OrderLines)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LineType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UniqueId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpectedDeliveryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOrdered)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaxRate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.UniqueId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.UniqueId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.UniqueId })
+                    </td>
+                </tr>
+            }
+        </table>   
+    }
+</div>
+

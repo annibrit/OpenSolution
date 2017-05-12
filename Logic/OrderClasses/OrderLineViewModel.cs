@@ -12,11 +12,6 @@ namespace Open.Logic.OrderClasses
             TaxRate = line.Rate;
             Comment = line.Comment;
         }
-
-        public string Comment { get; set; }
-
-        public double TaxRate { get; set; }
-
         public OrderLineViewModel(OrderLine line)
         {
             LineType = line.GetType().Name;
@@ -29,6 +24,11 @@ namespace Open.Logic.OrderClasses
             LineType = line.GetType().Name;
             UniqueId = line.UniqueId;
         }
+
+        public string Comment { get; set; }
+
+        public double TaxRate { get; set; }
+
 
         public DateTime ExpectedDeliveryDate { get; set; }
 

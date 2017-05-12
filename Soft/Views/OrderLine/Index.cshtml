@@ -1,0 +1,91 @@
+﻿@model Open.Archetypes.OrderClasses.OrderLine
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailsIndex</h2>
+
+<div>
+    <h4>OrderLine</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniqueId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniqueId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetDeliveryReceiver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOrdered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChargeLineId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChargeLineId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryReceiverId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryReceiverId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOrdered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOrdered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {/* id = Model.PrimaryKey */}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

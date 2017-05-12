@@ -11,7 +11,6 @@ namespace Soft.Controllers
     public class OrderController : Controller
     {
         private static bool isCreated;
-        private OrderLine orderline;
         // GET: Order
         public ActionResult OrderLineDetails(string id)
         {
@@ -31,7 +30,7 @@ namespace Soft.Controllers
                 var x = new OrderViewModel(e);
                 m.Add(x);
             }
-            return View(m);
+            return View("Index", m);
         }
 
         // GET: Order/Details/5
@@ -88,9 +87,11 @@ namespace Soft.Controllers
         public ActionResult EditOrderLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var order = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (order == null) return HttpNotFound();
-            return View("EditOrderLine", new OrderLineEditModel(orderline));
+            var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+            if (l is TaxOnLine) return View("EditOrderLine", new OrderLineEditModel((TaxOnLine)l));
+            if (l is ChargeLine) return View("EditOrderLine", new OrderLineEditModel((ChargeLine)l));
+            if (l is OrderLine) return View("EditOrderLine", new OrderLineEditModel((OrderLine)l));
+            return HttpNotFound();
         }
 
 
@@ -122,9 +123,11 @@ namespace Soft.Controllers
         public ActionResult DeleteOrderLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var order = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (order == null) return HttpNotFound();
-            return View("DeleteOrderLine", new OrderLineViewModel(orderline));
+            var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+            if (l is TaxOnLine) return View("DeleteOrderLine", new OrderLineViewModel((TaxOnLine)l));
+            if (l is ChargeLine) return View("DeleteOrderLine", new OrderLineViewModel((ChargeLine)l));
+            if (l is OrderLine) return View("DeleteOrderLine", new OrderLineViewModel((OrderLine)l));
+            return HttpNotFound();
         }
         // POST: Order/Delete/5
         [HttpPost]
@@ -132,14 +135,17 @@ namespace Soft.Controllers
         {
             try
             {
-                var orderline = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-                orderline.Valid.To = DateTime.Now;
+                var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+                l.Valid.To = DateTime.Now;
+                var order = Orders.Instance.Find(x => x.IsThisUniqueId(l.OrderId));
+                var model = new OrderDetailsViewModel(order);
+                return View("OrderDetails", model);
             }
             catch
             {
                 ;
             }
-            return RedirectToAction("OrderDetails");
+            return RedirectToAction("Index");
         }
     }
 }
