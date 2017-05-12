@@ -42,7 +42,7 @@
     <Compile Include="OrderClasses\OrderLineDetailsViewModel.cs" />
     <Compile Include="OrderClasses\OrderLineEditModel.cs" />
     <Compile Include="OrderLineClasses\OrderLinesViewModel.cs" />
-    <Compile Include="OrderLineClasses\OrderLineViewModel.cs" />
+    <Compile Include="OrderClasses\OrderLineViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
