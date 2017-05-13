@@ -24,7 +24,7 @@ namespace Soft.Controllers
     // GET: Order/Create
     public ActionResult CreateOrderLine()
         {
-            var e = new OrderLineEditModel();
+            var e = new LineEditModel();
             return View("CreateOrderLine", e);
         }
 
@@ -32,7 +32,7 @@ namespace Soft.Controllers
         [HttpPost]
         public ActionResult CreateOrderLine(
             [Bind(Include = "UniqueID, ExpectedDeliveryDate, NumberOrdered, Comment")]
-        OrderLineEditModel k)
+        LineEditModel k)
         {
             if (!ModelState.IsValid) return View("EditOrderLine", k);
             var orderline = new OrderLine();
@@ -55,7 +55,7 @@ namespace Soft.Controllers
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var order = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
             if (order == null) return HttpNotFound();
-            return View("EditOrderLine", new OrderLineEditModel(orderline));
+            return View("EditOrderLine", new LineEditModel(orderline));
         }
 
     }

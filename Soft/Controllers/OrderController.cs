@@ -11,13 +11,6 @@ namespace Soft.Controllers
     public class OrderController : Controller
     {
         private static bool isCreated;
-        // GET: Order
-        public ActionResult OrderLineDetails(string id)
-        {
-            var orderline = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            var model = new OrderLineDetailsViewModel(orderline);
-            return View(model);
-        }
 
         public ActionResult Index()
         {
@@ -41,6 +34,23 @@ namespace Soft.Controllers
             return View(model);
         }
 
+        // GET: Order
+        public ActionResult OrderLineDetails(string id)
+        {
+            var line = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+            if (line is OrderLine) return View("OrderLineDetails", new OrderLineDetailsViewModel((OrderLine)line));
+            if (line is ChargeLine) return View("ChargeLineDetails", new ChargeLineDetailsViewModel((ChargeLine)line));
+            if (line is TaxOnLine) return View("TaxOnLineDetails", new TaxOnLineDetailsViewModel((TaxOnLine)line));
+            return View(line);
+        }
+
+        //public ActionResult OrderLineDetails(string id)
+        //{
+        //    var line = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+        //    var model = new OrderLineDetailsViewModel(line);
+        //    return View(model);
+        //}
+
         // GET: Order/Create
         public ActionResult CreateOrder()
         {
@@ -59,7 +69,27 @@ namespace Soft.Controllers
             k.Update(order);
             Orders.Instance.Add(order);
             return RedirectToAction("Index");
-    }
+       }
+
+        //// GET: Order/Create
+        //public ActionResult CreateOrderLine()
+        //{
+        //    var e = new OrderEditModel();
+        //    return View("CreateOrderLine", e);
+        //}
+
+        //// POST: Order/Create
+        //[HttpPost]
+        //public ActionResult CreateOrderLine(
+        //    [Bind(Include = "UniqueID, ExpectedDeliveryDate, NumberOrdered, Comment")]
+        //OrderEditModel k)
+        //{
+        //    if (!ModelState.IsValid) return View("EditOrderLine", k);
+        //    var line = new OrderLine();
+        //    k.Update(line);
+        //    OrderLines.Instance.Add(line);
+        //    return RedirectToAction("OrderDetails");
+        //}
 
         // GET: Order/Edit/5
         public ActionResult Edit(string id)
@@ -84,13 +114,13 @@ namespace Soft.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult EditOrderLine(string id)
+        public ActionResult EditLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (l is TaxOnLine) return View("EditOrderLine", new OrderLineEditModel((TaxOnLine)l));
-            if (l is ChargeLine) return View("EditOrderLine", new OrderLineEditModel((ChargeLine)l));
-            if (l is OrderLine) return View("EditOrderLine", new OrderLineEditModel((OrderLine)l));
+            if (l is TaxOnLine) return View("EditTaxOnLine", new LineEditModel((TaxOnLine)l));
+            if (l is ChargeLine) return View("EditChargeLine", new LineEditModel((ChargeLine)l));
+            if (l is OrderLine) return View("EditOrderLine", new LineEditModel((OrderLine)l));
             return HttpNotFound();
         }
 

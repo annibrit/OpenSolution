@@ -3,23 +3,23 @@ using Open.Archetypes.OrderClasses;
 
 namespace Open.Logic.OrderClasses
 {
-    public class OrderLineEditModel
+    public class LineEditModel
     {
-        public OrderLineEditModel() { }
-        public OrderLineEditModel(OrderLine orderline)
+        public LineEditModel() { }
+        public LineEditModel(OrderLine orderline)
         {
             UniqueId = orderline.UniqueId;
             ExpectedDeliveryDate = orderline.Valid.From;
             NumberOrdered = orderline.NumberOrdered;
             Comment = orderline.Comment;
         }
-        public OrderLineEditModel(TaxOnLine orderline)
+        public LineEditModel(TaxOnLine orderline)
         {
             UniqueId = orderline.UniqueId;
             ExpectedDeliveryDate = orderline.Valid.From;
             Comment = orderline.Comment;
         }
-        public OrderLineEditModel(ChargeLine orderline)
+        public LineEditModel(ChargeLine orderline)
         {
             UniqueId = orderline.UniqueId;
             ExpectedDeliveryDate = orderline.Valid.From;

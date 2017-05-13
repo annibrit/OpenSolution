@@ -1,4 +1,5 @@
-﻿using Open.Archetypes.OrderClasses;
+﻿using System;
+using Open.Archetypes.OrderClasses;
 
 namespace Open.Logic.OrderClasses
 {
@@ -40,7 +41,6 @@ namespace Open.Logic.OrderClasses
         public uint DeliveryReceiverPhone { get; set; }
 
         public string DeliveryReceiverAddress { get; set; }
-       
     }
 
 }

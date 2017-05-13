@@ -169,16 +169,17 @@
     <Content Include="Views\Order\CreateOrder.cshtml" />
     <Content Include="Views\Order\OrderDetails.cshtml" />
     <Content Include="Views\Order\CreateOrderLine.cshtml" />
-    <Content Include="Views\TaxOnLine\CreateTaxOnLine.cshtml" />
-    <Content Include="Views\ChargeLine\CreateChargeLine.cshtml" />
     <Content Include="Views\Order\EditOrderLine.cshtml" />
     <Content Include="Views\Order\DeleteOrderLine.cshtml" />
     <Content Include="Views\Order\OrderLineDetails.cshtml" />
+    <Content Include="Views\Order\EditChargeLine.cshtml" />
+    <Content Include="Views\Order\EditTaxOnLine.cshtml" />
+    <Content Include="Views\Order\ChargeLineDetails.cshtml" />
+    <Content Include="Views\Order\TaxOnLineDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\OrderLine\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

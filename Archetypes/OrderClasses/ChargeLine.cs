@@ -16,7 +16,7 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref order_line_id, value); }
         }
 
-        public string Id
+        public string UniqueId
         {
             get { return SetDefault(ref id); }
             set { SetValue(ref id, value); }

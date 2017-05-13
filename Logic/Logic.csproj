@@ -36,11 +36,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />
+    <Compile Include="OrderClasses\ChargeLineDetailsViewModel.cs" />
     <Compile Include="OrderClasses\OrderDetailsViewModel.cs" />
     <Compile Include="OrderClasses\OrderEditModel.cs" />
     <Compile Include="OrderClasses\OrderViewModel.cs" />
     <Compile Include="OrderClasses\OrderLineDetailsViewModel.cs" />
-    <Compile Include="OrderClasses\OrderLineEditModel.cs" />
+    <Compile Include="OrderClasses\LineEditModel.cs" />
+    <Compile Include="OrderClasses\TaxOnLineDetailsViewModel.cs" />
     <Compile Include="OrderLineClasses\OrderLinesViewModel.cs" />
     <Compile Include="OrderClasses\OrderLineViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
