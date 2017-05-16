@@ -29,10 +29,10 @@ namespace Open.Logic.OrderClasses
 
         public double TaxRate { get; set; }
 
-
         public DateTime ExpectedDeliveryDate { get; set; }
 
         public int NumberOrdered { get; set; }
+
         public string UniqueId { get; set; }
 
         public string LineType { get; set; }

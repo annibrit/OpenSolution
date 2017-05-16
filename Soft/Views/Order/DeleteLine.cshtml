@@ -1,9 +1,9 @@
 ﻿@model Open.Logic.OrderClasses.OrderLineViewModel
 @{
-    ViewBag.Title = "DeleteOrderLine";
+    ViewBag.Title = "DeleteLine";
 }
 
-<h2>Delete OrderLine @Html.DisplayFor(model => model.UniqueId)</h2>
+<h2>Delete @Html.DisplayFor(model => model.LineType) @Html.DisplayFor(model => model.UniqueId)</h2>
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4></h4>

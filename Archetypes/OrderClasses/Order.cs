@@ -1,6 +1,7 @@
 ﻿using System;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
+using System.ComponentModel.DataAnnotations;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -68,5 +69,13 @@ namespace Open.Archetypes.OrderClasses
 
             }
         }
+
+        //public static void SaveEmployee(Order e)
+        //{
+        //    if (ReferenceEquals(null, e)) return;
+        //    var orders = new Order();
+        //    orders.Add(e);
+        //    //employees.SaveChanges();
+        //}
     }
 }

@@ -35,7 +35,7 @@ namespace Soft.Controllers
         }
 
         // GET: Order
-        public ActionResult OrderLineDetails(string id)
+        public ActionResult LineDetails(string id)
         {
             var line = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
             if (line is OrderLine) return View("OrderLineDetails", new OrderLineDetailsViewModel((OrderLine)line));
@@ -43,13 +43,6 @@ namespace Soft.Controllers
             if (line is TaxOnLine) return View("TaxOnLineDetails", new TaxOnLineDetailsViewModel((TaxOnLine)line));
             return View(line);
         }
-
-        //public ActionResult OrderLineDetails(string id)
-        //{
-        //    var line = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-        //    var model = new OrderLineDetailsViewModel(line);
-        //    return View(model);
-        //}
 
         // GET: Order/Create
         public ActionResult CreateOrder()
@@ -132,7 +125,7 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult EditOrder(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
@@ -144,7 +137,7 @@ namespace Soft.Controllers
         
              [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(
+        public ActionResult EditOrder(
             [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")] OrderEditModel e)
         {
             if (!ModelState.IsValid) return View("EditOrder", e);
@@ -190,18 +183,18 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Delete/5
-        public ActionResult DeleteOrderLine(string id)
+        public ActionResult DeleteLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (l is TaxOnLine) return View("DeleteOrderLine", new OrderLineViewModel((TaxOnLine)l));
-            if (l is ChargeLine) return View("DeleteOrderLine", new OrderLineViewModel((ChargeLine)l));
-            if (l is OrderLine) return View("DeleteOrderLine", new OrderLineViewModel((OrderLine)l));
+            if (l is TaxOnLine) return View("DeleteLine", new OrderLineViewModel((TaxOnLine)l));
+            if (l is ChargeLine) return View("DeleteLine", new OrderLineViewModel((ChargeLine)l));
+            if (l is OrderLine) return View("DeleteLine", new OrderLineViewModel((OrderLine)l));
             return HttpNotFound();
         }
         // POST: Order/Delete/5
         [HttpPost]
-        public ActionResult DeleteOrderLine(string id, FormCollection collection)
+        public ActionResult DeleteLine(string id, FormCollection collection)
         {
             try
             {

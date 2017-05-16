@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Open.Archetypes.OrderClasses;
+﻿using Open.Archetypes.OrderClasses;
 
 namespace Open.Logic.OrderClasses
 {
@@ -17,13 +12,6 @@ namespace Open.Logic.OrderClasses
             UniqueId = chargeline.UniqueId;
             Amount = chargeline.Amount;
             TaxId = chargeline.TaxId;
-
-            //foreach (var line in orderline.GetOrderLines())
-            //{
-            //    if (line is TaxOnLine) OrderLines.Add(new OrderLineViewModel((TaxOnLine)line));
-            //    if (line is ChargeLine) OrderLines.Add(new OrderLineViewModel((ChargeLine)line));
-            //    if (line is OrderLine) OrderLines.Add(new OrderLineViewModel((OrderLine)line));
-            //}
         }
 
         public ChargeLineDetailsViewModel(object p)
@@ -37,5 +25,5 @@ namespace Open.Logic.OrderClasses
 
         public string TaxId { get; set; }
     
-}
+    }
 }

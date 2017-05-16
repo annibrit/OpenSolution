@@ -17,13 +17,6 @@ namespace Open.Logic.OrderClasses
             Id = taxonline.Id;
             Type = taxonline.Type;
             Rate = taxonline.Rate;
-
-            //foreach (var line in orderline.GetOrderLines())
-            //{
-            //    if (line is TaxOnLine) OrderLines.Add(new OrderLineViewModel((TaxOnLine)line));
-            //    if (line is ChargeLine) OrderLines.Add(new OrderLineViewModel((ChargeLine)line));
-            //    if (line is OrderLine) OrderLines.Add(new OrderLineViewModel((OrderLine)line));
-            //}
         }
 
         public TaxOnLineDetailsViewModel(object p)

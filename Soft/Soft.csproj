@@ -170,7 +170,7 @@
     <Content Include="Views\Order\OrderDetails.cshtml" />
     <Content Include="Views\Order\CreateOrderLine.cshtml" />
     <Content Include="Views\Order\EditOrderLine.cshtml" />
-    <Content Include="Views\Order\DeleteOrderLine.cshtml" />
+    <Content Include="Views\Order\DeleteLine.cshtml" />
     <Content Include="Views\Order\OrderLineDetails.cshtml" />
     <Content Include="Views\Order\EditChargeLine.cshtml" />
     <Content Include="Views\Order\EditTaxOnLine.cshtml" />

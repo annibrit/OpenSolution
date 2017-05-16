@@ -30,11 +30,9 @@ namespace Open.Logic.OrderClasses
 
         public void Update(Order order)
         {
-           
             order.TermsAndConditions = TermsAndConditions;
             order.SalesChannel = SalesChannel;
             order.Valid.From = DateCreated;
-
         }
     }
 }
