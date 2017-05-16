@@ -1,15 +1,13 @@
-﻿@using Open.Logic.OrderClasses
-@model LineEditModel
+﻿@model Open.Logic.OrderClasses.LineEditModel
 @{
-    ViewBag.Title = "CreateOrderLine";
+    ViewBag.Title = "CreateChargeLine";
 }
 
-<h2>CreateOrderLine</h2>
+<h2>Create ChargeLine</h2>
 
-@using (Html.BeginForm("CreateOrderLine", "Order", FormMethod.Post))
+@using (Html.BeginForm("CreateChargeLine", "Order", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
         <h4>Create</h4>
         <hr />
@@ -29,15 +27,6 @@
                 @Html.ValidationMessageFor(model => model.ExpectedDeliveryDate, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumberOrdered, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumberOrdered, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumberOrdered, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
         <div class="form-group">
             @Html.LabelFor(model => model.Comment, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -61,8 +50,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-
-
-
-

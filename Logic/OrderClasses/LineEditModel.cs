@@ -6,24 +6,24 @@ namespace Open.Logic.OrderClasses
     public class LineEditModel
     {
         public LineEditModel() { }
-        public LineEditModel(OrderLine orderline)
+        public LineEditModel(OrderLine line)
         {
-            UniqueId = orderline.UniqueId;
-            ExpectedDeliveryDate = orderline.Valid.From;
-            NumberOrdered = orderline.NumberOrdered;
-            Comment = orderline.Comment;
+            UniqueId = line.UniqueId;
+            ExpectedDeliveryDate = line.Valid.From;
+            NumberOrdered = line.NumberOrdered;
+            Comment = line.Comment;
         }
-        public LineEditModel(TaxOnLine orderline)
+        public LineEditModel(TaxOnLine line)
         {
-            UniqueId = orderline.UniqueId;
-            ExpectedDeliveryDate = orderline.Valid.From;
-            Comment = orderline.Comment;
+            UniqueId = line.UniqueId;
+            ExpectedDeliveryDate = line.Valid.From;
+            Comment = line.Comment;
         }
-        public LineEditModel(ChargeLine orderline)
+        public LineEditModel(ChargeLine line)
         {
-            UniqueId = orderline.UniqueId;
-            ExpectedDeliveryDate = orderline.Valid.From;
-            Comment = orderline.Comment;
+            UniqueId = line.UniqueId;
+            ExpectedDeliveryDate = line.Valid.From;
+            Comment = line.Comment;
         }
 
         public string UniqueId { get; set; } = string.Empty;
@@ -31,11 +31,23 @@ namespace Open.Logic.OrderClasses
         public int NumberOrdered { get; set; }
         public string Comment { get; set; } = string.Empty;
 
-        public void Update(OrderLine orderline)
+        public void Update(OrderLine line)
         {
-            orderline.Comment = Comment;
-            orderline.NumberOrdered = NumberOrdered;
-            orderline.Valid.From = ExpectedDeliveryDate;
+            line.Comment = Comment;
+            line.NumberOrdered = NumberOrdered;
+            line.Valid.From = ExpectedDeliveryDate;
+        }
+
+        public void Update(ChargeLine line)
+        {
+            line.Comment = Comment;
+            line.Valid.From = ExpectedDeliveryDate;
+        }
+
+        public void Update(TaxOnLine line)
+        {
+            line.Comment = Comment;
+            line.Valid.From = ExpectedDeliveryDate;
         }
     }
 }

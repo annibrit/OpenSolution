@@ -71,25 +71,65 @@ namespace Soft.Controllers
             return RedirectToAction("Index");
        }
 
-        //// GET: Order/Create
-        //public ActionResult CreateOrderLine()
-        //{
-        //    var e = new OrderEditModel();
-        //    return View("CreateOrderLine", e);
-        //}
+        // GET: Order/Create
+        public ActionResult CreateOrderLine()
+        {
+            var e = new LineEditModel();
+            return View("CreateOrderLine", e);
+        }
 
-        //// POST: Order/Create
-        //[HttpPost]
-        //public ActionResult CreateOrderLine(
-        //    [Bind(Include = "UniqueID, ExpectedDeliveryDate, NumberOrdered, Comment")]
-        //OrderEditModel k)
-        //{
-        //    if (!ModelState.IsValid) return View("EditOrderLine", k);
-        //    var line = new OrderLine();
-        //    k.Update(line);
-        //    OrderLines.Instance.Add(line);
-        //    return RedirectToAction("OrderDetails");
-        //}
+        // POST: Order/Create
+        [HttpPost]
+        public ActionResult CreateOrderLine(
+            [Bind(Include = "UniqueID, ExpectedDeliveryDate, NumberOrdered, Comment")]
+        LineEditModel k)
+        {
+            if (!ModelState.IsValid) return View("EditOrderLine", k);
+            var line = new OrderLine();
+            k.Update(line);
+            OrderLines.Instance.Add(line);
+            return RedirectToAction("OrderDetails");
+        }
+
+        // GET: Order/Create
+        public ActionResult CreateChargeLine()
+        {
+            var e = new LineEditModel();
+            return View("CreateChargeLine", e);
+        }
+
+        // POST: Order/Create
+        [HttpPost]
+        public ActionResult CreateChargeLine(
+            [Bind(Include = "UniqueID, ExpectedDeliveryDate, Comment")]
+        LineEditModel k)
+        {
+            if (!ModelState.IsValid) return View("EditChargeLine", k);
+            var line = new ChargeLine();
+            k.Update(line);
+            OrderLines.Instance.Add(line);
+            return RedirectToAction("OrderDetails");
+        }
+
+        // GET: Order/Create
+        public ActionResult CreateTaxOnLine()
+        {
+            var e = new LineEditModel();
+            return View("CreateTaxOnLine", e);
+        }
+
+        // POST: Order/Create
+        [HttpPost]
+        public ActionResult CreateTaxOnLine(
+            [Bind(Include = "UniqueID, ExpectedDeliveryDate, Comment")]
+        LineEditModel k)
+        {
+            if (!ModelState.IsValid) return View("EditTaxOnLine", k);
+            var line = new TaxOnLine();
+            k.Update(line);
+            OrderLines.Instance.Add(line);
+            return RedirectToAction("OrderDetails");
+        }
 
         // GET: Order/Edit/5
         public ActionResult Edit(string id)
@@ -104,7 +144,7 @@ namespace Soft.Controllers
         
              [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditEmail(
+        public ActionResult Edit(
             [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")] OrderEditModel e)
         {
             if (!ModelState.IsValid) return View("EditOrder", e);
@@ -177,5 +217,15 @@ namespace Soft.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        //public ActionResult Save(Order e, string submit)
+        //{
+        //    if (submit == "Save")
+        //    {
+        //        if (e.UniqueId == null) e.UniqueId = Guid.NewGuid().ToString();
+        //        Order.SaveOrder(e);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
     }
 }

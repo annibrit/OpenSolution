@@ -176,6 +176,8 @@
     <Content Include="Views\Order\EditTaxOnLine.cshtml" />
     <Content Include="Views\Order\ChargeLineDetails.cshtml" />
     <Content Include="Views\Order\TaxOnLineDetails.cshtml" />
+    <Content Include="Views\Order\CreateChargeLine.cshtml" />
+    <Content Include="Views\Order\CreateTaxOnLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
