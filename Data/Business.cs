@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Open.Archetypes.OrderClasses;
+using static Open.Data.OrderViewDal;
 
 namespace Open.Data
 {
@@ -31,6 +29,8 @@ namespace Open.Data
             }
             return l;
         }
+
+
 
     }
 }

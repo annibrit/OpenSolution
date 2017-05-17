@@ -21,9 +21,9 @@ namespace Open.Data
         }
 
         [Key]
+        public string UniqueId { get; set; }
         public string Type { get; set; }
         public string TermsAndConditions { get; set; }
-        public string UniqueId { get; set; }
 
     }
 }

@@ -1,5 +1,5 @@
-﻿
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using Open.Logic.OrderClasses;
 
 namespace Open.Data
 {
@@ -13,5 +13,7 @@ namespace Open.Data
         }
         public DbSet<OrderViewDal> OrderV { get; set; }
         public DbSet<OrderDal> OrderD { get; set; }
+
+
     }
 }

@@ -135,7 +135,6 @@
     <Compile Include="Archetypes\RuleClasses\VariableTests.cs" />
     <Compile Include="Archetypes\ValueClasses\ValueTests.cs" />
     <Compile Include="ClassTests.cs" />
-    <Compile Include="Data\DummyTests.cs" />
     <Compile Include="IsAidsTested.cs" />
     <Compile Include="IsArchetypesTested.cs" />
     <Compile Include="IsDataTested.cs" />
@@ -167,6 +166,9 @@
       <Project>{1e1e7079-cb4f-480c-b881-1066404707ce}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

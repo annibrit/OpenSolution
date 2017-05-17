@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business.cs" />
-    <Compile Include="Dummy.cs" />
     <Compile Include="OrderDal.cs" />
     <Compile Include="OrderDatabase.cs" />
     <Compile Include="OrderViewDal.cs" />
