@@ -27,11 +27,6 @@ namespace Open.Tests.Archetypes.OrderClasses
             TestProperty(() => Obj.OrderLineId, x => Obj.OrderLineId = x);
         }
 
-        [TestMethod]
-        public void IdTest()
-        {
-            TestProperty(() => Obj.Id, x => Obj.Id = x);
-        }
 
         [TestMethod]
         public void TypeTest()

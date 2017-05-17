@@ -125,7 +125,7 @@ namespace Soft.Controllers
         }
 
         // GET: Order/Edit/5
-        public ActionResult EditOrder(string id)
+        public ActionResult Edit(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var order = Orders.Instance.Find(x => x.IsThisUniqueId(id));
@@ -137,7 +137,7 @@ namespace Soft.Controllers
         
              [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditOrder(
+        public ActionResult Edit(
             [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")] OrderEditModel e)
         {
             if (!ModelState.IsValid) return View("EditOrder", e);

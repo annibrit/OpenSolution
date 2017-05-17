@@ -1,5 +1,4 @@
 ﻿using Open.Aids;
-using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -7,7 +6,6 @@ namespace Open.Archetypes.OrderClasses
     {
         private string order_line_id;
         private string type;
-        private string id;
         private double rate;
 
         public string OrderLineId
@@ -20,12 +18,6 @@ namespace Open.Archetypes.OrderClasses
         {
             get { return SetDefault(ref type); }
             set { SetValue(ref type, value); }
-        }
-
-        public string Id
-        {
-            get { return SetDefault(ref id); }
-            set { SetValue(ref id, value); }
         }
 
         public double Rate
@@ -45,7 +37,6 @@ namespace Open.Archetypes.OrderClasses
         {
             base.SetRandomValues();
             rate = GetRandom.Double();
-            id = GetRandom.String();
             order_line_id = GetRandom.String();
             type = GetRandom.String();
         }

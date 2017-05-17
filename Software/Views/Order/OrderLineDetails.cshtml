@@ -1,0 +1,32 @@
+﻿@model Open.Logic.OrderClasses.OrderLineDetailsViewModel
+
+@{
+    ViewBag.Title = "OrderLineDetails";
+}
+
+<h2>OrderLine Details</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <dl class="dl-horizontal">
+            <dt> </dt>
+            <dd> </dd>
+            <dt> @Html.DisplayNameFor(model => model.UniqueId) </dt>
+            <dd> @Html.DisplayFor(model => model.UniqueId) </dd>
+            <dt> @Html.DisplayNameFor(model => model.NumberOrdered) </dt>
+            <dd> @Html.DisplayFor(model => model.NumberOrdered) </dd>
+            <dt> @Html.DisplayNameFor(model => model.DeliveryReceiverId) </dt>
+            <dd> @Html.DisplayFor(model => model.DeliveryReceiverId) </dd>
+            <dt> @Html.DisplayNameFor(model => model.DeliveryReceiverName) </dt>
+            <dd> @Html.DisplayFor(model => model.DeliveryReceiverName) </dd>
+            <dt> @Html.DisplayNameFor(model => model.DeliveryReceiverPhone) </dt>
+            <dd> @Html.DisplayFor(model => model.DeliveryReceiverPhone) </dd>
+            <dt> @Html.DisplayNameFor(model => model.DeliveryReceiverAddress) </dt>
+            <dd> @Html.DisplayFor(model => model.DeliveryReceiverAddress) </dd>
+        </dl>      
+    }
+</div>
