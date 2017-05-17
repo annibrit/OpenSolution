@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Open.Archetypes.OrderClasses;
 
 namespace Open.Logic.OrderClasses
 {
     public class OrderViewModel
     {
+        public OrderViewModel()
+        {
+        }
+
         public OrderViewModel(Order order)
         {
             UniqueId = order.UniqueId;
@@ -15,6 +20,7 @@ namespace Open.Logic.OrderClasses
         }
 
         [DisplayName("Order ID")]
+        [Key]
         public string UniqueId { get; set; }
 
         [DisplayName("Date Created")]
@@ -29,5 +35,13 @@ namespace Open.Logic.OrderClasses
         [Description("Example:\"delivery within 28 days\" or details of payment terms")]
         [DisplayName("Terms and Conditions")]
         public string TermsAndConditions { get; set; }
+
+        public void Update(Order order)
+        {
+            order.UniqueId = UniqueId;
+            order.DateCreated = DateCreated;
+            order.SalesChannel = SalesChannel;
+            order.TermsAndConditions = TermsAndConditions;
+        }
     }
 }

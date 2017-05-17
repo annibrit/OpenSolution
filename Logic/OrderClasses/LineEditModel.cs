@@ -9,10 +9,14 @@ namespace Open.Logic.OrderClasses
         public LineEditModel(OrderLine line)
         {
             UniqueId = line.UniqueId;
+            OrderId = line.OrderId;
             ExpectedDeliveryDate = line.Valid.From;
             NumberOrdered = line.NumberOrdered;
             Comment = line.Comment;
         }
+
+        public string OrderId { get; set; }
+
         public LineEditModel(TaxOnLine line)
         {
             UniqueId = line.UniqueId;
@@ -36,6 +40,8 @@ namespace Open.Logic.OrderClasses
             line.Comment = Comment;
             line.NumberOrdered = NumberOrdered;
             line.Valid.From = ExpectedDeliveryDate;
+            line.OrderId = OrderId;
+            line.UniqueId = UniqueId;
         }
 
         public void Update(ChargeLine line)

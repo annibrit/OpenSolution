@@ -35,7 +35,6 @@ namespace Open.Archetypes.OrderClasses
             if (i == 1) return TaxOnLine.Random();
             return OrderLine.Random();
         }
-
         protected override void SetRandomValues()
         {
             base.SetRandomValues();

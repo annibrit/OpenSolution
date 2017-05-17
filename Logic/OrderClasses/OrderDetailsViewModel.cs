@@ -16,7 +16,7 @@ namespace Open.Logic.OrderClasses
         public OrderDetailsViewModel(): this(null) {}
         public OrderDetailsViewModel(Order order)
         {
-            DateCreated = order.DateCreated;
+            DateCreated = order.DateCreated; 
             SalesChannel = order.SalesChannel;
             TermsAndConditions= order.TermsAndConditions;
             OrderLines = new OrderLinesViewModel();

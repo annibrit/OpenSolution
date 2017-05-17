@@ -33,11 +33,6 @@ namespace Open.Tests.Archetypes.OrderClasses
             TestProperty(() => Obj.UniqueId, x => Obj.UniqueId = x);
         }
         [TestMethod]
-        public void TaxIdTest()
-        {
-            TestProperty(() => Obj.TaxId, x => Obj.TaxId = x);
-        }
-        [TestMethod]
         public void OrderLineIdTest()
         {
             TestProperty(() => Obj.OrderLineId, x => Obj.OrderLineId = x);

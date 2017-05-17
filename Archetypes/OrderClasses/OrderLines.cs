@@ -41,10 +41,5 @@ namespace Open.Archetypes.OrderClasses
             return l as ChargeLine;
         }
 
-        public static DeliveryReceiver GetDeliveryReceiverByOrderLineId(string id)
-        {
-            var l = Instance.Find(x => x is DeliveryReceiver && ((DeliveryReceiver)x).OrderLineId == id);
-            return l as DeliveryReceiver;
-        }
     }
 }

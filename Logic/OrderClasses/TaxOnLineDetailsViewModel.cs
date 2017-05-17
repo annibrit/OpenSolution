@@ -14,7 +14,6 @@ namespace Open.Logic.OrderClasses
         public TaxOnLineDetailsViewModel() : this(null) { }
         public TaxOnLineDetailsViewModel(TaxOnLine taxonline)
         {
-            Id = taxonline.Id;
             Type = taxonline.Type;
             Rate = taxonline.Rate;
         }

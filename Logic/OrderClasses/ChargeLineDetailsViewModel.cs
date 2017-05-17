@@ -11,7 +11,6 @@ namespace Open.Logic.OrderClasses
         {
             UniqueId = chargeline.UniqueId;
             Amount = chargeline.Amount;
-            TaxId = chargeline.TaxId;
         }
 
         public ChargeLineDetailsViewModel(object p)
@@ -23,7 +22,5 @@ namespace Open.Logic.OrderClasses
 
         public double Amount { get; set; }
 
-        public string TaxId { get; set; }
-    
     }
 }

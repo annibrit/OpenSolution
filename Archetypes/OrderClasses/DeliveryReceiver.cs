@@ -3,19 +3,13 @@ using Open.Archetypes.BaseClasses;
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class DeliveryReceiver : OrderLine
+    public class DeliveryReceiver : UniqueEntity
     {
        //TODO Kas DeliveryReceiver vajab OrderId'd või on OrderLine kaudu juba seotud Orderiga?
-        private string order_id;
         private string name;
         private string address;
         private uint mobile_phone;
 
-        public string OrderId
-        {
-            get { return SetDefault(ref order_id); }
-            set { SetValue(ref order_id, value); }
-        }
         public string Name
         {
             get { return SetDefault(ref name); }
