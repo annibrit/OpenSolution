@@ -7,6 +7,7 @@ namespace Open.Archetypes.OrderClasses
     {
         private double amount;
         private string order_line_id;
+        private DateTime date_expected;
 
         public string OrderLineId
         {
@@ -23,7 +24,11 @@ namespace Open.Archetypes.OrderClasses
         //TODO Kuidas siduda Tax ChargeLine külge ja on seda üldse vaja?
         public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
 
-        public DateTime ExpectedDeliveryDate { get; set; }
+        public DateTime ExpectedDeliveryDate
+        {
+            get { return SetDefault(ref date_expected); }
+            set { SetValue(ref date_expected, value); }
+        }
 
         public void AddTax(TaxOnLine tax)
         {

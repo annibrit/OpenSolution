@@ -9,6 +9,7 @@ namespace Open.Archetypes.OrderClasses
         private int number_ordered;
         private string product_type_id;
         private string delivery_receiver_id;
+        private DateTime date_expected;
 
         public int NumberOrdered
         {
@@ -24,8 +25,8 @@ namespace Open.Archetypes.OrderClasses
 
         public DateTime ExpectedDeliveryDate
         {
-            get => Valid.From;
-            set => Valid.From = value;
+            get { return SetDefault(ref date_expected); }
+            set { SetValue(ref date_expected, value); }
         }
 
         public string DeliveryReceiverId

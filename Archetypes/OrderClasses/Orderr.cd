@@ -8,16 +8,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Open.Archetypes.OrderClasses.Order" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAoAAAAAAAAABAEAAAAQAAABAAAgAFEAAAEgAA=</HashCode>
+      <HashCode>AAAAAAAoAAAAABAAABAEAAAAAAAABAAAgAFEAAAEgAA=</HashCode>
       <FileName>OrderClasses\Order.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Open.Archetypes.OrderClasses.OrderLine">
+  <Class Name="Open.Archetypes.OrderClasses.OrderLine" Collapsed="true">
     <Position X="2.5" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Public" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>IgCIAAAIAQQAAAEIAAIBAAAAQEAABAABAgAAZCAAABA=</HashCode>
+      <HashCode>IgCAAAAIAQAAAAEIAAIBAAAAQAAABAABAgAAZCAAAAA=</HashCode>
       <FileName>OrderClasses\OrderLine.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -27,28 +31,28 @@
   <Class Name="Open.Archetypes.OrderClasses.BaseOrderLine" Collapsed="true">
     <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAQAAAAEAAAgAAAAIAAgAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAQAAAAMAAAgAAAAIAAgAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\BaseOrderLine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Open.Archetypes.OrderClasses.ChargeLine" Collapsed="true">
     <Position X="5.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IgACAAAIAAUAAAEAAAAAAACAAAAAhAAAAAAAAAAAAgE=</HashCode>
+      <HashCode>IgAAAAAIAAQAAAEAAAAAAACAAAAAhAABAAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\ChargeLine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Open.Archetypes.OrderClasses.TaxOnLine" Collapsed="true">
     <Position X="8.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QgAAAEAIAAQAAAAAAAAAAAAAAAABBAABAQAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\TaxOnLine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Open.Archetypes.OrderClasses.DeliveryReceiver" Collapsed="true">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAIAAAAAAAAAAAgAAQCAAIEBEACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAQCAAIEBEACAAAAAAAAAAA=</HashCode>
       <FileName>OrderClasses\DeliveryReceiver.cs</FileName>
     </TypeIdentifier>
   </Class>

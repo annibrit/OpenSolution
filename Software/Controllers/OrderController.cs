@@ -33,7 +33,7 @@ namespace Software.Controllers
         }
 
 
-        // GET: Order/Details/5
+        // GET
         public ActionResult OrderDetails(string id)
         {
             OrderLines.Instance.Clear();
@@ -43,7 +43,7 @@ namespace Software.Controllers
             return View(model);
         }
 
-        // GET: Order
+        // GET
         public ActionResult LineDetails(string id)
         {
             var line = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
@@ -53,14 +53,14 @@ namespace Software.Controllers
             return View("Index");
         }
 
-        // GET: Order/Create
+        // GET
         public ActionResult CreateOrder()
         {
             var e = new OrderEditModel();
             return View("CreateOrder", e);
         }
 
-        // POST: Order/Create
+        // POST
         [HttpPost]
         public ActionResult CreateOrder(
             [Bind(Include = "UniqueID, DateCreated, SalesChannel, TermsAndConditions")]
@@ -73,7 +73,7 @@ namespace Software.Controllers
             return RedirectToAction("Index");
        }
 
-        // GET: Order/Create
+        // GET
         public ActionResult CreateOrderLine(string id)
         {
             var e = new LineEditModel();
@@ -82,7 +82,7 @@ namespace Software.Controllers
             return View("CreateOrderLine", e);
         }
 
-        // POST: Order/Create
+        // POST
         [HttpPost]
         public ActionResult CreateOrderLine(
             [Bind(Include = "UniqueID, OrderId, ProductTypeId, ExpectedDeliveryDate, NumberOrdered, Comment")] LineEditModel k)
@@ -94,7 +94,7 @@ namespace Software.Controllers
             return RedirectToAction("OrderDetails", "Order", new {id = k.OrderId});
     }
 
-        // GET: Order/Create
+        // GET
         public ActionResult CreateChargeLine(string id)
         {
             var e = new LineEditModel();
@@ -103,7 +103,7 @@ namespace Software.Controllers
             return View("CreateChargeLine", e);
         }
 
-        // POST: Order/Create
+        // POST
         [HttpPost]
         public ActionResult CreateChargeLine(
             [Bind(Include = "UniqueId, OrderId, OrderLineId, ExpectedDeliveryDate, Amount, Comment")]
@@ -117,10 +117,11 @@ namespace Software.Controllers
         }
 
         // GET: Order/Create
-        public ActionResult CreateTaxOnLine(string orderId)
+        public ActionResult CreateTaxOnLine(string id)
         {
-            //TODO nagu CreateOrderLine
             var e = new LineEditModel();
+            e.OrderId = id;
+            e.UniqueId = Guid.NewGuid().ToString();
             return View("CreateTaxOnLine", e);
         }
 
@@ -159,7 +160,7 @@ namespace Software.Controllers
             e.Update(order);
             return RedirectToAction("Index");
         }
-
+        //GET
         public ActionResult EditLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -170,8 +171,7 @@ namespace Software.Controllers
             return HttpNotFound();
         }
 
-
-        // GET: Order/Delete/5
+        // GET
         public ActionResult DeleteOrder(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -179,7 +179,7 @@ namespace Software.Controllers
             if (order == null) return HttpNotFound();
             return View("Delete", new OrderViewModel(order));
         }
-        // POST: Order/Delete/5
+        // POST
         [HttpPost]
         public ActionResult DeleteOrder(string id, FormCollection collection)
         {
@@ -195,7 +195,7 @@ namespace Software.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Order/Delete/5
+        // GET
         public ActionResult DeleteLine(string id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
