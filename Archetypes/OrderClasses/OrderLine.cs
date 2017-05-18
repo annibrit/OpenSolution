@@ -7,7 +7,6 @@ namespace Open.Archetypes.OrderClasses
     {
         //DONE Alati peab privaatsed muutujad väärtustama (SetRandomValues)
         private int number_ordered;
-
         private string product_type_id;
         private string delivery_receiver_id;
 
@@ -23,7 +22,11 @@ namespace Open.Archetypes.OrderClasses
             set { SetValue(ref product_type_id, value); }
         }
 
-        public DateTime ExpectedDeliveryDate => Valid.From;
+        public DateTime ExpectedDeliveryDate
+        {
+            get => Valid.From;
+            set => Valid.From = value;
+        }
 
         public string DeliveryReceiverId
         {

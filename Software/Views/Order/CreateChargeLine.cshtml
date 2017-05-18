@@ -13,6 +13,8 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UniqueId)
+        @Html.HiddenFor(model => model.OrderId)
+        @Html.HiddenFor(model => model.OrderLineId)
         <div class="form-group">
             @Html.LabelFor(model => model.UniqueId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -44,7 +46,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "OrderDetails")
+    @Html.ActionLink("Back to List", "OrderDetails" new {id = Model.OrderId})
 </div>
 
 @section Scripts {

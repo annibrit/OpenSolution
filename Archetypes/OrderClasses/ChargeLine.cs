@@ -1,4 +1,5 @@
-﻿using Open.Aids;
+﻿using System;
+using Open.Aids;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -21,6 +22,8 @@ namespace Open.Archetypes.OrderClasses
 
         //TODO Kuidas siduda Tax ChargeLine külge ja on seda üldse vaja?
         public TaxOnLine GetTax => OrderLines.GetTaxOnLineByOrderLineId(UniqueId);
+
+        public DateTime ExpectedDeliveryDate { get; set; }
 
         public void AddTax(TaxOnLine tax)
         {
