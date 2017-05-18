@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
 using Open.Archetypes.OrderClasses;
+using Open.Data;
 using Open.Logic.OrderClasses;
 using Open.Logic.OrderLineClasses;
 
@@ -25,6 +26,7 @@ namespace Soft.Controllers
             }
             return View("Index", m);
         }
+
 
         // GET: Order/Details/5
         public ActionResult OrderDetails(string id)
@@ -211,14 +213,14 @@ namespace Soft.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult Save(Order e, string submit)
-        //{
-        //    if (submit == "Save")
-        //    {
-        //        if (e.UniqueId == null) e.UniqueId = Guid.NewGuid().ToString();
-        //        Order.SaveOrder(e);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult Save(Order e, string submit)
+        {
+            if (submit == "Save")
+            {
+                if (e.UniqueId == null) e.UniqueId = Guid.NewGuid().ToString();
+                Business.Save(e);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

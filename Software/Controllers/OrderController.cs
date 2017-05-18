@@ -205,32 +205,28 @@ namespace Software.Controllers
             return HttpNotFound();
         }
         // POST: Order/Delete/5
-        [HttpPost]
-        public ActionResult DeleteLine(string id, FormCollection collection)
-        {
-            try
-            {
-                var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-                l.Valid.To = DateTime.Now;
-                var order = Orders.Instance.Find(x => x.IsThisUniqueId(l.OrderId));
-                var model = new OrderDetailsViewModel(order);
-                return View("OrderDetails", model);
-            }
-            catch
-            {
-                ;
-            }
-            return RedirectToAction("Index");
-        }
 
-        //public ActionResult Save(Order e, string submit)
+        //FIX THIS SHIET!
+
+        //[HttpPost]
+        //public ActionResult DeleteLine(string id, FormCollection collection)
         //{
-        //    if (submit == "Save")
+        //    try
         //    {
-        //        if (e.UniqueId == null) e.UniqueId = Guid.NewGuid().ToString();
-        //        Order.SaveOrder(e);
+        //        var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
+
+        //        Business.Delete();
+
+        //        var order = Orders.Instance.Find(x => x.IsThisUniqueId(l.OrderId));
+        //        var model = new OrderDetailsViewModel(order);
+        //        return View("OrderDetails", model);
+        //    }
+        //    catch
+        //    {
+        //        ;
         //    }
         //    return RedirectToAction("Index");
         //}
+
     }
 }

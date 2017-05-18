@@ -200,6 +200,10 @@
       <Project>{ee23228f-dc50-4c25-bbc3-5c11d8e29c32}</Project>
       <Name>Archetypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{B5794AD7-2074-41CA-B5CA-2CA672E44776}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{1e1e7079-cb4f-480c-b881-1066404707ce}</Project>
       <Name>Logic</Name>

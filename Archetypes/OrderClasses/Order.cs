@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using Open.Aids;
 using Open.Archetypes.BaseClasses;
 using System.ComponentModel.DataAnnotations;
 
 namespace Open.Archetypes.OrderClasses
 {
-    public class Order : UniqueEntity
+    public class Order : UniqueEntity, IEnumerable
     {
         private DateTime date_created;
         private string sales_channel;
@@ -77,5 +78,9 @@ namespace Open.Archetypes.OrderClasses
         //    orders.Add(e);
         //    //employees.SaveChanges();
         //}
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

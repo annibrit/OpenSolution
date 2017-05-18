@@ -36,6 +36,7 @@ namespace Open.Logic.OrderClasses
         public string SalesChannel { get; set; }
 
         public DateTime DateCreated { get; set; }
+
         public OrderLinesViewModel OrderLines { get; set; }
     }
 

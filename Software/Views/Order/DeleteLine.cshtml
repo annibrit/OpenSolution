@@ -8,6 +8,8 @@
 <div>
     <h4></h4>
     <hr />
+    @Html.HiddenFor(model => model.UniqueId)
+    @Html.HiddenFor(model => model.OrderId)
     <dl class="dl-horizontal">
         <dt> </dt>
         <dd> </dd>
@@ -21,7 +23,7 @@
         @Html.AntiForgeryToken()
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "OrderDetails")
+            @Html.ActionLink("Back to List", "OrderDetails", new {id = Model.OrderId})
         </div>
     }
 </div>
