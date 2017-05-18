@@ -10,8 +10,6 @@ namespace Software.Controllers
 {
     public class OrderController : Controller
     {
-        private static bool isCreated;
-
         public ActionResult Index()
         {
             Business.Load(Orders.Instance);
@@ -20,7 +18,6 @@ namespace Software.Controllers
                 Orders.Instance.AddRange(Orders.Random());
                 Business.Save(Orders.Instance);
             }
-            isCreated = true;
 
             var m = new List<OrderViewModel>();
             foreach (var e in Orders.Instance)
@@ -200,9 +197,9 @@ namespace Software.Controllers
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var l = OrderLines.Instance.Find(x => x.IsThisUniqueId(id));
-            if (l is TaxOnLine) return View("DeleteLine", new OrderLineViewModel((TaxOnLine)l));
-            if (l is ChargeLine) return View("DeleteLine", new OrderLineViewModel((ChargeLine)l));
-            if (l is OrderLine) return View("DeleteLine", new OrderLineViewModel((OrderLine)l));
+            if (l is TaxOnLine) return View("DeleteLine", new LineViewModel((TaxOnLine)l));
+            if (l is ChargeLine) return View("DeleteLine", new LineViewModel((ChargeLine)l));
+            if (l is OrderLine) return View("DeleteLine", new LineViewModel((OrderLine)l));
             return HttpNotFound();
         }
         // POST: Order/Delete/5

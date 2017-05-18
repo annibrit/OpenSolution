@@ -23,9 +23,9 @@ namespace Open.Logic.OrderClasses
 
             foreach (var line in order.GetOrderLines())
             {
-                if (line is TaxOnLine) OrderLines.Add(new OrderLineViewModel((TaxOnLine)line));
-                if (line is ChargeLine) OrderLines.Add(new OrderLineViewModel((ChargeLine)line));
-                if (line is OrderLine) OrderLines.Add(new OrderLineViewModel((OrderLine)line));
+                if (line is TaxOnLine) OrderLines.Add(new LineViewModel((TaxOnLine)line));
+                if (line is ChargeLine) OrderLines.Add(new LineViewModel((ChargeLine)line));
+                if (line is OrderLine) OrderLines.Add(new LineViewModel((OrderLine)line));
             }
             UniqueId = order.UniqueId;
         }
