@@ -85,7 +85,7 @@ namespace Software.Controllers
         // POST: Order/Create
         [HttpPost]
         public ActionResult CreateOrderLine(
-            [Bind(Include = "UniqueID, OrderId, ExpectedDeliveryDate, NumberOrdered, Comment")] LineEditModel k)
+            [Bind(Include = "UniqueID, OrderId, ProductTypeId, ExpectedDeliveryDate, NumberOrdered, Comment")] LineEditModel k)
         {
             if (!ModelState.IsValid) return View("EditOrderLine", k);
             var line = new OrderLine();
@@ -95,24 +95,25 @@ namespace Software.Controllers
     }
 
         // GET: Order/Create
-        public ActionResult CreateChargeLine(string orderId)
+        public ActionResult CreateChargeLine(string id)
         {
-            //TODO Nagu CreateOrderLine
             var e = new LineEditModel();
+            e.OrderId = id;
+            e.UniqueId = Guid.NewGuid().ToString();
             return View("CreateChargeLine", e);
         }
 
         // POST: Order/Create
         [HttpPost]
         public ActionResult CreateChargeLine(
-            [Bind(Include = "UniqueID, ExpectedDeliveryDate, Comment")]
+            [Bind(Include = "UniqueId, OrderId, OrderLineId, ExpectedDeliveryDate, Amount, Comment")]
         LineEditModel k)
         {
             if (!ModelState.IsValid) return View("EditChargeLine", k);
             var line = new ChargeLine();
             k.Update(line);
             OrderLines.Instance.Add(line);
-            return RedirectToAction("OrderDetails");
+            return RedirectToAction("OrderDetails", "Order", new {id = k.OrderId});
         }
 
         // GET: Order/Create
@@ -126,14 +127,14 @@ namespace Software.Controllers
         // POST: Order/Create
         [HttpPost]
         public ActionResult CreateTaxOnLine(
-            [Bind(Include = "UniqueID, ExpectedDeliveryDate, Comment")]
-        LineEditModel k)
+            [Bind(Include = "UniqueID, OrderId, OrderLineId, TaxType, TaxRate, Comment")]
+            LineEditModel k)
         {
             if (!ModelState.IsValid) return View("EditTaxOnLine", k);
             var line = new TaxOnLine();
             k.Update(line);
-            OrderLines.Instance.Add(line);
-            return RedirectToAction("OrderDetails");
+            Business.Save(line);
+            return RedirectToAction("OrderDetails", "Order", new { id = k.OrderId });
         }
 
         // GET: Order/Edit/5
@@ -180,7 +181,7 @@ namespace Software.Controllers
         }
         // POST: Order/Delete/5
         [HttpPost]
-        public ActionResult Delete(string id, FormCollection collection)
+        public ActionResult DeleteOrder(string id, FormCollection collection)
         {
             try
             {
@@ -207,6 +208,7 @@ namespace Software.Controllers
         // POST: Order/Delete/5
 
         //FIX THIS SHIET!
+
 
         //[HttpPost]
         //public ActionResult DeleteLine(string id, FormCollection collection)

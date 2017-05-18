@@ -1,4 +1,5 @@
-﻿using Open.Aids;
+﻿using System;
+using Open.Aids;
 
 namespace Open.Archetypes.OrderClasses
 {
@@ -7,6 +8,8 @@ namespace Open.Archetypes.OrderClasses
         private string order_line_id;
         private string type;
         private double rate;
+
+        public DateTime ExpectedDeliveryDate { get; set; }
 
         public string OrderLineId
         {
@@ -25,6 +28,7 @@ namespace Open.Archetypes.OrderClasses
             get { return SetDefault(ref rate); }
             set { SetValue(ref rate, value); }
         }
+
 
         public static TaxOnLine Random()
         {

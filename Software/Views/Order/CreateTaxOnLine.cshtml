@@ -13,11 +13,21 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.UniqueId)
+        @Html.HiddenFor(model => model.OrderId)
+        @Html.HiddenFor(model => model.OrderLineId)
+        
         <div class="form-group">
-            @Html.LabelFor(model => model.UniqueId, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TaxType, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UniqueId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UniqueId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.TaxType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TaxType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaxRate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TaxRate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TaxRate, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -44,7 +54,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "OrderDetails")
+    @Html.ActionLink("Back to List", "OrderDetails", new {id = Model.OrderId})
 </div>
 
 @section Scripts {
