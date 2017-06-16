@@ -44,7 +44,7 @@
     <Compile Include="OrderClasses\LineEditModel.cs" />
     <Compile Include="OrderClasses\TaxOnLineDetailsViewModel.cs" />
     <Compile Include="OrderClasses\OrderLineClasses\OrderLinesViewModel.cs" />
-    <Compile Include="OrderClasses\OrderLineViewModel.cs" />
+    <Compile Include="OrderClasses\LineViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

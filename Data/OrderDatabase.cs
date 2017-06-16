@@ -7,11 +7,11 @@ namespace Open.Data
     {
         protected override void OnModelCreating(DbModelBuilder mb)
         {
-            mb.Entity<OrderLineViewModel>().ToTable("OrderLines");
+            mb.Entity<LineViewModel>().ToTable("OrderLines");
             mb.Entity<OrderViewModel>().ToTable("Orders");
             base.OnModelCreating(mb);
         }
-        public DbSet<OrderLineViewModel> OrderLines { get; set; }
+        public DbSet<LineViewModel> OrderLines { get; set; }
         public DbSet<OrderViewModel> Orders { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using Open.Archetypes.OrderClasses;
 
 namespace Open.Logic.OrderClasses
 {
-    public class OrderLineViewModel
+    public class LineViewModel
     {
         [Key]
         public string UniqueId { get; set; }
@@ -19,9 +19,9 @@ namespace Open.Logic.OrderClasses
         public string LineType { get; set; }
         public DateTime ExpectedDeliveryDate { get; set; }
 
-        public OrderLineViewModel() { }
+        public LineViewModel() { }
 
-        public OrderLineViewModel(TaxOnLine line)
+        public LineViewModel(TaxOnLine line)
         {
             ExpectedDeliveryDate = line.ExpectedDeliveryDate;
             LineType = line.GetType().Name;
@@ -33,7 +33,7 @@ namespace Open.Logic.OrderClasses
             Comment = line.Comment;
         }
 
-        public OrderLineViewModel(OrderLine line)
+        public LineViewModel(OrderLine line)
         {
             ExpectedDeliveryDate = line.ExpectedDeliveryDate;
             LineType = line.GetType().Name;
@@ -44,7 +44,7 @@ namespace Open.Logic.OrderClasses
             ProductTypeId = line.ProductTypeId;
         }
 
-        public OrderLineViewModel(ChargeLine line)
+        public LineViewModel(ChargeLine line)
         {
             ExpectedDeliveryDate = line.ExpectedDeliveryDate;
             LineType = line.GetType().Name;

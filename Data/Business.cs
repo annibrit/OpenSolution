@@ -20,6 +20,7 @@ namespace Open.Data
             }
             db.SaveChanges();
         }
+
         public static void Save(OrderLines instance)
         {
             var db = new DefaultConnection();
@@ -29,14 +30,15 @@ namespace Open.Data
                 var c = i as ChargeLine;
                 var l = i as OrderLine;
                 if (t != null)
-                    db.OrderLines.Add(new OrderLineViewModel(t));
+                    db.OrderLines.Add(new LineViewModel(t));
                 if (c != null)
-                    db.OrderLines.Add(new OrderLineViewModel(c));
+                    db.OrderLines.Add(new LineViewModel(c));
                 if (l != null)
-                    db.OrderLines.Add(new OrderLineViewModel(l));
+                    db.OrderLines.Add(new LineViewModel(l));
             }
             db.SaveChanges();
         }
+
         public static void Load(Orders instance)
         {
             var db = new DefaultConnection();
@@ -47,6 +49,7 @@ namespace Open.Data
                 instance.Add(o);
             }
         }
+
         public static void Load(OrderLines instance)
         {
             var db = new DefaultConnection();
@@ -61,21 +64,21 @@ namespace Open.Data
             }
         }
 
-        private static ChargeLine addChargeLine(OrderLineViewModel l)
+        private static ChargeLine addChargeLine(LineViewModel l)
         {
             var o = new ChargeLine();
             l.Update(o);
             return o;
         }
 
-        private static TaxOnLine addTaxLine(OrderLineViewModel l)
+        private static TaxOnLine addTaxLine(LineViewModel l)
         {
             var o = new TaxOnLine();
             l.Update(o);
             return o;
         }
 
-        private static OrderLine addOrderLine(OrderLineViewModel l)
+        private static OrderLine addOrderLine(LineViewModel l)
         {
             var o = new OrderLine();
             l.Update(o);
@@ -85,28 +88,42 @@ namespace Open.Data
         public static void Save(OrderLine instance)
         {
             var db = new DefaultConnection();
-            db.OrderLines.AddOrUpdate(new OrderLineViewModel(instance));
+            db.OrderLines.AddOrUpdate(new LineViewModel(instance));
             db.SaveChanges();
         }
 
         public static void Save(ChargeLine instance)
         {
             var db = new DefaultConnection();
-            db.OrderLines.AddOrUpdate(new OrderLineViewModel(instance));
+            db.OrderLines.AddOrUpdate(new LineViewModel(instance));
             db.SaveChanges();
         }
 
         public static void Save(TaxOnLine instance)
         {
             var db = new DefaultConnection();
-            db.OrderLines.AddOrUpdate(new OrderLineViewModel(instance));
+            db.OrderLines.AddOrUpdate(new LineViewModel(instance));
             db.SaveChanges();
         }
 
         public static void Delete(OrderLine instance)
         {
             var db = new DefaultConnection();
-            db.OrderLines.Remove(new OrderLineViewModel(instance));
+            db.OrderLines.Remove(new LineViewModel(instance));
+            db.SaveChanges();
+        }
+
+        public static void Delete(TaxOnLine instance)
+        {
+            var db = new DefaultConnection();
+            db.OrderLines.Remove(new LineViewModel(instance));
+            db.SaveChanges();
+        }
+
+        public static void Delete(ChargeLine instance)
+        {
+            var db = new DefaultConnection();
+            db.OrderLines.Remove(new LineViewModel(instance));
             db.SaveChanges();
         }
     }

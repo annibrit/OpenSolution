@@ -8,8 +8,13 @@ namespace Open.Archetypes.OrderClasses
         private string order_line_id;
         private string type;
         private double rate;
+        private DateTime date_expected;
 
-        public DateTime ExpectedDeliveryDate { get; set; }
+        public DateTime ExpectedDeliveryDate
+        {
+            get { return SetDefault(ref date_expected); }
+            set { SetValue(ref date_expected, value); }
+        }
 
         public string OrderLineId
         {
@@ -30,7 +35,7 @@ namespace Open.Archetypes.OrderClasses
         }
 
 
-        public static TaxOnLine Random()
+        public new static TaxOnLine Random()
         {
             var x = new TaxOnLine();
             x.SetRandomValues();

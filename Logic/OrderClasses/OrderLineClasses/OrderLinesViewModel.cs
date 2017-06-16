@@ -8,7 +8,7 @@ using Open.Logic.OrderClasses;
 
 namespace Open.Logic.OrderLineClasses
 {
-    public class OrderLinesViewModel : Archetypes<OrderLineViewModel>
+    public class OrderLinesViewModel : Archetypes<LineViewModel>
     {
     }
 }
